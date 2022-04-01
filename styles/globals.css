@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-size: 14px;
+        font-family: Noto Sans;
+    }
+
+    body {
+    }
+
+    ::selection {
+        @apply text-selectedtext bg-gray-500;
+    }
+
+    .btn {
+        @apply bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center;
+    }
+}
