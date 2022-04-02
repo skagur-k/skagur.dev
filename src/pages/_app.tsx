@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { ThemeProvider } from "next-themes";
-import Layout from "@/sections/Layout";
+import Layout from "@/components/sections/Layout";
 import MaintenancePage from "./maintenance";
 
 import type { AppProps } from "next/app";
