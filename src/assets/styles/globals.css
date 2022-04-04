@@ -5,7 +5,8 @@
 @layer base {
     html {
         font-size: 14px;
-        font-family: Noto Sans;
+        font-family: Inter;
+        overflow: scroll;
     }
 
     body {

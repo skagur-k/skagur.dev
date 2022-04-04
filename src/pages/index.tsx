@@ -1,4 +1,3 @@
-import Hero from "@/components/Hero";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -14,9 +13,7 @@ const Home: NextPage = () => {
                 <meta name="author" content="skagur-k" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className="container flex">
-                <Hero />
-            </div>
+            <div className="container flex"></div>
         </div>
     );
 };

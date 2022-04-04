@@ -20,9 +20,20 @@
             "@/components/*": ["components/*"],
             "@/sections/*": ["sections/*"],
             "@/pages/*": ["pages/*"],
-            "@/styles/*": ["assets/styles/*"]
+            "@/styles/*": ["assets/styles/*"],
+            "@/lib/*": ["lib/*"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        "src/lib/siteMetaData.js",
+        "src/lib/headerNavLinks.js",
+        "src/components/SectionContainer.js",
+        "src/components/Logo.js",
+        "src/components/Layouts/Header.js",
+        "src/components/Layouts/Layout.js"
+    ],
     "exclude": ["node_modules"]
 }

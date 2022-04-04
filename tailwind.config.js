@@ -1,7 +1,11 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-    content: ["./src/pages/**/*.{ts,tsx}", "./src/components/**/*.{ts,tsx}"],
+    content: [
+        "./src/pages/**/*.{js,jsx,ts,tsx}",
+        "./src/components/**/*.{js,jsx,ts,tsx}",
+    ],
     darkMode: "class",
     theme: {
         fontSize: {
@@ -22,7 +26,7 @@ module.exports = {
             colors: {
                 // can use default colors like: [gray: colors.gray]
                 body: "#000000",
-                selectedtext: "#000000",
+                selectedtext: "#ffffff",
                 nav: "#000000",
                 transparent: "transparent",
                 current: "currentcolor",
@@ -35,11 +39,11 @@ module.exports = {
                 input: "#000000",
             },
             fontFamily: {
-                sans: ['"Noto Sans"', "ui-sans-serif", "system-ui"],
-                serif: ["ui-serif", "Georgia"],
+                sans: ['"Inter"', ...defaultTheme.fontFamily.sans],
+                serif: ["Georgia", ...defaultTheme.fontFamily.serif],
                 mono: ["ui-monospace", "SFMono-Regular"],
                 display: ["Oswald"],
-                body: ['"Open Sans"'],
+                body: ['"Inter"'],
             },
         },
     },
