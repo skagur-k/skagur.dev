@@ -24,8 +24,6 @@ module.exports = {
         },
         extend: {
             colors: {
-                // can use default colors like: [gray: colors.gray]
-                body: "#000000",
                 selectedtext: "#ffffff",
                 nav: "#000000",
                 transparent: "transparent",

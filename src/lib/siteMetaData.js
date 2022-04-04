@@ -12,6 +12,7 @@ const siteMetadata = {
     email: "namhyuck.james@gmail.com",
     github: "https://github.com",
     linkedin: "https://www.linkedin.com",
+    instagram: "https://instagram.com/skagurzz",
     locale: "en-US",
     analytics: {
         plausibleDataDomain: "", // e.g. tailwind-nextjs-starter-blog.vercel.app
