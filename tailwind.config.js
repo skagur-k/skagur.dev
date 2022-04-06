@@ -1,5 +1,6 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-const colors = require("tailwindcss/colors");
+const defaultTheme = require("tailwindcss/defaultTheme")
+const colors = require("tailwindcss/colors")
+const theme = require("tailwindcss/defaultTheme")
 
 module.exports = {
     content: [
@@ -23,6 +24,9 @@ module.exports = {
             "7xl": "5rem",
         },
         extend: {
+            height: {
+                pnf: "calc(60vh)", //page-not-found height
+            },
             colors: {
                 selectedtext: "#ffffff",
                 nav: "#000000",
@@ -37,8 +41,14 @@ module.exports = {
                 input: "#000000",
             },
             fontFamily: {
-                sans: ['"Inter"', ...defaultTheme.fontFamily.sans],
-                serif: ["Georgia", ...defaultTheme.fontFamily.serif],
+                sans: [
+                    '"Inter"',
+                    ...defaultTheme.fontFamily.sans,
+                ],
+                serif: [
+                    "Georgia",
+                    ...defaultTheme.fontFamily.serif,
+                ],
                 mono: ["ui-monospace", "SFMono-Regular"],
                 display: ["Oswald"],
                 body: ['"Inter"'],
@@ -46,4 +56,4 @@ module.exports = {
         },
     },
     plugins: [],
-};
+}

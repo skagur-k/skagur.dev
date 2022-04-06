@@ -1,5 +1,5 @@
 const ProjectsPage = () => {
-    return <div>Projects</div>;
-};
+    return <div className="h-full">Projects</div>
+}
 
-export default ProjectsPage;
+export default ProjectsPage

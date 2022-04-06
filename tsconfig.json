@@ -30,10 +30,10 @@
         "**/*.tsx",
         "src/lib/siteMetaData.js",
         "src/lib/headerNavLinks.js",
-        "src/components/SectionContainer.js",
+        "src/components/Layout/LayoutWrapper.js",
         "src/components/Logo.js",
-        "src/components/Layouts/Header.js",
-        "src/components/Layouts/Layout.js"
+        "src/components/Layout/Header.js",
+        "src/components/Layout/index.js"
     ],
     "exclude": ["node_modules"]
 }

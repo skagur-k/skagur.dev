@@ -2,21 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    font-size: 14px;
+    font-family: Inter;
+    scroll-behavior: smooth;
+    height: 100%;
+    @apply text-gray-600 dark:text-gray-100;
+}
+
+body {
+    height: 100%;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
 @layer base {
-    html {
-        font-size: 14px;
-        font-family: Inter;
-        overflow: scroll;
-    }
-
-    body {
-    }
-
     ::selection {
         @apply text-selectedtext bg-gray-500;
     }
 
-    .btn {
-        @apply bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center;
+    .wrapper {
+        min-height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
     }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s,
+        color 600000s 0s;
 }

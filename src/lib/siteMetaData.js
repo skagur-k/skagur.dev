@@ -1,8 +1,9 @@
 const siteMetadata = {
     title: "skagur.dev ",
-    author: "Nam Hyuck Kim (skagur-k)",
+    author: "NamHyuck K.",
     headerTitle: "< skagur.dev />",
-    description: "A blog created with Next.js and Tailwind.css",
+    description:
+        "A blog created with Next.js and Tailwind.css",
     language: "en-us",
     theme: "system", // system, dark or light
     siteUrl: "https://skagur.dev",
@@ -20,6 +21,6 @@ const siteMetadata = {
         umamiWebsiteId: "", // e.g. 123e4567-e89b-12d3-a456-426614174000
         googleAnalyticsId: "", // e.g. UA-000000-2 or G-XXXXXXX
     },
-};
+}
 
-module.exports = siteMetadata;
+module.exports = siteMetadata
