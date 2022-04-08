@@ -2,7 +2,8 @@ import siteMetadata, { siteLogo } from "lib/siteMetaData"
 import Link from "@/components/Link"
 import Logo from "@/components/Logo"
 import headerNavLinks from "@/lib/headerNavLinks"
-import Switch from "../Switch"
+import Switch from "../ThemeToggle"
+import SocialIcon from "../SocialIcon"
 
 // TODO: Add hamburger icon & consider headlessui for the drop menu.
 
@@ -29,7 +30,14 @@ const Header = () => {
                             {link.title}
                         </Link>
                     ))}
-                    <Switch />
+                    <div className="flex space-x-4 items-center justify-between">
+                        <SocialIcon
+                            kind="github"
+                            href={siteMetadata.github}
+                            size="6"
+                        />
+                        <Switch />
+                    </div>
                 </div>
             </div>
         </header>

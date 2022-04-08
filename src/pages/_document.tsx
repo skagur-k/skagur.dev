@@ -25,6 +25,7 @@ export default class Document extends NextDocument {
                     rel="stylesheet"
                 />
                 <title>[skagur.dev]</title>
+                
                 <meta
                     name="description"
                     content="A Minimal portfolio site developed witn Next.JS and TypeScript"

@@ -1,30 +1,37 @@
 import Github from "@/lib/social-icons/github.svg"
 import LinkedIn from "@/lib/social-icons/linkedin.svg"
 import Gmail from "@/lib/social-icons/gmail.svg"
+import Link from "@/components/Link"
 
-const icons = {
-    gh: Github,
-    li: LinkedIn,
-    gm: Gmail,
+const components = {
+    mail: Gmail,
+    github: Github,
+    linkedin: LinkedIn,
 }
 
-const SocialIcon = ({ type, href, size }) => {
-    console.log(type, href, size)
-    console.log(icons)
-    const SVG = icons[type]
-    console.log(SVG)
+const SocialIcon = ({ kind, href, size = 8 }) => {
+    if (
+        !href ||
+        (kind === "mail" &&
+            !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(
+                href
+            ))
+    )
+        return null
+
+    const SocialSvg = components[kind]
     return (
-        <a
-            className="text-sm text-gray-500 transition hover:text-gray-600"
+        <Link
+            className="text-sm hover:text-gray-600"
             target="_blank"
             rel="noopener noreferrer"
             href={href}
         >
-            <span className="sr-only">{type}</span>
-            <SVG
-                className={`fill-current text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 h-${size} w-${size}`}
+            <span className="sr-only">{kind}</span>
+            <SocialSvg
+                className={`fill-current hover:text-amber-500  h-${size} w-${size}`}
             />
-        </a>
+        </Link>
     )
 }
 

@@ -4,8 +4,9 @@ import Layout from "@/components/Layout"
 import MaintenancePage from "./maintenance"
 
 import type { AppProps } from "next/app"
+
 import "@/styles/globals.css"
-import Footer from "@/components/Layout/Footer"
+import "@code-hike/mdx/dist/index.css"
 
 type AppPropsWithNextPage = AppProps & {
     Component: NextPage

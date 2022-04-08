@@ -13,7 +13,7 @@ const Switch = () => {
 
     return (
         <button
-            className="btn rounded p-1 items-center bg-transparent hover:bg-transparent text-gray-600 hover:text-amber-600 dark:text-gray-100 dark:hover:text-amber-500"
+            className="btn rounded p-1 items-center bg-transparent hover:bg-transparent hover:text-amber-600 dark:hover:text-amber-500"
             onClick={() =>
                 setTheme(
                     currentTheme === "dark"

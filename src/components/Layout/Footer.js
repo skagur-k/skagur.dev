@@ -12,19 +12,18 @@ const Footer = () => {
             <div className="grid grid-cols-8 items-center py-8">
                 <div className="col-span-0 md:col-span-2 hidden md:flex" />
                 <div className="flex mx-auto flex-col space-y-2 items-center col-span-full md:col-span-4">
-                    <Logo size="lg" weight="medium" />
-                    <div className="flex justify-items-center items-center space-x-4 text-gray-500">
+                    <Link href="/">
+                        <Logo size="lg" weight="medium" />
+                    </Link>
+                    <div className="flex justify-items-center items-center space-x-1 text-gray-500">
                         <div>{`© ${new Date().getFullYear()}`}</div>
                         <div>{siteMetadata.author}</div>
-                        <Link href="/">
-                            {siteMetadata.title}
-                        </Link>
                     </div>
                 </div>
-                <div className="col-span-0 md:col-span-2 justify-end hidden md:flex">
+                <div className="col-span-0 md:col-span-2 space-x-4 justify-end hidden md:flex">
                     <SocialIcon
-                        type="gh"
-                        href="skagur.dev"
+                        kind="github"
+                        href={siteMetadata.github}
                         size="6"
                     />
                 </div>

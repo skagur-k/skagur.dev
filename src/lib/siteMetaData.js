@@ -1,6 +1,6 @@
 const siteMetadata = {
     title: "skagur.dev ",
-    author: "NamHyuck K.",
+    author: "Nam Hyuck K.",
     headerTitle: "< skagur.dev />",
     description:
         "A blog created with Next.js and Tailwind.css",
