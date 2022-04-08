@@ -1,7 +1,7 @@
-import { NextPage } from "next";
+const MaintenancePage = (): JSX.Element => {
+    return (
+        <h1> 🚧 Website Currently Under Constructon 🚧 </h1>
+    )
+}
 
-const MaintenancePage: NextPage = () => {
-  return <h1> 🚧 Website Currently Under Constructon 🚧 </h1>;
-};
-
-export default MaintenancePage;
+export default MaintenancePage

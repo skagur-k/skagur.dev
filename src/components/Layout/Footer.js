@@ -17,14 +17,20 @@ const Footer = () => {
                     </Link>
                     <div className="flex justify-items-center items-center space-x-1 text-gray-500">
                         <div>{`© ${new Date().getFullYear()}`}</div>
-                        <div>{siteMetadata.author}</div>
+                        <div>namhyuck.james@gmail.com</div>
                     </div>
                 </div>
                 <div className="col-span-0 md:col-span-2 space-x-4 justify-end hidden md:flex">
                     <SocialIcon
                         kind="github"
                         href={siteMetadata.github}
-                        size="6"
+                        size={6}
+                    />
+                    Hello
+                    <SocialIcon
+                        kind="linkedin"
+                        href={siteMetadata.github}
+                        size={6}
                     />
                 </div>
             </div>

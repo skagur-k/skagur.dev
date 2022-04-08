@@ -1,40 +1,47 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "lib": ["dom", "dom.iterable", "esnext"],
-        "allowJs": true,
-        "skipLibCheck": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "noEmit": true,
-        "esModuleInterop": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "jsx": "preserve",
-        "incremental": true,
-        "baseUrl": "./src",
-        "paths": {
-            //Path Aliases
-            "@/components/*": ["components/*"],
-            "@/sections/*": ["sections/*"],
-            "@/pages/*": ["pages/*"],
-            "@/styles/*": ["assets/styles/*"],
-            "@/lib/*": ["lib/*"],
-            "@/assets/*": ["assets/*"]
-        }
-    },
-    "include": [
-        "next-env.d.ts",
-        "**/*.ts",
-        "**/*.tsx",
-        "src/lib/siteMetaData.js",
-        "src/lib/headerNavLinks.js",
-        "src/components/Layout/LayoutWrapper.js",
-        "src/components/Logo.js",
-        "src/components/Layout/Header.js",
-        "src/components/Layout/index.js"
-    ],
-    "exclude": ["node_modules"]
+	"compilerOptions": {
+		"target": "es5",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
+		"baseUrl": "./src",
+		"paths": {
+			//Path Aliases
+			"@/components/*": ["components/*"],
+			"@/sections/*": ["sections/*"],
+			"@/pages/*": ["pages/*"],
+			"@/styles/*": ["assets/styles/*"],
+			"@/lib/*": ["lib/*"],
+			"@/assets/*": ["assets/*"],
+			"@/types/*": ["types/*"]
+		}
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"src/lib/siteMetaData.js",
+		"data/headerNavLinks.js",
+		"src/components/Layout/LayoutWrapper.js",
+		"src/components/Logo.js",
+		"src/components/Layout/Header.js",
+		"src/components/Layout/index.js",
+		"src/pages/404.tsx",
+		"src/pages/about.tsx",
+		"src/pages/blog.tsx",
+		"src/pages/index.js",
+		"src/pages/projects.tsx",
+		"src/pages/tags.tsx"
+	],
+	"exclude": ["node_modules", "src/types/main.ts"]
 }

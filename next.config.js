@@ -25,6 +25,9 @@ module.exports = withMDX({
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     nextConfig,
     swcMinify: true,
+    typescript: {
+        ignoreBuildErrors: true,
+    },
     webpack: (config) => {
         config.module.rules.push({
             test: /\.svg$/,

@@ -1,6 +1,7 @@
-import type { NextPage } from "next"
+import SocialIcon from "@/components/SocialIcon"
+import siteMetadata from "@/lib/siteMetaData"
 
-const Home: NextPage = () => {
+const Home = () => {
     return (
         <div className="flex flex-col mt-20 h-full items-center">
             <div className="items-center">
@@ -17,7 +18,17 @@ const Home: NextPage = () => {
             </div>
             <div className="flex font-bold mt-10 text-xl gap-4 justify-center">
                 <p className="">
-                    And I Code computer.
+                    And I like to &nbsp;
+                    <span className="font-mono font-bold border-2 rounded-2xl text-gray-600 bg-gray-200 items-center">
+                        &nbsp;code&nbsp;
+                    </span>
+                </p>
+                <p className="flex text-xl justify-center">
+                    <SocialIcon
+                        kind="linkedin"
+                        href={siteMetadata.github}
+                        size={6}
+                    />
                 </p>
             </div>
         </div>
