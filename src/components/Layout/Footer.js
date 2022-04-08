@@ -1,6 +1,6 @@
 import siteMetadata from "@/lib/siteMetaData"
 import Link from "@/components/Link"
-import SocialIcon from "@/components/Icons"
+import SocialIcon from "@/components/SocialIcon"
 import Logo from "@/components/Logo"
 
 //TODO: add social icons, center last thing
@@ -22,7 +22,11 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="col-span-0 md:col-span-2 justify-end hidden md:flex">
-                    GitHub
+                    <SocialIcon
+                        type="gh"
+                        href="skagur.dev"
+                        size="6"
+                    />
                 </div>
             </div>
         </footer>

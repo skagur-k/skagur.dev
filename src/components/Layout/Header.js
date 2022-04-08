@@ -3,14 +3,13 @@ import Link from "@/components/Link"
 import Logo from "@/components/Logo"
 import headerNavLinks from "@/lib/headerNavLinks"
 import Switch from "../Switch"
-import ContactMenu from "@/components/ContactMenu"
 
 // TODO: Add hamburger icon & consider headlessui for the drop menu.
 
 const Header = () => {
     return (
         // Header Container
-        <header className="flex item-center justify-between py-4 md:py-10 px-4 md:px-0">
+        <header className="flex item-center pt-8 pb-4 sm:py-8 sm:px-0 justify-center sm:justify-between">
             <div>
                 <Link
                     href="/"
@@ -19,9 +18,8 @@ const Header = () => {
                     <Logo size="xl" weight="bold" />
                 </Link>
             </div>
-            {/* {Navbar} */}
-            <div className="flex items-center text-lg leading-5">
-                <div className="hidden items-center sm:flex space-x-4 sm:space-x-10">
+            <div className="hidden sm:flex items-center text-lg leading-5">
+                <div className=" items-center sm:flex space-x-4 sm:space-x-10">
                     {headerNavLinks.map((link) => (
                         <Link
                             key={link.title}
@@ -31,7 +29,6 @@ const Header = () => {
                             {link.title}
                         </Link>
                     ))}
-                    {/* <ContactMenu /> */}
                     <Switch />
                 </div>
             </div>
