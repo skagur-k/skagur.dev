@@ -20,7 +20,7 @@ export interface BlogArticleType {
 	[key: string]: string | Array<string>
 }
 
-export interface API {
+export interface mdxAPI {
 	getAllSlugs: () => Array<string>
 	getAllArticles: () => Array<BlogArticleType>
 	getAllTags: () => Array<string>

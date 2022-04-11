@@ -14,16 +14,17 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
-		"baseUrl": "./src",
+		"baseUrl": "./",
 		"paths": {
 			//Path Aliases
-			"@/components/*": ["components/*"],
-			"@/sections/*": ["sections/*"],
-			"@/pages/*": ["pages/*"],
-			"@/styles/*": ["assets/styles/*"],
-			"@/lib/*": ["lib/*"],
-			"@/assets/*": ["assets/*"],
-			"@/types/*": ["types/*"]
+			"@/components/*": ["src/components/*"],
+			"@/sections/*": ["src/sections/*"],
+			"@/pages/*": ["src/pages/*"],
+			"@/styles/*": ["src/assets/styles/*"],
+			"@/lib/*": ["src/lib/*"],
+			"@/assets/*": ["src/assets/*"],
+			"@/types/*": ["src/types/*"],
+			"@/data/*": ["data/*"]
 		}
 	},
 	"include": [
@@ -31,17 +32,19 @@
 		"**/*.ts",
 		"**/*.tsx",
 		"src/lib/siteMetaData.js",
-		"data/headerNavLinks.js",
-		"src/components/Layout/LayoutWrapper.js",
+		"src/lib/headerNavLinks.js",
+		"src/components/MainLayout/LayoutWrapper.js",
 		"src/components/Logo.js",
-		"src/components/Layout/Header.js",
-		"src/components/Layout/index.js",
+		"src/components/MainLayout/Header.js",
+		"src/components/MainLayout/index.js",
 		"src/pages/404.tsx",
 		"src/pages/about.tsx",
 		"src/pages/blog.tsx",
-		"src/pages/index.js",
+		"src/pages/index.tsx",
 		"src/pages/projects.tsx",
-		"src/pages/tags.tsx"
-	],
+		"src/pages/tags.tsx",
+		"src/components/Link.js",
+		"src/pages/_document.js"
+, "src/lib/mdx.js", "src/lib/utils/files.js"	],
 	"exclude": ["node_modules", "src/types/main.ts"]
 }
