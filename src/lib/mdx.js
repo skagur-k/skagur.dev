@@ -6,6 +6,7 @@ import { bundleMDX } from 'mdx-bundler'
 // import { mdxAPI, BlogArticleType } from '@/types/main'
 import rehypePrism from 'rehype-prism/lib/src'
 import remarkGfm from 'remark-gfm'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 const postsDir = path.join(process.cwd(), 'data')
 
@@ -39,18 +40,31 @@ export async function getFileBySlug(type, slug) {
 	const mdxSource = fs.readFileSync(fullPath, 'utf-8')
 
 	const remarkPlugins = [remarkGfm]
-	const rehypePlugins = [rehypePrism]
+	const rehypePlugins = [
+		[
+			rehypePrism,
+			[
+				rehypeAutolinkHeadings,
+				{
+					properties: {
+						className: ['anchor'],
+					},
+				},
+			],
+			{ plugins: ['line-numbers', 'show-language', 'autolinker'] },
+		],
+	]
 
 	const { code, frontmatter } = await bundleMDX({
 		source: mdxSource,
 		mdxOptions(options) {
 			options.remarkPlugins = [
 				...(options?.remarkPlugins ?? []),
-				remarkPlugins,
+				...remarkPlugins,
 			]
 			options.rehypePlugins = [
 				...(options?.rehypePlugins ?? []),
-				rehypePlugins,
+				...rehypePlugins,
 			]
 			return options
 		},

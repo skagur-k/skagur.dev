@@ -3,6 +3,7 @@ import Layout from '@/components/MainLayout'
 import MaintenancePage from './maintenance'
 
 import '@/styles/globals.css'
+import '@/styles/prism.css'
 import '@code-hike/mdx/dist/index.css'
 
 function App({ Component, pageProps }: any) {
