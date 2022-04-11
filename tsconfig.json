@@ -39,12 +39,12 @@
 		"src/components/MainLayout/index.js",
 		"src/pages/404.tsx",
 		"src/pages/about.tsx",
-		"src/pages/blog.tsx",
+		"src/pages/blog.js",
 		"src/pages/index.tsx",
 		"src/pages/projects.tsx",
 		"src/pages/tags.tsx",
 		"src/components/Link.js",
 		"src/pages/_document.js"
-, "src/lib/mdx.js", "src/lib/utils/files.js"	],
+, "src/lib/mdx.js", "src/lib/utils/files.js", "src/components/Layouts/ListLayout.js"	],
 	"exclude": ["node_modules", "src/types/main.ts"]
 }

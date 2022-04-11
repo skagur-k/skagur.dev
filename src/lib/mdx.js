@@ -7,12 +7,23 @@ import { bundleMDX } from 'mdx-bundler'
 import rehypePrism from 'rehype-prism/lib/src'
 import remarkGfm from 'remark-gfm'
 
-const rootDir = path.join(process.cwd(), 'data/posts')
+const postsDir = path.join(process.cwd(), 'data')
 
 export function getFiles(type) {
-	const prefixPaths = path.join(rootDir, 'data', type)
+	const prefixPaths = path.join(postsDir, type)
 	const files = getAllFilesRecursively(prefixPaths)
-	return files
+	return files.map((file) => file.slice(prefixPaths.length + 1))
+}
+
+export function getAllSlugs(type) {
+	const files = getFiles(type)
+	return files.map((file) => {
+		return {
+			params: {
+				slug: formatSlug(file).split('/'),
+			},
+		}
+	})
 }
 
 export function formatSlug(slug) {
@@ -24,13 +35,14 @@ export function dateSortDesc(a, b) {
 }
 
 export async function getFileBySlug(type, slug) {
-	const fullPath = path.join(rootDir, 'data', type, `${slug}.mdx`)
+	const fullPath = path.join(postsDir, type, `${slug}.mdx`)
 	const mdxSource = fs.readFileSync(fullPath, 'utf-8')
 
 	const remarkPlugins = [remarkGfm]
 	const rehypePlugins = [rehypePrism]
 
-	const { code, frontmatter } = await bundleMDX(mdxSource, {
+	const { code, frontmatter } = await bundleMDX({
+		source: mdxSource,
 		mdxOptions(options) {
 			options.remarkPlugins = [
 				...(options?.remarkPlugins ?? []),
@@ -57,9 +69,8 @@ export async function getFileBySlug(type, slug) {
 }
 
 export async function getAllFilesFrontMatter(folder) {
-	const prefixPaths = path.join(rootDir, 'data', folder)
+	const prefixPaths = path.join(postsDir, folder)
 	const files = getAllFilesRecursively(prefixPaths)
-
 	const allFrontMatter = []
 
 	files.forEach((file) => {
@@ -78,6 +89,5 @@ export async function getAllFilesFrontMatter(folder) {
 			})
 		}
 	})
-
 	return allFrontMatter.sort((a, b) => dateSortDesc(a.date, b.date))
 }
