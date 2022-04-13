@@ -1,10 +1,11 @@
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import siteMetadata from '@/data/siteMetaData'
 import ListLayout from '@/components/Layouts/ListLayout'
+import { InferGetStaticPropsType } from 'next'
 
 const POSTS_PER_PAGE = 5
 
-const Blog = ({ initialDisplayPosts, posts, pagination }) => {
+const Blog = ({ initialDisplayPosts, posts, pagination }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
 		<>
 			<ListLayout

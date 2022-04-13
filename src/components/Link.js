@@ -26,11 +26,12 @@ export const ExternalLink = ({ children, href, ...rest }) => {
 			target='_blank'
 			rel='noopener noreferrer'
 			href={href}
-			className='font-semibold rounded-md hover:text-amber-500'
+			className='z-0 overflow-hidden font-semibold py-1 relative rounded-md before:absolute before:z-[-1] before:top-full before:left-0 before:right-0 before:-bottom-0.5 before:rounded-md before:bg-amber-500 hover:before:top-0 before:transition-all before:delay-75 before:duration-100'
 			{...rest}>
-			<div className='inline-flex px-1 space-x-1'>
+			<div className='inline-flex px-1 space-x-2'>
 				<span>{children}</span>
-				<ExternalLinkIcon className='w-6 h-6' />
+				<span>↗</span>
+				{/* <ExternalLinkIcon className='w-6 h-6' /> */}
 			</div>
 		</a>
 	)

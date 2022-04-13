@@ -3,6 +3,7 @@ import siteMetadata from '@/data/siteMetaData'
 import { useState, useEffect } from 'react'
 import formatDate from '@/lib/utils/formatDate'
 import Tag from '@/components/Tag'
+import { formatDistance, subDays } from 'date-fns'
 
 function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
 	const [mounted, setMounted] = useState(false)
@@ -25,7 +26,7 @@ function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
 	return (
 		<>
 			<div className='space-y-2 pt-6 pb-8 md:space-y-5'>
-				<h1 className='text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 md:text-4xl md:leading-10 lg:text-6xl md:leading-14'>
+				<h1 className='text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 md:leading-10 md:text-4xl md:leading-14'>
 					{title}
 				</h1>
 			</div>
@@ -37,15 +38,22 @@ function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
 						<article className='space-y-2'>
 							<dl>
 								<dt className='sr-only'>Published On</dt>
-								<dd className='text-base font-medium leading-6'>
+								<dd className='text-base font-medium leading-8'>
 									<time dateTime={date}>
-										{formatDate(date)}
+										{formatDistance(
+											new Date(formatDate(date)),
+											new Date(),
+											{ addSuffix: true }
+										)}
+										<span className='text-xs'>
+											{'  '}- {formatDate(date)}
+										</span>
 									</time>
 								</dd>
 							</dl>
 							<div className='space-y-4'>
 								<div>
-									<h3 className='text-3xl font-bold leading-8 tracking-tight'>
+									<h3 className='text-2xl font-bold leading-8 tracking-tight'>
 										<Link href={`/blog/${slug}`}>
 											{title}
 										</Link>
