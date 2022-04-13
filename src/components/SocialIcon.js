@@ -1,6 +1,6 @@
-import Github from '@/lib/social-icons/github.svg'
-import LinkedIn from '@/lib/social-icons/linkedin.svg'
-import Gmail from '@/lib/social-icons/gmail.svg'
+import Github from '@/lib/icons/github.svg'
+import LinkedIn from '@/lib/icons/linkedin.svg'
+import Gmail from '@/lib/icons/gmail.svg'
 import Link from '@/components/Link'
 
 const components = {
@@ -19,14 +19,10 @@ const SocialIcon = ({ kind, href, size = 8 }) => {
 
 	const SocialSvg = components[kind]
 	return (
-		<Link
-			className='flex text-sm hover:text-gray-600'
-			target='_blank'
-			rel='noopener noreferrer'
-			href={href}>
+		<Link className='flex text-md hover:text-gray-500' href={href}>
 			<span className='sr-only'>{kind}</span>
 			<SocialSvg
-				className={`fill-current hover:text-amber-500  h-${size} w-${size}`}
+				className={`fill-current hover:text-amber-500 h-${size} w-${size}`}
 			/>
 		</Link>
 	)

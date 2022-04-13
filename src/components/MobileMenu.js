@@ -1,7 +1,11 @@
 import { MenuAlt3Icon } from '@heroicons/react/solid'
 
 const MobileMenu = () => {
-	return <MenuAlt3Icon />
+	return (
+		<div>
+			<MenuAlt3Icon />
+		</div>
+	)
 }
 
 export default MobileMenu

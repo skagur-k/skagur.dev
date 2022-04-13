@@ -93,7 +93,7 @@ export async function getAllFilesFrontMatter(folder) {
 
 		const source = fs.readFileSync(file, 'utf-8')
 		const { data: frontmatter } = matter(source)
-		if (frontmatter.drate !== true) {
+		if (frontmatter.draft !== true) {
 			allFrontMatter.push({
 				...frontmatter,
 				slug: formatSlug(fileName),

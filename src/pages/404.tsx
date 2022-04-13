@@ -2,7 +2,7 @@ import Link from '@/components/Link'
 
 const PageNotFound = () => {
 	return (
-		<div className='flex flex-col mt-48 items-center justify-center space-y-8'>
+		<div className='flex flex-col items-center justify-center space-y-8'>
 			<div className='flex items-center justify-center space-x-4'>
 				<h1 className='text-5xl text-amber-500 font-bold'>404</h1>
 				<div className='width-4 bg-amber-500' />

@@ -5,7 +5,6 @@ import ListLayout from '@/components/Layouts/ListLayout'
 const POSTS_PER_PAGE = 5
 
 const Blog = ({ initialDisplayPosts, posts, pagination }) => {
-
 	return (
 		<>
 			<ListLayout

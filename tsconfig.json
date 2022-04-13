@@ -20,31 +20,13 @@
 			"@/components/*": ["src/components/*"],
 			"@/sections/*": ["src/sections/*"],
 			"@/pages/*": ["src/pages/*"],
-			"@/styles/*": ["src/assets/styles/*"],
+			"@/styles/*": ["src/styles/*"],
 			"@/lib/*": ["src/lib/*"],
 			"@/assets/*": ["src/assets/*"],
 			"@/types/*": ["src/types/*"],
 			"@/data/*": ["data/*"]
 		}
 	},
-	"include": [
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		"src/lib/siteMetaData.js",
-		"src/lib/headerNavLinks.js",
-		"src/components/MainLayout/LayoutWrapper.js",
-		"src/components/Logo.js",
-		"src/components/MainLayout/Header.js",
-		"src/components/MainLayout/index.js",
-		"src/pages/404.tsx",
-		"src/pages/about.tsx",
-		"src/pages/blog.js",
-		"src/pages/index.tsx",
-		"src/pages/projects.tsx",
-		"src/pages/tags.tsx",
-		"src/components/Link.js",
-		"src/pages/_document.js"
-, "src/lib/mdx.js", "src/lib/utils/files.js", "src/components/Layouts/ListLayout.js"	],
-	"exclude": ["node_modules", "src/types/main.ts"]
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"exclude": ["node_modules"]
 }

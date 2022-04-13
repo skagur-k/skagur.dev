@@ -1,6 +1,7 @@
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { MoonIcon, SunIcon } from '@heroicons/react/solid'
+import { motion } from 'framer-motion'
 
 const Switch = () => {
 	const { systemTheme, theme, setTheme } = useTheme()
@@ -12,7 +13,9 @@ const Switch = () => {
 
 	return (
 		<button
-			className='btn rounded p-1 items-center bg-transparent hover:bg-transparent hover:text-amber-600 dark:hover:text-amber-500'
+			aria-label='Toggle Dark Mode'
+			type='button'
+			className='btn rounded p-1 items-center hover:text-amber-600 dark:hover:text-amber-500 hover:ring-2 ring-gray-500 transition-all'
 			onClick={() =>
 				setTheme(currentTheme === 'dark' ? 'light' : 'dark')
 			}>

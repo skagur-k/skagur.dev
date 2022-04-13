@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+	font-size: 14px;
+	font-family: Inter;
+	scroll-behavior: smooth;
+	height: 100%;
+	@apply text-gray-500 dark:text-gray-100 list-none;
+}
+
+body {
+	height: 100%;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+@layer base {
+	::selection {
+		@apply text-white bg-gray-500;
+	}
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+	transition: background-color 600000s 0s, color 600000s 0s;
+}

@@ -1,10 +1,11 @@
 import SocialIcon from '@/components/SocialIcon'
 import siteMetadata from '@/data/siteMetaData'
+import Link, { ExternalLink } from '@/components/Link'
 
 const Home = () => {
 	return (
-		<div className='flex flex-col mt-48 h-full items-center'>
-			<div className='items-center'>
+		<div className='flex flex-col justify-center items-center'>
+			<div className='flex'>
 				<h1 className='text-xl md:text-3xl font-bold'>
 					Hi, I am
 					<span className='text-amber-500'>&nbsp;&lt;&nbsp;</span>
@@ -12,15 +13,9 @@ const Home = () => {
 					<span className='text-amber-500'>&nbsp;/&gt;</span>
 				</h1>
 			</div>
-			<div className='flex font-bold mt-10 text-xl gap-4 justify-center'>
-				<p className=''>
-					And I like to &nbsp;
-					<span className='font-mono font-bold border-2 rounded-2xl text-gray-600 bg-gray-200 items-center'>
-						&nbsp;code&nbsp;
-					</span>
-				</p>
-				<p className='flex text-xl justify-center'></p>
-				<SocialIcon kind='github' href={siteMetadata.github} size={8} />
+			<div>
+				This is{' '}
+				<ExternalLink href='http://www.google.com'>Google</ExternalLink>
 			</div>
 		</div>
 	)

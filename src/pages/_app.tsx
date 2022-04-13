@@ -14,10 +14,7 @@ function App({ Component, pageProps }: any) {
 	}
 
 	return (
-		<ThemeProvider
-			defaultTheme='light'
-			attribute='class'
-			className='h-full'>
+		<ThemeProvider defaultTheme='light' attribute='class'>
 			<Layout>
 				<Component {...pageProps} />
 			</Layout>

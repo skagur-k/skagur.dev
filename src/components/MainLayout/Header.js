@@ -5,39 +5,48 @@ import headerNavLinks from '@/lib/headerNavLinks'
 import Switch from '../ThemeToggle'
 import SocialIcon from '../SocialIcon'
 import MobileMenu from '../MobileMenu'
+import { useRouter } from 'next/router'
 
 // TODO: Add hamburger icon & consider headlessui for the drop menu.
 
+function NavItem({ href, text }) {
+	const router = useRouter()
+	const isActive = router.asPath === href
+
+	return (
+		<Link
+			href={href}
+			className={`hover:text-amber-600 text-base transition-all ${
+				isActive
+					? 'font-semibold dark:text-amber-500 text-amber-500'
+					: 'font-medium'
+			}`}>
+			{text}
+		</Link>
+	)
+}
+
 const Header = () => {
 	return (
-		// Header Container
-		<header className='flex item-center pt-8 pb-4 sm:py-8 sm:px-0 justify-center sm:justify-between'>
-			<div>
+		<header className='flex item-center py-8 md:py-10 px-8 md:px-0 justify-between'>
+			<div className='flex items-center'>
 				<Link href='/' aria-label={siteMetadata.headerTitle}>
 					<Logo size='xl' weight='bold' />
 				</Link>
 			</div>
-			<div className='hidden sm:flex items-center text-lg leading-5'>
-				<div className=' items-center sm:flex space-x-4 sm:space-x-10'>
+			<div className='hidden md:flex'>
+				<div className='md:flex items-center space-x-2 md:space-x-8'>
 					{headerNavLinks.map((link) => (
-						<Link
+						<NavItem
 							key={link.title}
 							href={link.href}
-							className='items-center text-gray-600 hover:text-amber-600 dark:text-gray-100 dark:hover:text-amber-500  font-bold text-base'>
-							{link.title}
-						</Link>
-					))}
-					<div className='flex space-x-4 items-center justify-between'>
-						<SocialIcon
-							kind='github'
-							href={siteMetadata.github}
-							size='6'
+							text={link.title}
 						/>
-						<Switch />
-					</div>
+					))}
+					<Switch />
 				</div>
 			</div>
-			<div className='flex sm:hidden'>
+			<div className='flex md:hidden'>
 				<MobileMenu />
 			</div>
 		</header>
