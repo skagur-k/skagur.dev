@@ -24,7 +24,7 @@ export default class Document extends NextDocument {
 				/>
 				<meta name='author' content='skagur-k' />
 				<link rel='icon' href='/favicon.ico' />
-				<body className='bg-white text-black dark:bg-gray-900 dark:text-white antialiased h-full'>
+				<body className='bg-white text-black dark:bg-gray-900 dark:text-white antialiased h-full transition-colors duration-500'>
 					<Main />
 					<NextScript />
 				</body>

@@ -16,10 +16,8 @@ function NavItem({ href, text }) {
 	return (
 		<Link
 			href={href}
-			className={`hover:text-amber-600 text-base transition-all ${
-				isActive
-					? 'font-semibold dark:text-amber-500 text-amber-500'
-					: 'font-medium'
+			className={`hover:text-amber-500 font-medium ${
+				isActive ? 'text-amber-500' : ''
 			}`}>
 			{text}
 		</Link>

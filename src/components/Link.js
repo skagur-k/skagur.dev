@@ -7,7 +7,7 @@ const CustomLink = ({ href, ...rest }) => {
 
 	if (isInternalLink) {
 		return (
-			<Link href={href} passHref={true}>
+			<Link href={href} passHref={true} $scroll={false}>
 				<a {...rest} />
 			</Link>
 		)
@@ -31,7 +31,6 @@ export const ExternalLink = ({ children, href, ...rest }) => {
 			<div className='inline-flex px-1 space-x-2'>
 				<span>{children}</span>
 				<span>↗</span>
-				{/* <ExternalLinkIcon className='w-6 h-6' /> */}
 			</div>
 		</a>
 	)

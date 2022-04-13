@@ -22,7 +22,7 @@ const SocialIcon = ({ kind, href, size = 8 }) => {
 		<Link className='flex text-md hover:text-gray-500' href={href}>
 			<span className='sr-only'>{kind}</span>
 			<SocialSvg
-				className={`fill-current hover:text-amber-500 h-${size} w-${size}`}
+				className={`fill-current hover:text-amber-500 h-${size} w-${size} transition-color duration-300`}
 			/>
 		</Link>
 	)

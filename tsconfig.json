@@ -27,6 +27,6 @@
 			"@/data/*": ["data/*"]
 		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/blog.tsx"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/blog/index.tsx"],
 	"exclude": ["node_modules"]
 }

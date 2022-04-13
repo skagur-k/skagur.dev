@@ -1,4 +1,3 @@
-import SocialIcon from '@/components/SocialIcon'
 import siteMetadata from '@/data/siteMetaData'
 import Link, { ExternalLink } from '@/components/Link'
 

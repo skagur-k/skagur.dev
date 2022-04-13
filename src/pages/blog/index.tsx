@@ -1,20 +1,36 @@
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import siteMetadata from '@/data/siteMetaData'
-import ListLayout from '@/components/Layouts/ListLayout'
+import ListLayout from '@/components/Layouts/BlogListLayout'
 import { InferGetStaticPropsType } from 'next'
+import MotionLayout from '@/components/Layouts/MotionLayout'
 
 const POSTS_PER_PAGE = 5
 
-const Blog = ({ initialDisplayPosts, posts, pagination }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Blog = ({
+	initialDisplayPosts,
+	posts,
+	pagination,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
-		<>
+		<div>
+			<div className='flex justify-between space-x-4 mb-12 leading-10'>
+				<h1 className='text-4xl font-extrabold text-gray-900 dark:text-gray-100'>
+					Blog
+				</h1>
+				<h2 className='text-gray-400 dark:text-gray-400 font-base'>
+					<span className='underline decoration-wavy decoration-amber-500 underline-offset-4'>
+						Everything
+					</span>{' '}
+					I want to share.
+				</h2>
+			</div>
 			<ListLayout
 				posts={posts}
 				initialDisplayPosts={initialDisplayPosts}
 				pagination={pagination}
 				title='All Posts'
 			/>
-		</>
+		</div>
 	)
 }
 
