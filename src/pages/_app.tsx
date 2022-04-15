@@ -1,17 +1,17 @@
 import { ThemeProvider } from 'next-themes'
-import Layout from '@/components/MainLayout'
-import MaintenancePage from './maintenance'
 import { AnimatePresence } from 'framer-motion'
+import MainLayout from '@/components/MainLayout'
+import MotionLayout from '@/components/Layouts/MotionLayout'
 
+import MaintenancePage from './maintenance'
 import '@/styles/globals.css'
 import '@/styles/prism.css'
 import '@code-hike/mdx/dist/index.css'
-import MotionLayout from '@/components/Layouts/MotionLayout'
 
 function App({ Component, pageProps, router }: any) {
-	// Shows maintenance page if the env var NEXT_PUBLIC_MAINTENANCE is set to true.
 	const url = `https://skagur.dev${router.route}`
 
+	// Shows maintenance page if the env var NEXT_PUBLIC_MAINTENANCE is set to true.
 	if (process.env.NEXT_PUBLIC_MAINTENANCE === 'true') {
 		console.log('🚧 Website Under Constructon 🚧')
 		return <MaintenancePage />
@@ -19,16 +19,16 @@ function App({ Component, pageProps, router }: any) {
 
 	return (
 		<ThemeProvider defaultTheme='dark' attribute='class'>
-			<Layout>
+			<MainLayout>
 				<AnimatePresence
 					exitBeforeEnter
 					initial={false}
 					onExitComplete={() => window.scrollTo(0, 0)}>
-					<MotionLayout key={router.route}>
+					<MotionLayout key={url}>
 						<Component {...pageProps} key={router.route} />
 					</MotionLayout>
 				</AnimatePresence>
-			</Layout>
+			</MainLayout>
 		</ThemeProvider>
 	)
 }

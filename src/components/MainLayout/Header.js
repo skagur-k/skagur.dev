@@ -26,14 +26,14 @@ function NavItem({ href, text }) {
 
 const Header = () => {
 	return (
-		<header className='flex item-center py-8 md:py-10 px-8 md:px-0 justify-between'>
+		<header className='flex item-center py-8 justify-between'>
 			<div className='flex items-center'>
 				<Link href='/' aria-label={siteMetadata.headerTitle}>
 					<Logo size='xl' weight='bold' />
 				</Link>
 			</div>
 			<div className='hidden md:flex'>
-				<div className='md:flex items-center space-x-2 md:space-x-8'>
+				<div className='flex items-center space-x-8'>
 					{headerNavLinks.map((link) => (
 						<NavItem
 							key={link.title}

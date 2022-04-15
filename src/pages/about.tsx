@@ -4,7 +4,7 @@ const AboutPage = () => {
 	return (
 		<div>
 			<div className='flex justify-between space-x-4 mb-12 leading-10'>
-				<h1 className='text-4xl font-extrabold text-gray-900 dark:text-gray-100'>
+				<h1 className='text-3xl font-extrabold text-gray-900 dark:text-gray-100'>
 					About me
 				</h1>
 				<h2 className='text-gray-400 dark:text-gray-400  '>

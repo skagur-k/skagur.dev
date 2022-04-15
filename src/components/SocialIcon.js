@@ -9,20 +9,17 @@ const components = {
 	linkedin: LinkedIn,
 }
 
-const SocialIcon = ({ kind, href, size = 8 }) => {
-	if (
-		!href ||
-		(kind === 'mail' &&
-			!/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href))
-	)
-		return null
+const SocialIcon = ({ kind, href, size = 6 }) => {
+	if (kind == 'mail') {
+		href = `mailto:${href}`
+	}
 
 	const SocialSvg = components[kind]
 	return (
-		<Link className='flex text-md hover:text-gray-500' href={href}>
+		<Link href={href}>
 			<span className='sr-only'>{kind}</span>
 			<SocialSvg
-				className={`fill-current hover:text-amber-500 h-${size} w-${size} transition-color duration-300`}
+				className={`w-${size} h-${size} fill-current hover:text-amber-500 transition-color duration-300`}
 			/>
 		</Link>
 	)

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import Router from 'next/router'
 
 const variants = {
 	hidden: { opacity: 0, x: -50, y: 0 },
@@ -10,6 +9,7 @@ const variants = {
 const MotionLayout = ({ children }, key) => {
 	return (
 		<motion.div
+			className='h-fit'
 			key={key}
 			variants={variants}
 			initial='hidden'

@@ -1,8 +1,7 @@
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import siteMetadata from '@/data/siteMetaData'
-import ListLayout from '@/components/Layouts/BlogListLayout'
+import BlogListLayout from '@/components/Layouts/BlogListLayout'
 import { InferGetStaticPropsType } from 'next'
-import MotionLayout from '@/components/Layouts/MotionLayout'
 
 const POSTS_PER_PAGE = 5
 
@@ -14,7 +13,7 @@ const Blog = ({
 	return (
 		<div>
 			<div className='flex justify-between space-x-4 mb-12 leading-10'>
-				<h1 className='text-4xl font-extrabold text-gray-900 dark:text-gray-100'>
+				<h1 className='text-3xl font-extrabold text-gray-900 dark:text-gray-100'>
 					Blog
 				</h1>
 				<h2 className='text-gray-400 dark:text-gray-400 font-base'>
@@ -24,7 +23,7 @@ const Blog = ({
 					I want to share.
 				</h2>
 			</div>
-			<ListLayout
+			<BlogListLayout
 				posts={posts}
 				initialDisplayPosts={initialDisplayPosts}
 				pagination={pagination}
