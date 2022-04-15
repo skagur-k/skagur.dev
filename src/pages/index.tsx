@@ -12,39 +12,41 @@ function Home() {
 	return (
 		<>
 			<NextSeo />
-			<div className='flex flex-col mt-0 md:mt-12 space-y-8'>
-				<h1 className='text-xl md:text-4xl font-bold'>
-					Hi, I am{' '}
-					<span className='underline underline-offset-8 decoration-wavy decoration-amber-500'>
-						Nam Hyuck Kim
-					</span>
-				</h1>
-				<h2 className='text-md md:text-lg'>
-					Check out some of the
-					<InternalLink href='/projects'>/projects</InternalLink>I
-					worked on.
-					<h2>
-						Check out my blog if you want some information.
-						<InternalLink href='/blog'>/blog</InternalLink>
+			{mounted && (
+				<div className='flex flex-col mt-0 md:mt-12 space-y-8'>
+					<h1 className='text-xl md:text-4xl font-bold'>
+						Hi, I am{' '}
+						<span className='underline underline-offset-8 decoration-wavy decoration-amber-500'>
+							Nam Hyuck Kim
+						</span>
+					</h1>
+					<h2 className='text-md md:text-lg'>
+						Check out some of the
+						<InternalLink href='/projects'>/projects</InternalLink>I
+						worked on.
+						<h2>
+							Check out my blog if you want some information.
+							<InternalLink href='/blog'>/blog</InternalLink>
+						</h2>
 					</h2>
-				</h2>
-				{mounted && (
-					<div className='flex justify-between'>
-						<div className='hidden md:inline-flex space-x-4 items-center justify-center md:justify-start'>
-							<SocialIcon
-								kind='github'
-								href={siteMetadata.github}
-								size={8}
-							/>
-							<SocialIcon
-								kind='linkedin'
-								href={siteMetadata.linkedin}
-								size={8}
-							/>
+					{mounted && (
+						<div className='flex justify-between'>
+							<div className='hidden md:inline-flex space-x-4 items-center justify-center md:justify-start'>
+								<SocialIcon
+									kind='github'
+									href={siteMetadata.github}
+									size={8}
+								/>
+								<SocialIcon
+									kind='linkedin'
+									href={siteMetadata.linkedin}
+									size={8}
+								/>
+							</div>
 						</div>
-					</div>
-				)}
-			</div>
+					)}
+				</div>
+			)}
 		</>
 	)
 }

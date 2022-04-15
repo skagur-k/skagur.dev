@@ -1,5 +1,3 @@
-import { slug } from 'github-slugger'
-
-const kebabCase = (str) => slug(str)
+const kebabCase = (str) => str
 
 export default kebabCase

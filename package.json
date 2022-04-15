@@ -3,7 +3,6 @@
 	"version": "0.1.0",
 	"author": "Nam Hyuck Kim (skagur.dev)",
 	"description": "A minimal portfolio website developed with Next.JS",
-	"private": true,
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -12,28 +11,27 @@
 		"lint": "next lint",
 		"test": "jest --watch"
 	},
-	"resolutions": {
-		"styled-components": "^5"
-	},
 	"dependencies": {
 		"@code-hike/mdx": "^0.4.0-next.0",
 		"@heroicons/react": "^1.0.6",
+		"contentlayer": "^0.2.2",
 		"date-fns": "^2.28.0",
 		"esbuild": "^0.14.34",
 		"framer-motion": "^6.2.10",
-		"github-slugger": "^1.4.0",
 		"gray-matter": "^4.0.3",
 		"mdx-bundler": "^9.0.0",
 		"next": "^12.1.5",
+		"next-contentlayer": "^0.2.2",
 		"next-seo": "^5.4.0",
+		"next-sitemap": "^2.5.20",
 		"next-themes": "^0.1.1",
 		"react": "18.0.0",
 		"react-dom": "18.0.0",
+		"reading-time": "^1.5.0",
 		"rehype-autolink-headings": "^6.1.1",
 		"rehype-prism": "^2.1.2",
 		"remark-frontmatter": "^4.0.1",
 		"remark-gfm": "^3.0.1",
-		"styled-components": "^5.3.5",
 		"typeit-react": "^2.3.3"
 	},
 	"devDependencies": {
@@ -51,7 +49,6 @@
 		"eslint-config-prettier": "^8.5.0",
 		"jest": "^27.5.1",
 		"postcss": "^8.4.12",
-		"tailwind-styled-components": "^2.1.6",
 		"tailwindcss": "^3.0.23",
 		"typescript": "4.6.3"
 	}

@@ -1,15 +1,19 @@
 /** @type {import('next').NextConfig} */
+
+const { withContentlayer } = require('next-contentlayer')
+
 const nextConfig = {
 	reactStrictMode: true,
-}
-module.exports = {
-	// Append the default value with md extensions
-	pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-	nextConfig,
-	swcMinify: true,
+	pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
+	// swcMinify: true,
 	typescript: {
 		ignoreBuildErrors: true,
 	},
+}
+
+module.exports = withContentlayer({
+	// Append the default value with md extensions
+	nextConfig,
 	webpack: (config) => {
 		config.module.rules.push({
 			test: /\.svg$/i,
@@ -17,4 +21,4 @@ module.exports = {
 		})
 		return config
 	},
-}
+})

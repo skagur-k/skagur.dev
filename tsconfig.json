@@ -24,9 +24,16 @@
 			"@/lib/*": ["src/lib/*"],
 			"@/assets/*": ["src/assets/*"],
 			"@/types/*": ["src/types/*"],
-			"@/data/*": ["data/*"]
+			"@/data/*": ["data/*"],
+			"contentlayer/generated": ["./.contentlayer/generated"]
 		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/blog/index.tsx"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"src/pages/blog/index.tsx",
+		".contentlayer/generated"
+	],
 	"exclude": ["node_modules"]
 }
