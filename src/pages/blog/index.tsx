@@ -2,6 +2,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 import siteMetadata from '@/data/siteMetaData'
 import BlogListLayout from '@/components/Layouts/BlogListLayout'
 import { InferGetStaticPropsType } from 'next'
+import { NextSeo } from 'next-seo'
 
 const POSTS_PER_PAGE = 5
 
@@ -11,7 +12,8 @@ const Blog = ({
 	pagination,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
-		<div>
+		<>
+			<NextSeo title='Blog' />
 			<div className='flex justify-between space-x-4 mb-12 leading-10'>
 				<h1 className='text-3xl font-extrabold text-gray-900 dark:text-gray-100'>
 					Blog
@@ -29,7 +31,7 @@ const Blog = ({
 				pagination={pagination}
 				title='All Posts'
 			/>
-		</div>
+		</>
 	)
 }
 

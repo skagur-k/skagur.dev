@@ -1,7 +1,7 @@
 const siteMetadata = {
-	title: 'skagur.dev ',
+	title: '[skagur.dev]',
 	author: 'Nam Hyuck K.',
-	headerTitle: '< skagur.dev />',
+	headerTitle: '<skagur.dev/>',
 	description: 'A blog created with Next.js and Tailwind.css',
 	language: 'en-us',
 	theme: 'system', // system, dark or light

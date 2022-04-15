@@ -9,7 +9,7 @@ const components = {
 	linkedin: LinkedIn,
 }
 
-const SocialIcon = ({ kind, href, size = 6 }) => {
+const SocialIcon = ({ kind, href, size }) => {
 	if (kind == 'mail') {
 		href = `mailto:${href}`
 	}

@@ -1,5 +1,5 @@
 import Link from '@/components/Link'
-import siteMetadata from '@/data/siteMetaData'
+import siteMetaData from '@/data/siteMetaData'
 import { useState, useEffect } from 'react'
 import formatDate from '@/lib/utils/formatDate'
 import Tag from '@/components/Tag'

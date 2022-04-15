@@ -9,7 +9,6 @@ const variants = {
 const MotionLayout = ({ children }, key) => {
 	return (
 		<motion.div
-			className='h-fit'
 			key={key}
 			variants={variants}
 			initial='hidden'
