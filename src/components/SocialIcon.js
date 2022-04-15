@@ -17,7 +17,7 @@ const SocialIcon = ({ kind, href, size }) => {
 	const SocialSvg = components[kind]
 	return (
 		<Link href={href}>
-			<span className='sr-only'>{kind}</span>
+			<span className='sr-only'>{kind}</span>	
 			<SocialSvg
 				className={`w-${size} h-${size} fill-current hover:text-amber-500 transition-color duration-300`}
 			/>

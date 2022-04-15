@@ -33,7 +33,7 @@ function BlogListLayout({
 			: filteredPosts
 
 	return (
-		<div className='mb-8'>
+		<>
 			<div className='w-full mb-12 relative'>
 				<input
 					aria-label='Search Blog'
@@ -111,7 +111,7 @@ function BlogListLayout({
 					</li>
 				)
 			})}
-		</div>
+		</>
 	)
 }
 

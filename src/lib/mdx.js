@@ -7,6 +7,7 @@ import { bundleMDX } from 'mdx-bundler'
 import rehypePrism from 'rehype-prism/lib/src'
 import remarkGfm from 'remark-gfm'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import { title } from 'process'
 
 const postsDir = path.join(process.cwd(), 'data')
 
@@ -73,6 +74,7 @@ export async function getFileBySlug(type, slug) {
 	return {
 		mdxSource: code,
 		frontmatter: {
+			...frontmatter,
 			slug: slug || null,
 			fileName: fs.existsSync(fullPath) ? `${slug}.mdx` : null,
 			date: frontmatter.date

@@ -6,11 +6,27 @@ import {
 	getAllFilesFrontMatter,
 	formatSlug,
 } from '@/lib/mdx'
+import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router'
 
 export default function Post({ source, frontmatter }) {
 	const Component = useMemo(() => getMDXComponent(source), [source])
+	const router = useRouter()
+
+	const url = 'https://skagur.dev' + router.asPath
+
+	const meta = {
+		title: frontmatter.title,
+		description: frontmatter.description,
+		date: frontmatter.date,
+		url: url,
+	}
+
+	console.log(url)
+
 	return (
 		<>
+			<NextSeo {...meta} />
 			<header>
 				<h1>{frontmatter.slug}</h1>
 				<p>{frontmatter.description}</p>

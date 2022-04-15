@@ -1,15 +1,14 @@
 import siteMetadata from '@/data/siteMetaData'
-import Link, {
-	DecoratedLink,
-	ExternalLink,
-	InternalLink,
-} from '@/components/Link'
-import TypeIt from 'typeit-react'
+import Link, { ExternalLink, InternalLink } from '@/components/Link'
 import SocialIcon from '@/components/SocialIcon'
 import { ChevronDoubleRightIcon } from '@heroicons/react/solid'
 import { NextSeo } from 'next-seo'
+import { useEffect, useState } from 'react'
 
-const Home = () => {
+function Home() {
+	const [mounted, setMounted] = useState(false)
+	useEffect(() => setMounted(true), [])
+
 	return (
 		<>
 			<NextSeo />
@@ -21,33 +20,30 @@ const Home = () => {
 					</span>
 				</h1>
 				<h2 className='text-md md:text-lg'>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-					Assumenda eos sequi earum, aperiam ipsa rem maiores quaerat
-					perferendis beatae
-					<ExternalLink href='https://google.com'>
-						Google
-					</ExternalLink>
-					itaque nemo nostrum eligendi distinctio voluptas inventore
-					officia laboriosam dolore expedita.
+					Check out some of the
+					<InternalLink href='/projects'>/projects</InternalLink>I
+					worked on.
+					<h2>
+						Check out my blog if you want some information.
+						<InternalLink href='/blog'>/blog</InternalLink>
+					</h2>
 				</h2>
-				<div className='flex justify-between'>
-					<div className='hidden md:flex space-x-4 items-center justify-center md:justify-start'>
-						<SocialIcon
-							kind='github'
-							href={siteMetadata.github}
-							size={8}
-						/>
-						<SocialIcon
-							kind='linkedin'
-							href={siteMetadata.linkedin}
-							size={8}
-						/>
+				{mounted && (
+					<div className='flex justify-between'>
+						<div className='hidden md:inline-flex space-x-4 items-center justify-center md:justify-start'>
+							<SocialIcon
+								kind='github'
+								href={siteMetadata.github}
+								size={8}
+							/>
+							<SocialIcon
+								kind='linkedin'
+								href={siteMetadata.linkedin}
+								size={8}
+							/>
+						</div>
 					</div>
-					<InternalLink href='/about'>
-						Learn More About Me
-					</InternalLink>
-				</div>
-				<InternalLink href='/about'>Learn More About Me</InternalLink>
+				)}
 			</div>
 		</>
 	)
