@@ -1,20 +1,10 @@
 import Link from '@/components/Link'
 import siteMetaData from '@/data/siteMetaData'
 import { useState, useEffect } from 'react'
-import formatDate from '@/lib/utils/formatDate'
 import Tag from '@/components/Tag'
-import { SearchIcon } from '@heroicons/react/outline/SearchCircleIcon'
+import { format, parseISO } from 'date-fns'
 
-// import { formatDistance, subDays } from 'date-fns'
-
-function handleTagClick(e) {}
-
-function BlogListLayout({
-	posts,
-	title,
-	initialDisplayPosts = [],
-	pagination,
-}) {
+function BlogListLayout({ posts, title, initialPosts = [], pagination }) {
 	const [mounted, setMounted] = useState(false)
 	useEffect(() => setMounted(true), [])
 
@@ -28,9 +18,7 @@ function BlogListLayout({
 	})
 
 	const displayPosts =
-		initialDisplayPosts.length > 0 && !searchValue
-			? initialDisplayPosts
-			: filteredPosts
+		initialPosts.length > 0 && !searchValue ? initialPosts : filteredPosts
 
 	return (
 		<>
@@ -40,7 +28,7 @@ function BlogListLayout({
 					type='text'
 					onChange={(e) => setSearchValue(e.target.value)}
 					placeholder='Search posts'
-					className='block w-full px-4 py-2 placeholder:opacity-60 rounded-2xl bg-gray-200 dark:bg-gray-800 focus:ring-2 focus:ring-amber-500 focus:outline-none transition-colors duration-500'
+					className='block w-full px-4 py-2 placeholder:opacity-60 rounded-2xl bg-gray-200 dark:bg-gray-700 focus:ring-2 focus:ring-amber-500 focus:outline-none transition-colors duration-500'
 				/>
 				<svg
 					className='absolute h-6 w-6 right-3 top-2'
@@ -76,15 +64,19 @@ function BlogListLayout({
 				</h1>
 			)}
 			{displayPosts.map((frontmatter) => {
-				const { slug, title, date, summary, tags } = frontmatter
+				const { slug, title, publishedAt, summary, tags } = frontmatter
+
 				return (
 					<li key={slug} className='pb-8'>
 						<article className='space-y-2'>
 							<dl>
 								<dt className='sr-only'>Published On</dt>
 								<dd className='text-tiny font-base leading-6'>
-									<time dateTime={date}>
-										{formatDate(date)}
+									<time dateTime={publishedAt}>
+										{format(
+											parseISO(publishedAt),
+											'LLLL dd, yyyy'
+										)}
 									</time>
 								</dd>
 							</dl>
@@ -96,14 +88,14 @@ function BlogListLayout({
 										</Link>
 									</h3>
 								</div>
-								{mounted && (
+								{mounted && tags && (
 									<div>
 										{tags.map((tag) => (
 											<Tag key={tag} text={tag} />
 										))}
 									</div>
 								)}
-								<div className='prose font-base text-gray-600 dark:text-gray-400'>
+								<div className='prose font-base text-gray-300 dark:text-gray-400'>
 									{summary}
 								</div>
 							</div>

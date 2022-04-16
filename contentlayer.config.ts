@@ -1,32 +1,58 @@
 import {
 	defineDocumentType,
 	makeSource,
-	defineNestedType,
+	ComputedFields,
 } from 'contentlayer/source-files'
+
 import readingTime from 'reading-time'
+import rehypePrism from 'rehype-prism'
+
+const computedFields: ComputedFields = {
+	readingTime: {
+		type: 'json',
+		resolve: (blog) => readingTime(blog.body.raw),
+	},
+	slug: {
+		type: 'string',
+		resolve: (blog) =>
+			`${blog._raw.sourceFileName
+				.replace(/\.mdx/, '')
+				.replace(/\s/g, '-')}`,
+	},
+}
 
 export const Blog = defineDocumentType(() => ({
 	name: 'Blog',
 	filePathPattern: 'blog/*.mdx',
 	bodyType: 'mdx',
 	fields: {
-		title: { type: 'string', required: true },
-		publishedAt: { type: 'string', required: true },
-		description: { type: 'string', required: false },
-		isDraft: { type: 'boolean', default: true },
-		ogImage: { type: 'string' },
+		title: {
+			type: 'string',
+			description: 'Title of the blog post',
+			required: true,
+		},
+		summary: {
+			type: 'string',
+			description: 'Summary of the blog post',
+			required: false,
+		},
+		publishedAt: {
+			type: 'string',
+			description: 'Published date of the post',
+			required: true,
+		},
+		isDraft: {
+			type: 'boolean',
+			description: 'If the post is a draft',
+			default: true,
+		},
+		ogImage: {
+			type: 'string',
+			description: 'Open Graph Image of the blog post',
+		},
 		// tags: { type: 'list', default: 'string' },
 	},
-	computedFields: {
-		readingTime: {
-			type: 'json',
-			resolve: (blog) => readingTime(blog.body.raw),
-		},
-		slug: {
-			type: 'string',
-			resolve: (blog) => blog._raw.sourceFileName.replace(/\.mdx/, ''),
-		},
-	},
+	computedFields,
 }))
 
 export default makeSource({
@@ -34,6 +60,6 @@ export default makeSource({
 	documentTypes: [Blog],
 	mdx: {
 		remarkPlugins: [],
-		rehypePlugins: [],
+		rehypePlugins: [rehypePrism],
 	},
 })

@@ -1,66 +1,57 @@
-import { useMemo } from 'react'
-import { getMDXComponent } from 'mdx-bundler/client'
-import {
-	getAllSlugs,
-	getFileBySlug,
-	getAllFilesFrontMatter,
-	formatSlug,
-} from '@/lib/mdx'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
+import { allBlogs } from 'contentlayer/generated'
 
-export default function Post({ source, frontmatter }) {
-	const Component = useMemo(() => getMDXComponent(source), [source])
+export default function Post({ source, prev, next }) {
 	const router = useRouter()
-
 	const url = 'https://skagur.dev' + router.asPath
 
+	const MDXContent = useMDXComponent(source.body.html)
+	const { title, summary, publishedAt, slug } = source
 	const meta = {
-		title: frontmatter.title,
-		description: frontmatter.description,
-		date: frontmatter.date,
-		url: url,
+		title,
+		description: summary,
+		date: publishedAt,
 	}
 
-	console.log(url)
-
+	// TODO: Fix mdx error
 	return (
 		<>
 			<NextSeo {...meta} />
 			<header>
-				<h1>{frontmatter.slug}</h1>
-				<p>{frontmatter.description}</p>
-				<p>{frontmatter.date}</p>
+				<h1>{source.slug}</h1>
+				<p>{source.description}</p>
+				<p>{source.date}</p>
 			</header>
 			<article>
-				<Component />
+				<MDXContent />
 			</article>
 		</>
 	)
 }
 
 export async function getStaticProps({ params }) {
-	const allPosts = await getAllFilesFrontMatter('blog')
-	const postIndex = allPosts.findIndex(
-		(post) => formatSlug(post.slug) === params.slug.join('/')
+	console.log(params.slug)
+	const postIndex = allBlogs.findIndex(
+		(post) => post.slug === `${params.slug}`
 	)
-	const prev = allPosts[postIndex + 1] || null
-	const next = allPosts[postIndex - 1] || null
-	const data = await getFileBySlug('blog', params.slug.join('/'))
-
-	// const data = await getFileBySlug('blog', params.slug)
+	const prev = allBlogs[postIndex + 1] || null
+	const next = allBlogs[postIndex - 1] || null
+	const data = allBlogs[postIndex]
 	return {
 		props: {
-			source: data.mdxSource,
-			frontmatter: data.frontmatter,
+			source: data,
+			prev,
+			next,
 		},
 	}
 }
 
 export async function getStaticPaths() {
-	const slugs = await getAllSlugs('blog')
+	const paths = allBlogs.map((post) => `/blog/${post.slug}`)
 	return {
-		paths: slugs,
+		paths,
 		fallback: false,
 	}
 }

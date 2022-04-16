@@ -1,4 +1,3 @@
-import TypeIt from 'typeit-react'
 import { useRouter } from 'next/router'
 
 const Logo = ({ size, weight }) => {

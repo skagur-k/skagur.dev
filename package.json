@@ -14,14 +14,13 @@
 	"dependencies": {
 		"@code-hike/mdx": "^0.4.0-next.0",
 		"@heroicons/react": "^1.0.6",
-		"contentlayer": "^0.2.2",
+		"contentlayer": "^0.2.3",
 		"date-fns": "^2.28.0",
 		"esbuild": "^0.14.34",
 		"framer-motion": "^6.2.10",
 		"gray-matter": "^4.0.3",
-		"mdx-bundler": "^9.0.0",
 		"next": "^12.1.5",
-		"next-contentlayer": "^0.2.2",
+		"next-contentlayer": "^0.2.3",
 		"next-seo": "^5.4.0",
 		"next-sitemap": "^2.5.20",
 		"next-themes": "^0.1.1",
@@ -31,8 +30,7 @@
 		"rehype-autolink-headings": "^6.1.1",
 		"rehype-prism": "^2.1.2",
 		"remark-frontmatter": "^4.0.1",
-		"remark-gfm": "^3.0.1",
-		"typeit-react": "^2.3.3"
+		"remark-gfm": "^3.0.1"
 	},
 	"devDependencies": {
 		"@svgr/webpack": "^6.2.1",

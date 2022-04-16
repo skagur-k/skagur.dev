@@ -1,14 +1,15 @@
-import { getAllFilesFrontMatter } from '@/lib/mdx'
 import siteMetadata from '@/data/siteMetaData'
 import BlogListLayout from '@/components/Layouts/BlogListLayout'
 import { InferGetStaticPropsType } from 'next'
 import { NextSeo } from 'next-seo'
+import { compareDesc, parseISO } from 'date-fns'
+import { allBlogs } from 'contentlayer/generated'
 
 const POSTS_PER_PAGE = 5
 
 const Blog = ({
-	initialDisplayPosts,
-	posts,
+	initialPosts,
+	blogPosts,
 	pagination,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
@@ -26,8 +27,8 @@ const Blog = ({
 				</h2>
 			</div>
 			<BlogListLayout
-				posts={posts}
-				initialDisplayPosts={initialDisplayPosts}
+				posts={blogPosts}
+				initialPosts={initialPosts}
 				pagination={pagination}
 				title='All Posts'
 			/>
@@ -36,16 +37,28 @@ const Blog = ({
 }
 
 export async function getStaticProps() {
-	const posts = await getAllFilesFrontMatter('blog')
-	const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
+	const blogPosts = allBlogs.sort((a, b) => {
+		const date_a = parseISO(a.publishedAt)
+		const date_b = parseISO(b.publishedAt)
+		return compareDesc(date_a, date_b)
+	})
+	const initialPosts = blogPosts.slice(0, POSTS_PER_PAGE)
 	const pagination = {
 		currentPage: 1,
-		totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
+		totalPages: Math.ceil(blogPosts.length / POSTS_PER_PAGE),
 	}
+
+	console.log(
+		blogPosts[0]._raw.sourceFileName
+			.replace(/\s/g, '-')
+			.replace(/\.mdx/, '')
+	)
+	console.log(blogPosts[0].slug)
+
 	return {
 		props: {
-			initialDisplayPosts,
-			posts,
+			initialPosts,
+			blogPosts,
 			pagination,
 		},
 	}
