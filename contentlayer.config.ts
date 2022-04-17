@@ -6,6 +6,12 @@ import {
 
 import readingTime from 'reading-time'
 import rehypePrism from 'rehype-prism'
+import remarkGfm from 'remark-gfm'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import remarkToc from 'remark-toc'
+import { remarkMdxFrontmatter } from 'remark-mdx-frontmatter'
+import { remarkCodeHike } from '@code-hike/mdx'
+import theme from 'shiki/themes/github-light.json'
 
 const computedFields: ComputedFields = {
 	readingTime: {
@@ -24,7 +30,7 @@ const computedFields: ComputedFields = {
 export const Blog = defineDocumentType(() => ({
 	name: 'Blog',
 	filePathPattern: 'blog/*.mdx',
-	bodyType: 'mdx',
+	contentType: 'mdx',
 	fields: {
 		title: {
 			type: 'string',
@@ -59,7 +65,12 @@ export default makeSource({
 	contentDirPath: 'data',
 	documentTypes: [Blog],
 	mdx: {
-		remarkPlugins: [],
-		rehypePlugins: [rehypePrism],
+		remarkPlugins: [
+			remarkToc,
+			remarkMdxFrontmatter,
+			remarkGfm,
+			[remarkCodeHike, { lineNumbers: true }],
+		],
+		rehypePlugins: [rehypeAutolinkHeadings, rehypePrism],
 	},
 })

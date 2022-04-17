@@ -2,30 +2,45 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { allBlogs } from 'contentlayer/generated'
+import { useEffect, useState } from 'react'
+import { Title, h1, h2, h3, p, img } from '@/components/MDXComponent'
 
-export default function Post({ source, prev, next }) {
+export default function Post({ data, prev, next }) {
+	const [mounted, setMounted] = useState(false)
+	useEffect(() => setMounted(true), [])
+
 	const router = useRouter()
 	const url = 'https://skagur.dev' + router.asPath
 
-	const MDXContent = useMDXComponent(source.body.html)
-	const { title, summary, publishedAt, slug } = source
+	const MDXContent = useMDXComponent(data.body.code)
+
+	const { title, summary, publishedAt, slug } = data
 	const meta = {
 		title,
 		description: summary,
 		date: publishedAt,
+		url,
 	}
 
-	// TODO: Fix mdx error
+	const MDXComponents = {
+		Title,
+		h1,
+		h2,
+		h3,
+		p,
+		img,
+	}
+
 	return (
 		<>
 			<NextSeo {...meta} />
-			<header>
-				<h1>{source.slug}</h1>
-				<p>{source.description}</p>
-				<p>{source.date}</p>
-			</header>
-			<article>
-				<MDXContent />
+			<Title>{title}</Title>
+			<article className='flex justify-center'>
+				{mounted && (
+					<div className='max-w-xl'>
+						<MDXContent components={MDXComponents} />
+					</div>
+				)}
 			</article>
 		</>
 	)
@@ -41,7 +56,7 @@ export async function getStaticProps({ params }) {
 	const data = allBlogs[postIndex]
 	return {
 		props: {
-			source: data,
+			data,
 			prev,
 			next,
 		},

@@ -32,7 +32,6 @@
 		"next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx",
-		"src/pages/blog/index.tsx",
 		".contentlayer/generated"
 	],
 	"exclude": ["node_modules"]

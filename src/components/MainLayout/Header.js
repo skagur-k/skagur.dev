@@ -3,7 +3,6 @@ import Link from '@/components/Link'
 import Logo from '@/components/Logo'
 import headerNavLinks from '@/lib/headerNavLinks'
 import Switch from '../ThemeToggle'
-import SocialIcon from '../SocialIcon'
 import MobileMenu from '../MobileMenu'
 import { useRouter } from 'next/router'
 

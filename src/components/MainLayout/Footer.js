@@ -1,8 +1,8 @@
 import siteMetadata from '@/data/siteMetaData'
 import Link from '@/components/Link'
-import SocialIcon from '@/components/SocialIcon'
 import Logo from '@/components/Logo'
 import { useEffect, useState } from 'react'
+import SocialIcon from '../SocialIcon'
 
 //TODO: add social icons, center last thing
 
@@ -29,13 +29,13 @@ const Footer = () => {
 					<div className='col-span-0 md:col-span-2 space-x-4 justify-end hidden md:flex'>
 						<SocialIcon
 							kind='github'
-							href={siteMetadata.github}
 							size={6}
+							href={siteMetadata.github}
 						/>
 						<SocialIcon
 							kind='linkedin'
-							href={siteMetadata.github}
 							size={6}
+							href={siteMetadata.github}
 						/>
 					</div>
 				)}

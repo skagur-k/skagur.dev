@@ -1,7 +1,6 @@
 import siteMetadata from '@/data/siteMetaData'
 import Link, { ExternalLink, InternalLink } from '@/components/Link'
 import SocialIcon from '@/components/SocialIcon'
-import { ChevronDoubleRightIcon } from '@heroicons/react/solid'
 import { NextSeo } from 'next-seo'
 import { useEffect, useState } from 'react'
 
@@ -25,26 +24,25 @@ function Home() {
 						<InternalLink href='/projects'>/projects</InternalLink>I
 						worked on.
 						<h2>
-							Check out my blog if you want some information.
+							Check out my blog too if you have time 😁.
 							<InternalLink href='/blog'>/blog</InternalLink>
 						</h2>
 					</h2>
-					{mounted && (
-						<div className='flex justify-between'>
-							<div className='hidden md:inline-flex space-x-4 items-center justify-center md:justify-start'>
-								<SocialIcon
-									kind='github'
-									href={siteMetadata.github}
-									size={8}
-								/>
-								<SocialIcon
-									kind='linkedin'
-									href={siteMetadata.linkedin}
-									size={8}
-								/>
-							</div>
+
+					<div className='flex justify-between'>
+						<div className='hidden md:inline-flex space-x-4 items-center justify-center md:justify-start'>
+							<SocialIcon
+								kind='github'
+								href={siteMetadata.github}
+								size={8}
+							/>
+							<SocialIcon
+								kind='linkedin'
+								href={siteMetadata.linkedin}
+								size={8}
+							/>
 						</div>
-					)}
+					</div>
 				</div>
 			)}
 		</>

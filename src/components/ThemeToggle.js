@@ -1,6 +1,6 @@
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
-import { MoonIcon, SunIcon } from '@heroicons/react/solid'
+import { HiMoon, HiSun } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 
 const Switch = () => {
@@ -20,9 +20,9 @@ const Switch = () => {
 				setTheme(currentTheme === 'dark' ? 'light' : 'dark')
 			}>
 			{currentTheme === 'dark' ? (
-				<SunIcon className='h-7 w-7' />
+				<HiSun className='h-7 w-7' />
 			) : (
-				<MoonIcon className='h-7 w-7' />
+				<HiMoon className='h-7 w-7' />
 			)}
 		</button>
 	)

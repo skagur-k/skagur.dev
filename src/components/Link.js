@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ChevronRightIcon, ExternalLinkIcon } from '@heroicons/react/solid'
+import { GoLinkExternal } from 'react-icons/go'
 
 const CustomLink = ({ children, href, ...rest }) => {
 	const isInternalLink = href && href.startsWith('/')
@@ -55,7 +55,7 @@ export const ExternalLink = ({ children, href, ...rest }) => {
 		<DecoratedLink href={href} target='_blank' rel='noopener noreferrer'>
 			<div className='inline-flex items-center space-x-1'>
 				{children}
-				<ExternalLinkIcon />
+				<GoLinkExternal />
 			</div>
 		</DecoratedLink>
 	)

@@ -1,9 +1,9 @@
-import { MenuAlt3Icon } from '@heroicons/react/solid'
+import { BiMenuAltRight } from 'react-icons/bi'
 
 const MobileMenu = () => {
 	return (
 		<div>
-			<MenuAlt3Icon />
+			<BiMenuAltRight className='w-8 h-8' />
 		</div>
 	)
 }

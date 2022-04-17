@@ -9,10 +9,18 @@ const nextConfig = {
 	typescript: {
 		ignoreBuildErrors: true,
 	},
+	async redirects() {
+		return [
+			{
+				source: '/github',
+				destination: 'https://github.com/skagur-k',
+				permanent: true,
+			},
+		]
+	},
 }
 
 module.exports = withContentlayer({
-	// Append the default value with md extensions
 	nextConfig,
 	webpack: (config) => {
 		config.module.rules.push({
