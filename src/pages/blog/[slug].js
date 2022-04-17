@@ -3,7 +3,7 @@ import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { allBlogs } from 'contentlayer/generated'
 import { useEffect, useState } from 'react'
-import { Title, h1, h2, h3, p, img } from '@/components/MDXComponent'
+import MDXComponents, { Title } from '@/components/MDXComponent'
 
 export default function Post({ data, prev, next }) {
 	const [mounted, setMounted] = useState(false)
@@ -22,23 +22,14 @@ export default function Post({ data, prev, next }) {
 		url,
 	}
 
-	const MDXComponents = {
-		Title,
-		h1,
-		h2,
-		h3,
-		p,
-		img,
-	}
-
 	return (
 		<>
 			<NextSeo {...meta} />
 			<Title>{title}</Title>
-			<article className='flex justify-center'>
+			<article className='flex justify-center '>
 				{mounted && (
-					<div className='max-w-xl'>
-						<MDXContent components={MDXComponents} />
+					<div className='prose dark:prose-invert prose-img:rounded-xl prose-headings:underline'>
+						<MDXContent components={{ ...MDXComponents }} />
 					</div>
 				)}
 			</article>

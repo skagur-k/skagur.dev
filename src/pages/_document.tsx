@@ -15,6 +15,11 @@ export default class Document extends NextDocument {
 					href='https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;600;700;800&display=swap'
 					rel='stylesheet'
 				/>
+				<link
+					href='https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap'
+					rel='stylesheet'
+				/>
+				
 				<link rel='icon' href='/favicon.ico' />
 				<body className='bg-white text-black dark:bg-gray-800 dark:text-white antialiased h-full transition-colors duration-500'>
 					<Main />

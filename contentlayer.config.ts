@@ -11,7 +11,9 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import remarkToc from 'remark-toc'
 import { remarkMdxFrontmatter } from 'remark-mdx-frontmatter'
 import { remarkCodeHike } from '@code-hike/mdx'
-import theme from 'shiki/themes/github-light.json'
+import rehypeSlug from 'rehype-slug'
+import rehypeCodeTitles from 'rehype-code-titles'
+import theme from 'shiki/themes/github-light.json' assert { type: 'json' }
 
 const computedFields: ComputedFields = {
 	readingTime: {
@@ -47,6 +49,9 @@ export const Blog = defineDocumentType(() => ({
 			description: 'Published date of the post',
 			required: true,
 		},
+		tags: {
+			type: 'string',
+		},
 		isDraft: {
 			type: 'boolean',
 			description: 'If the post is a draft',
@@ -56,7 +61,6 @@ export const Blog = defineDocumentType(() => ({
 			type: 'string',
 			description: 'Open Graph Image of the blog post',
 		},
-		// tags: { type: 'list', default: 'string' },
 	},
 	computedFields,
 }))
@@ -66,11 +70,22 @@ export default makeSource({
 	documentTypes: [Blog],
 	mdx: {
 		remarkPlugins: [
-			remarkToc,
+			[remarkToc, { heading: 'Contents' }],
 			remarkMdxFrontmatter,
 			remarkGfm,
-			[remarkCodeHike, { lineNumbers: true }],
 		],
-		rehypePlugins: [rehypeAutolinkHeadings, rehypePrism],
+		rehypePlugins: [
+			rehypeSlug,
+			rehypeCodeTitles,
+			[
+				rehypeAutolinkHeadings,
+				{
+					properties: {
+						className: ['anchor'],
+					},
+				},
+			],
+			rehypePrism,
+		],
 	},
 })
