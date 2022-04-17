@@ -65,12 +65,7 @@ export default makeSource({
 	contentDirPath: 'data',
 	documentTypes: [Blog],
 	mdx: {
-		remarkPlugins: [
-			remarkToc,
-			remarkMdxFrontmatter,
-			remarkGfm,
-			[remarkCodeHike, { lineNumbers: true }],
-		],
-		rehypePlugins: [rehypeAutolinkHeadings, rehypePrism],
+		remarkPlugins: [remarkToc, remarkMdxFrontmatter, remarkGfm],
+		rehypePlugins: [rehypePrism, rehypeAutolinkHeadings],
 	},
 })

@@ -48,13 +48,6 @@ export async function getStaticProps() {
 		totalPages: Math.ceil(blogPosts.length / POSTS_PER_PAGE),
 	}
 
-	console.log(
-		blogPosts[0]._raw.sourceFileName
-			.replace(/\s/g, '-')
-			.replace(/\.mdx/, '')
-	)
-	console.log(blogPosts[0].slug)
-
 	return {
 		props: {
 			initialPosts,

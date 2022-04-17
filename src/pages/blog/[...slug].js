@@ -47,7 +47,6 @@ export default function Post({ data, prev, next }) {
 }
 
 export async function getStaticProps({ params }) {
-	console.log(params.slug)
 	const postIndex = allBlogs.findIndex(
 		(post) => post.slug === `${params.slug}`
 	)
