@@ -18,9 +18,18 @@ ogImage:
 [Lorem](http://in.org/) markdownum voce; aliter discedite ibimus rubuerunt aevum
 contra Lethes pudor alta adeo Medea.
 [Movet](http://www.vestra-gutture.io/nec-tardus.html) ipsam. Parentes _paratus_,
-vocem rupit attollo cum puellam gravis fata.
+`Code` vocem rupit attollo cum puellam gravis fata.
 
-```js app.js
+```js hello.js {1,3-4} showLineNumbers
+function lorem(ipsum, dolor = 1) {
+	- const sit = ipsum == null ? 0 : ipsum.sit
+	+ const sit = ipsum == null ? 0 : ipsum.sit
+	dolor = sit - amet(dolor)
+	return sit ? consectetur(ipsum) : []
+}
+```
+
+```js app.js showLineNumbers
 function lorem(ipsum, dolor = 1) {
 	const sit = ipsum == null ? 0 : ipsum.sit
 	dolor = sit - amet(dolor)

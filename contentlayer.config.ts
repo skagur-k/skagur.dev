@@ -3,17 +3,16 @@ import {
 	makeSource,
 	ComputedFields,
 } from 'contentlayer/source-files'
-import { h, s } from 'hastscript'
 import readingTime from 'reading-time'
-import rehypePrism from 'rehype-prism'
 import remarkGfm from 'remark-gfm'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import remarkToc from 'remark-toc'
 import { remarkMdxFrontmatter } from 'remark-mdx-frontmatter'
-import { remarkCodeHike } from '@code-hike/mdx'
 import rehypeSlug from 'rehype-slug'
 import rehypeCodeTitles from 'rehype-code-titles'
 import theme from 'shiki/themes/github-light.json' assert { type: 'json' }
+import rehypePrismPlus from 'rehype-prism-plus'
+import rehypePrism from 'rehype-prism'
 
 const computedFields: ComputedFields = {
 	readingTime: {
@@ -76,7 +75,6 @@ export default makeSource({
 		],
 		rehypePlugins: [
 			rehypeSlug,
-			rehypeCodeTitles,
 			[
 				rehypeAutolinkHeadings,
 				{
@@ -86,10 +84,10 @@ export default makeSource({
 						ariaHidden: true,
 						tabIndex: -1,
 					},
-					content: [h('p.class-name', 'This is a link')],
 				},
 			],
-			rehypePrism,
+			rehypeCodeTitles,
+			rehypePrismPlus,
 		],
 	},
 })

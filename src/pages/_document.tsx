@@ -19,11 +19,10 @@ export default class Document extends NextDocument {
 					href='https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap'
 					rel='stylesheet'
 				/>
-				<link
-					href='https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap'
+				{/* <link
+					href='https://unpkg.com/prism-theme-night-owl@1.4.0/build/style.css'
 					rel='stylesheet'
-				/>
-				
+				/> */}
 				<link rel='icon' href='/favicon.ico' />
 				<body className='bg-white text-black dark:bg-gray-800 dark:text-white antialiased h-full transition-colors duration-500'>
 					<Main />
