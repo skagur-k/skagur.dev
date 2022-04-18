@@ -3,7 +3,7 @@ import {
 	makeSource,
 	ComputedFields,
 } from 'contentlayer/source-files'
-
+import { h, s } from 'hastscript'
 import readingTime from 'reading-time'
 import rehypePrism from 'rehype-prism'
 import remarkGfm from 'remark-gfm'
@@ -80,9 +80,13 @@ export default makeSource({
 			[
 				rehypeAutolinkHeadings,
 				{
+					behavior: 'wrap',
 					properties: {
-						className: ['anchor'],
+						class: 'anchor',
+						ariaHidden: true,
+						tabIndex: -1,
 					},
+					content: [h('p.class-name', 'This is a link')],
 				},
 			],
 			rehypePrism,

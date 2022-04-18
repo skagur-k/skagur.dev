@@ -82,7 +82,7 @@ function BlogListLayout({ posts, title, initialPosts = [], pagination }) {
 							</dl>
 							<div className='space-y-4'>
 								<div>
-									<h3 className='text-2xl font-bold leading-8 tracking-tight'>
+									<h3 className='text-2xl font-bold leading-8 tracking-tight hover:text-amber-500'>
 										<Link href={`/blog/${slug}`}>
 											{title}
 										</Link>

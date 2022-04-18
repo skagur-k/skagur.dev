@@ -3,6 +3,7 @@ import Link, { ExternalLink, InternalLink } from '@/components/Link'
 import SocialIcon from '@/components/SocialIcon'
 import { NextSeo } from 'next-seo'
 import { useEffect, useState } from 'react'
+import { FaChevronRight } from 'react-icons/fa'
 
 function Home() {
 	const [mounted, setMounted] = useState(false)
@@ -29,7 +30,7 @@ function Home() {
 						</h2>
 					</h2>
 
-					<div className='flex justify-between'>
+					<div className='flex justify-between items-center'>
 						<div className='hidden md:inline-flex space-x-4 items-center justify-center md:justify-start'>
 							<SocialIcon
 								kind='github'
@@ -42,6 +43,10 @@ function Home() {
 								size={8}
 							/>
 						</div>
+						<InternalLink href='/about'>
+							<span>Learn more about me</span>
+							<FaChevronRight />
+						</InternalLink>
 					</div>
 				</div>
 			)}
