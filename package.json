@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"author": "Nam Hyuck Kim (skagur.dev)",
 	"description": "A minimal portfolio website developed with Next.JS",
+	"private": true,
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -15,10 +16,8 @@
 		"@code-hike/mdx": "^0.4.0-next.3",
 		"contentlayer": "^0.2.3",
 		"date-fns": "^2.28.0",
-		"esbuild": "^0.14.34",
 		"framer-motion": "^6.2.10",
 		"gray-matter": "^4.0.3",
-		"hastscript": "^7.0.2",
 		"next": "^12.1.5",
 		"next-contentlayer": "^0.2.3",
 		"next-seo": "^5.4.0",
@@ -36,8 +35,7 @@
 		"remark-frontmatter": "^4.0.1",
 		"remark-gfm": "^3.0.1",
 		"remark-mdx-frontmatter": "^1.1.1",
-		"remark-toc": "^8.0.1",
-		"shiki": "^0.10.1"
+		"remark-toc": "^8.0.1"
 	},
 	"devDependencies": {
 		"@svgr/webpack": "^6.2.1",

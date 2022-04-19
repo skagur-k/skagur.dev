@@ -1,66 +1,159 @@
 pre {
-	overflow-x: auto;
+	--prism-border-radius: theme('borderRadius.2xl');
+	--prism-font-weight: theme('fontWeight.semibold');
+	--prism-font-size: theme('fontSize.base');
+	--prism-code-color: theme('colors.amber[600]')
+	--prism-foreground-color: theme('colors.black');
+	--prism-background-color: theme('colors.gray[200]');
+	--comment: theme('colors.gray[400]');
+	--string: theme('colors.cyan[900]');
+	--property: theme('colors.cyan[800]');
+	--literal: theme('colors.blue[500]');
+	--keyword: theme('colors.blue[700]');
+	--parameter: theme('colors.yellow[900]');
+	--punctuation: theme('colors.gray[600]');
+	--class: theme('colors.teal[900]');
+	--function: theme('colors.red[600]');
+	--namespace: theme('colors.cyan[700]');
+	--number: #1c6b48;
+	--boolean: #1c6b48;
+	--variable: #c2b36e;
+	--deleted: #a14f55;
+	--builtin: #e0a569;
+	--decorator: #bd8f8f;
+	--regex: #ab5e3f;
+	--json-property: #6b8b9e;
+	--line-number: #888888;
+	--line-number-gutter: #eeeeee;
+	--line-highlight-background: #444444;
 }
 
-/**
- * Inspired by gatsby remark prism - https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/
- * 1. Make the element just wide enough to fit its content.
- * 2. Always fill the visible space in .code-highlight.
- */
+.dark pre {
+	--prism-foreground-color: theme('colors.white');
+	--prism-background-color: theme('colors.gray[700]');
+	--comment: theme('colors.gray[400]');
+	--string: theme('colors.amber[200]');
+	--property: theme('colors.cyan[400]');
+	--literal: theme('colors.blue[500]');
+	--keyword: theme('colors.blue[400]');
+	--parameter: theme('colors.yellow[500]');
+	--punctuation: theme('colors.white');
+	--class: theme('colors.teal[300]');
+	--function: theme('colors.red[400]');
+	--namespace: theme('colors.cyan[200]');
+	--number: #1c6b48;
+	--boolean: #1c6b48;
+	--variable: #c2b36e;
+	--deleted: #a14f55;
+	--builtin: #e0a569;
+	--decorator: #bd8f8f;
+	--regex: #ab5e3f;
+	--json-property: #6b8b9e;
+	--line-number: #888888;
+	--line-number-gutter: #eeeeee;
+	--line-highlight-background: #444444;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+	font-family: 'JetBrains Mono';
+	font-weight: var(--prism-font-weight);
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1.5em;
+	margin: 0.25em 0 2em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	
+}
+
+.rehype-code-title {
+	font-weight: bold;
+	margin-bottom: 0;
+	text-align: left;
+	margin-right: 1em;
+}
+
+/* Inline code */
+:not(pre) > code {
+	padding: 0 0.3em;
+	border-radius: 0.3em;
+	border-width: 1px;
+}
+
 .code-highlight {
-	float: left;
-	min-width: 100%; /* 2 */
+  float: left; /* 1 */
+  min-width: 100%; /* 2 */
 }
 
 .code-line {
-	display: block;
-	padding-left: 16px;
-	padding-right: 16px;
-	margin-left: -16px;
-	margin-right: -16px;
-	border-left-width: 4px;
-	border-left-color: rgba(31, 41, 55, 0.1); /* Set code block color */
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: -16px;
+  margin-right: -16px;
+  border-left-width: 4px;
+  border-left-color: rgba(31, 41, 55, 0.01); /* Set code block color */
 }
 
 .code-line.inserted {
-	background-color: rgba(16, 185, 129, 0.2); /* Set inserted line (+) color */
+  background-color: rgba(16, 185, 129, 0.2); /* Set inserted line (+) color */
 }
 
 .code-line.deleted {
-	background-color: rgba(239, 68, 68, 0.2); /* Set deleted line (-) color */
+  background-color: rgba(239, 68, 68, 0.2); /* Set deleted line (-) color */
 }
 
+
 .highlight-line {
-	margin-left: -16px;
-	margin-right: -16px;
-	background-color: rgba(55, 65, 81, 0.2); /* Set highlight bg color */
+	background-color: rgba(55, 130, 255, 0.3);
 	border-left-width: 4px;
-	border-left-color: rgb(
-		59,
-		130,
-		246
-	); /* Set highlight accent border color */
+	border-left-color: rgb(59, 130, 246);	
 }
 
 .line-number::before {
-	display: inline-block;
-	width: 1rem;
-	text-align: center;
-	margin-right: 16px;
-	margin-left: -10px;
-	color: rgb(156, 163, 175, 1); /* Line number color */
-	content: attr(line);
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin-right: 16px;
+  margin-left: -8px;
+  color: rgba(156, 163, 175, 0.8); /* Line number color */
+  content: attr(line);
 }
 
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: #446e69;
+	color: var(--comment);
 }
 
 .token.punctuation {
-	color: #d6b007;
+	color: var(--punctuation);
+}
+
+.token.parameter {
+	color: var(--parameter);
 }
 
 .token.property,
@@ -70,43 +163,50 @@ pre {
 .token.constant,
 .token.symbol,
 .token.deleted {
-	color: #d6e7ff;
+	color: var(--property);
+}
+
+.token.namespace {
+	color: var(--namespace);
 }
 
 .token.selector,
 .token.attr-name,
 .token.builtin,
 .token.inserted {
-	color: #e60067;
+	color: var(--builtin);
 }
 
 .token.string,
 .token.char {
-	color: #49c6ec;
+	color: var(--string);
 }
 
 .token.operator,
 .token.entity,
 .token.url,
-.language-css .token.string,
-.style .token.string {
-	color: #ec8e01;
+.language-css,
+.style {
+	color: var(--punctuation);
 	background: transparent;
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: #0fe468;
+	color: var(--keyword);
 }
 
-.token.function,
 .token.class-name {
-	color: #78f3e9;
+	color: var(--class);
+}
+
+.token.function {
+	color: var(--function);
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-	color: #d6e7ff;
+	color: var(--regex);
 }

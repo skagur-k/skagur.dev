@@ -10,6 +10,8 @@ export const Title = (props) => (
 	/>
 )
 
+const pre = (props) => <pre {...props} />
+
 const a = (props) => {
 	const href = props.href
 	const isInternalLink =
@@ -18,7 +20,7 @@ const a = (props) => {
 	if (isInternalLink) {
 		return (
 			<Link href={href}>
-				<a {...props} className='no-underline'>
+				<a {...props} className='font-bold no-underline'>
 					{props.children}
 				</a>
 			</Link>
@@ -29,7 +31,7 @@ const a = (props) => {
 		<a
 			target='_blank'
 			rel='noopener noreferrer'
-			className='no-underline'
+			className='no-underline font-bold text-blue-700 hover:text-blue-500 dark:text-blue-500 dark:hover:text-blue-700'
 			{...props}
 		/>
 	)

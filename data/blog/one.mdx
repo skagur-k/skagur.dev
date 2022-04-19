@@ -20,16 +20,62 @@ contra Lethes pudor alta adeo Medea.
 [Movet](http://www.vestra-gutture.io/nec-tardus.html) ipsam. Parentes _paratus_,
 `Code` vocem rupit attollo cum puellam gravis fata.
 
-```js hello.js {1,3-4} showLineNumbers
-function lorem(ipsum, dolor = 1) {
-	- const sit = ipsum == null ? 0 : ipsum.sit
-	+ const sit = ipsum == null ? 0 : ipsum.sit
-	dolor = sit - amet(dolor)
-	return sit ? consectetur(ipsum) : []
+-   Hello
+-   World
+-   This
+-   is
+-   A List
+
+|  Tables  |      Are      | Cool  |
+| :------: | :-----------: | :---: |
+| col 1 is | left-aligned  | $1600 |
+| col 2 is |   centered    |  $12  |
+| col 3 is | right-aligned |  $1   |
+
+```java:hello.java showLineNumbers
+package mypackage;
+
+import de.svenjacobs.loremipsum.LoremIpsum;
+
+public class MyClass {
+  private LoremIpsum loremIpsum;
+
+  public MyClass() {
+	this.loremIpsum = new LoremIpsum();
+  }
+
+  public MyData createDummyData(int a, double b) {
+	MyData data = new MyData();
+
+    // returns 50 words of lorem ipsum text
+	data.setText( loremIpsum.getWords( 50 ) );
+
+    // returns 150 words of lorem ipsum text starting with
+    // the third word (text will not begin with "Lorem ipsum")
+    data.setAnotherText( loremIpsum.getWords( 150, 2 ) );
+
+    // returns two paragraphs of lorem ipsum
+    data.setYetAnotherText( loremIpsum.getParagraphs( 2 ) );
+
+    return data;
+  }
 }
 ```
 
-```js app.js showLineNumbers
+```java:hello.js {1,3-4} showLineNumbers
+function lorem(ipsum, dolor = 1) {
+	const sit = ipsum == null ? 0 : ipsum.sit
+	const sit = ipsum == null ? 0 : ipsum.sit
+	const string = 'Hello World!'
+	const boolean = true
+	const number = 238728.0
+	console.log('Hello World!', string)
+	dolor = sit - amet(dolor)
+	return sit ? consectetur(ipsum) : [] // This is a comment!!
+}
+```
+
+```js:app.js showLineNumbers
 function lorem(ipsum, dolor = 1) {
 	const sit = ipsum == null ? 0 : ipsum.sit
 	dolor = sit - amet(dolor)
@@ -37,7 +83,7 @@ function lorem(ipsum, dolor = 1) {
 }
 ```
 
-```python hello.py
+```python:hello.py
 print("Hello, world!")
 ```
 
