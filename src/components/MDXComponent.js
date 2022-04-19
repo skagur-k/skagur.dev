@@ -10,7 +10,13 @@ export const Title = (props) => (
 	/>
 )
 
-const pre = (props) => <pre {...props} />
+const pre = (props) => {
+	return (
+		<div>
+			<pre {...props} />
+		</div>
+	)
+}
 
 const a = (props) => {
 	const href = props.href
@@ -70,18 +76,16 @@ const A = ({ children, rest, href }) => {
 }
 
 const h1 = (props) => (
-	<div>
-		<h1
-			{...props}
-			className='text-lg md:text-xl flex-wrap leading-10 font-bold my-8 border-l-4 border-l-amber-500 pl-4 no-underline'
-		/>
-	</div>
+	<h1
+		{...props}
+		className='text-lg md:text-3xl flex-wrap leading-10 font-bold my-8 no-underline'
+	/>
 )
 
 const h2 = (props) => (
 	<h2
 		{...props}
-		className='text-lg md:text-xl font-bold my-4 border-b-2 border-b-amber-500 pb-1 inline-block no-underline'
+		className='text-lg md:text-xl px-2 hover:bg-amber-400 font-bold my-4 border-b-0 border-b-amber-500 pb-1 inline-block no-underline'
 	/>
 )
 
@@ -106,6 +110,7 @@ const MDXComponents = {
 	h3,
 	a,
 	A,
+	pre,
 	img: ResponsiveImage,
 }
 

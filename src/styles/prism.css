@@ -4,7 +4,7 @@ pre {
 	--prism-font-size: theme('fontSize.base');
 	--prism-code-color: theme('colors.amber[600]')
 	--prism-foreground-color: theme('colors.black');
-	--prism-background-color: theme('colors.gray[200]');
+	--prism-background-color: theme('colors.gray[100]');
 	--comment: theme('colors.gray[400]');
 	--string: theme('colors.cyan[900]');
 	--property: theme('colors.cyan[800]');
@@ -54,6 +54,11 @@ pre {
 	--line-highlight-background: #444444;
 }
 
+
+.md\:prose :where(a):not(:where([class~="not-prose"] *)) {
+    text-decoration: none;;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
 	font-family: 'JetBrains Mono';
@@ -75,6 +80,7 @@ pre[class*="language-"] {
 	hyphens: none;
 }
 
+
 /* Code blocks */
 pre[class*="language-"] {
 	padding: 1.5em;
@@ -82,9 +88,15 @@ pre[class*="language-"] {
 	overflow: auto;
 }
 
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-	
+.md\:code :not(:where([class~="not-prose"] *)) {
+	color: theme('colors.red[500]');
+	background: theme('colors.gray[100]');
+	font-weight: theme('fontWeight.semibold');
+	border-radius: theme('borderRadius.lg');
+	padding: 0 0.5em;
+	&::before, &::after{
+		content: '';
+	}
 }
 
 .rehype-code-title {
@@ -113,7 +125,10 @@ pre[class*="language-"] {
   margin-left: -16px;
   margin-right: -16px;
   border-left-width: 4px;
-  border-left-color: rgba(31, 41, 55, 0.01); /* Set code block color */
+  border-left-color: rgba(31, 41, 55, 0); /* Set code block color */
+  &:hover{
+	  background:  rgba(55, 130, 255, 0.1);
+  }
 }
 
 .code-line.inserted {
@@ -161,8 +176,7 @@ pre[class*="language-"] {
 .token.boolean,
 .token.number,
 .token.constant,
-.token.symbol,
-.token.deleted {
+.token.symbol {
 	color: var(--property);
 }
 
@@ -173,7 +187,7 @@ pre[class*="language-"] {
 .token.selector,
 .token.attr-name,
 .token.builtin,
-.token.inserted {
+{
 	color: var(--builtin);
 }
 
