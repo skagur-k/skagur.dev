@@ -14,42 +14,20 @@ body {
 	height: 100%;
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
-}
 
-body::-webkit-scrollbar {
-	display: none;
-}
-
-@layer base {
-	::selection {
-		@apply text-white bg-gray-500;
+	&::-webkit-scrollbar {
+		display: none;
 	}
+
+	@apply bg-white text-black dark:bg-gray-800 dark:text-white antialiased h-full transition-colors duration-300;
 }
 
-@media (max-width: 768px) {
-	.article-content .anchor {
-		/* reduce the margin for "#" */
-		margin-left: -0.65em;
-	}
+::selection {
+	@apply text-white bg-gray-500;
 }
 
-.article-content .anchor:hover {
-	visibility: visible;
-	text-decoration-line: none;
-}
-
-.article-content *:hover > .anchor {
-	visibility: visible;
-	text-decoration-line: none;
-}
-
-.article-content .anchor:after {
-	color: var(--text-secondary-color);
-	content: '#';
-}
-
-.article-content .text-secondary {
-	color: var(--text-secondary-color);
+ul {
+	margin-bottom: theme('spacing.8');
 }
 
 .react-icons {

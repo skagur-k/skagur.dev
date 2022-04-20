@@ -46,26 +46,9 @@ module.exports = {
 				},
 			},
 			typography: ({ theme }) => {
-				const breakout = {
-					marginLeft: 0,
-					marginRight: 0,
-				}
-
-				const fontSize = (size) => {
-					const result = theme(`fontSize.${size}`)
-					return Array.isArray(result) ? result[0] : result
-				}
-
 				return {
 					DEFAULT: {
-						css: {
-							fontSize: theme('fontSize.lg'),
-							pre: {
-								color: 'var(--prism-foreground-color)',
-								backgroundColor:
-									'var(--prism-background-color)',
-							},
-						},
+						css: {},
 					},
 				}
 			},

@@ -28,7 +28,7 @@ function BlogListLayout({ posts, title, initialPosts = [], pagination }) {
 					type='text'
 					onChange={(e) => setSearchValue(e.target.value)}
 					placeholder='Search posts'
-					className='block w-full px-4 py-2 placeholder:opacity-60 rounded-2xl bg-gray-200 dark:bg-gray-700 focus:ring-2 focus:ring-amber-500 focus:outline-none transition-colors duration-500'
+					className='block w-full px-4 py-2 placeholder:opacity-60 rounded-2xl bg-gray-200 dark:bg-gray-700 focus:ring-2 focus:ring-amber-500 focus:outline-none transition-colors duration-300'
 				/>
 				<svg
 					className='absolute h-6 w-6 right-3 top-2'
@@ -95,7 +95,7 @@ function BlogListLayout({ posts, title, initialPosts = [], pagination }) {
 										))}
 									</div>
 								)}
-								<div className='prose font-base text-gray-300 dark:text-gray-400'>
+								<div className='font-sm text-gray-300 dark:text-gray-400'>
 									{summary}
 								</div>
 							</div>

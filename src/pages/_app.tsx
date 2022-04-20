@@ -4,7 +4,6 @@ import MainLayout from '@/components/MainLayout'
 import MotionLayout from '@/components/Layouts/MotionLayout'
 import DefaultSEO from '@/components/DefaultSEO'
 import 'prismjs/plugins/command-line/prism-command-line.min'
-
 import MaintenancePage from './maintenance'
 import '@/styles/globals.css'
 import '@/styles/prose.css'

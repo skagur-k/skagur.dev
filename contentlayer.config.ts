@@ -11,6 +11,7 @@ import { remarkMdxFrontmatter } from 'remark-mdx-frontmatter'
 import rehypeSlug from 'rehype-slug'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrismPlus from 'rehype-prism-plus'
+import { h } from 'hastscript'
 // import rehypePrism from 'rehype-prism'
 
 const computedFields: ComputedFields = {
@@ -85,7 +86,7 @@ export default makeSource({
 				{
 					behavior: 'wrap',
 					properties: {
-						className: ['anchor'],
+						class: ['anchor'],
 						tabIndex: -1,
 						ariaHidden: true,
 					},

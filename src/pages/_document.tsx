@@ -20,7 +20,7 @@ export default class Document extends NextDocument {
 					rel='stylesheet'
 				/>
 				<link rel='icon' href='/favicon.ico' />
-				<body className='bg-white text-black dark:bg-gray-800 dark:text-white antialiased h-full transition-colors duration-500'>
+				<body>
 					<Main />
 					<NextScript />
 				</body>

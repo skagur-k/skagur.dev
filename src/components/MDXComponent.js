@@ -1,66 +1,40 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaLink } from 'react-icons/fa'
-import Prism from 'prismjs'
-import 'prismjs/components/prism-jsx.min'
-import { useEffect } from 'react'
+import classNames from 'classnames'
 
 export const Title = (props) => (
 	<h1
 		{...props}
-		className='text-2xl md:text-4xl font-extrabold leading-10 mb-12 text-center '
+		className='text-2xl md:text-5xl font-extrabold leading-12 mt-4 mb-6 text-center '
 	/>
 )
 
-function Shell({ language, output, props, children }) {
-	const command = document.getElementsByClassName('command-line')[0]
-	console.log(command)
-	useEffect(() => {
-		// Prism.highlightAll()
-	}, [])
+export const Author = ({ children, ...rest }) => {
 	return (
-		<pre
-			className={`command-line language-${language}`}
-			data-user='root'
-			data-host='localhost'
-			data-output={output}
-			{...props}>
-			{children}
-		</pre>
+		<div className='mb-12 '>
+			<p
+				className='text-base md:text-lg text-center font-semibold'
+				{...rest}>
+				{children}
+			</p>
+		</div>
 	)
 }
 
-// const pre = (props) => {
-// 	return (
-// 		<div>
-// 			<pre {...props} />
-// 		</div>
-// 	)
-// }
-
-const a = (props) => {
-	const href = props.href
+const a = ({ href, ...rest }) => {
 	const isInternalLink =
 		href && (href.startsWith('/') || href.startsWith('#'))
 
 	if (isInternalLink) {
 		return (
 			<Link href={href}>
-				<a {...props} className='font-bold no-underline'>
-					{props.children}
-				</a>
+				<a {...rest} />
 			</Link>
 		)
 	}
 
-	return (
-		<a
-			target='_blank'
-			rel='noopener noreferrer'
-			className='no-underline font-bold text-blue-700 hover:text-blue-500 dark:text-blue-500 dark:hover:text-blue-700'
-			{...props}
-		/>
-	)
+	return <a target='_blank' rel='noopener noreferrer' href={href} {...rest} />
 }
 
 const A = ({ children, rest, href }) => {
@@ -95,23 +69,11 @@ const A = ({ children, rest, href }) => {
 	)
 }
 
-const h1 = (props) => (
-	<h1
-		{...props}
-		className='text-lg md:text-3xl flex-wrap leading-10 font-bold my-8 no-underline'
-	/>
-)
+const h1 = (props) => <h1 {...props} className='text-lg md:text-3xl' />
 
-const h2 = (props) => (
-	<h2
-		{...props}
-		className='text-lg md:text-xl px-2 hover:bg-amber-400 font-bold my-4 border-b-0 border-b-amber-500 pb-1 inline-block no-underline'
-	/>
-)
+const h2 = (props) => <h2 {...props} className='text-lg md:text-xl' />
 
-const h3 = (props) => (
-	<h3 {...props} className='text-lg md:text-lg font-bold my-4 no-underline' />
-)
+const h3 = (props) => <h3 {...props} className='text-lg md:text-lg' />
 
 const ResponsiveImage = (props) => {
 	return (
@@ -124,13 +86,25 @@ const ResponsiveImage = (props) => {
 	)
 }
 
+function pre(props) {
+	const { className, children, ...rest } = { ...props }
+	const childClassNames = classNames('relative', className)
+	return (
+		<pre className={childClassNames} {...rest}>
+			<div className='hidden hover:absolute copy-button right-8 top-2 border-2 p-2 border-black'>
+				Copy
+			</div>
+			{children}
+		</pre>
+	)
+}
+
 const MDXComponents = {
 	h1,
 	h2,
 	h3,
 	a,
 	A,
-	Shell,
 	img: ResponsiveImage,
 }
 
