@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
-
 import { FaLink } from 'react-icons/fa'
+import Prism from 'prismjs'
+import 'prismjs/components/prism-jsx.min'
+import { useEffect } from 'react'
 
 export const Title = (props) => (
 	<h1
@@ -10,13 +12,31 @@ export const Title = (props) => (
 	/>
 )
 
-const pre = (props) => {
+function Shell({ language, output, props, children }) {
+	const command = document.getElementsByClassName('command-line')[0]
+	console.log(command)
+	useEffect(() => {
+		// Prism.highlightAll()
+	}, [])
 	return (
-		<div>
-			<pre {...props} />
-		</div>
+		<pre
+			className={`command-line language-${language}`}
+			data-user='root'
+			data-host='localhost'
+			data-output={output}
+			{...props}>
+			{children}
+		</pre>
 	)
 }
+
+// const pre = (props) => {
+// 	return (
+// 		<div>
+// 			<pre {...props} />
+// 		</div>
+// 	)
+// }
 
 const a = (props) => {
 	const href = props.href
@@ -110,7 +130,7 @@ const MDXComponents = {
 	h3,
 	a,
 	A,
-	pre,
+	Shell,
 	img: ResponsiveImage,
 }
 

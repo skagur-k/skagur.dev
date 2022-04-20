@@ -64,39 +64,6 @@ module.exports = {
 								color: 'var(--prism-foreground-color)',
 								backgroundColor:
 									'var(--prism-background-color)',
-								borderRadius: 'var(--prism-border-radius)',
-								boxShadow: theme('boxShadow.lg'),
-							},
-							img: {
-								// images are wrapped in <p>, which already has margin
-								marginTop: 0,
-								marginBottom: 0,
-								borderRadius: theme('borderRadius.lg'),
-							},
-							blockquote: {
-								fontWeight: theme('fontWeight.normal'),
-								backgroundColor:
-									'var(--prism-background-color)',
-								color: 'var(--prism-foreground-color)',
-								borderRadius: theme('borderRadius.xl'),
-								padding: theme('spacing.2'),
-								marginTop: 0,
-								marginBottom: theme('spacing.4'),
-								boxShadow: theme('boxShadow.lg'),
-							},
-							'blockquote > :last-child': {
-								marginBottom: theme('spacing.4'),
-							},
-							'blockquote > p': {
-								marginTop: theme('spacing.4'),
-							},
-							ul: {
-								marginTop: 0,
-								marginBottom: theme('spacing.8'),
-							},
-							ol: {
-								marginTop: 0,
-								marginBottom: theme('spacing.8'),
 							},
 						},
 					},

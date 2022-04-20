@@ -28,7 +28,7 @@ export default function Post({ data, prev, next }) {
 			<Title>{title}</Title>
 			<article className='flex justify-center '>
 				{mounted && (
-					<div className='prose-sm md:prose dark:prose-invert prose-img:rounded-xl transition-colors duration-100'>
+					<div className='prose dark:prose-invert transition-colors duration-100'>
 						<MDXContent components={{ ...MDXComponents }} />
 					</div>
 				)}

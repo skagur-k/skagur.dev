@@ -1,0 +1,230 @@
+:root {
+	--prism-border-radius: theme('borderRadius.none');
+	--prism-font-weight: theme('fontWeight.semibold');
+	--prism-font-size: theme('fontSize.base');
+	--code-block-color: theme('colors.red[500]');
+	--prism-foreground-color: theme('colors.black');
+	--prism-background-color: theme('colors.gray[200]');
+	--title-bg: theme('colors.gray[100]');
+	--comment: theme('colors.gray[400]');
+	--string: theme('colors.cyan[900]');
+	--property: theme('colors.cyan[800]');
+	--literal: theme('colors.blue[500]');
+	--keyword: theme('colors.blue[700]');
+	--parameter: theme('colors.yellow[900]');
+	--punctuation: theme('colors.gray[600]');
+	--class: theme('colors.teal[900]');
+	--function: theme('colors.red[600]');
+	--namespace: theme('colors.cyan[700]');
+	--number: #1c6b48;
+	--boolean: #1c6b48;
+	--variable: #c2b36e;
+	--deleted: #a14f55;
+	--builtin: #e0a569;
+	--decorator: #bd8f8f;
+	--regex: #ab5e3f;
+	--json-property: #6b8b9e;
+	--line-number: #888888;
+	--line-number-gutter: #eeeeee;
+	--line-highlight-background: #444444;
+}
+
+:root.dark {
+	--prism-foreground-color: theme('colors.white');
+	--prism-background-color: theme('colors.gray[700]');
+	--title-bg: theme('colors.gray[500]');
+	--comment: theme('colors.gray[400]');
+	--string: theme('colors.amber[200]');
+	--property: theme('colors.cyan[400]');
+	--literal: theme('colors.blue[500]');
+	--keyword: theme('colors.blue[400]');
+	--parameter: theme('colors.yellow[500]');
+	--punctuation: theme('colors.white');
+	--class: theme('colors.teal[300]');
+	--function: theme('colors.red[400]');
+	--namespace: theme('colors.cyan[200]');
+	--number: #1c6b48;
+	--boolean: #1c6b48;
+	--variable: #c2b36e;
+	--deleted: #a14f55;
+	--builtin: #e0a569;
+	--decorator: #bd8f8f;
+	--regex: #ab5e3f;
+	--json-property: #6b8b9e;
+	--line-number: #888888;
+	--line-number-gutter: #eeeeee;
+	--line-highlight-background: #444444;
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+	font-family: 'JetBrains Mono';
+	font-weight: var(--prism-font-weight);
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 6;
+	-o-tab-size: 6;
+	tab-size: 6;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+	padding: 1.5em;
+	margin: 0 0 2em 0;
+	overflow: auto;
+}
+
+blockquote {
+	border-left: 4px solid rgba(156, 163, 175, 0.4) !important;
+	margin: 1rem 0;
+	padding: 0 1rem;
+}
+
+.rehype-code-title {
+	background-color: var(--title-bg);
+	color: var(--prism-foreground-color);
+	font-weight: bold;
+	font-size: theme('fontSize.base');
+	margin-bottom: 0;
+	text-align: right;
+	border-top-left-radius: theme('borderRadius.xl');
+	border-top-right-radius: theme('borderRadius.xl');
+	padding: theme('spacing.2') theme('spacing.4');
+}
+
+:not(.rehype-code-title) + pre[class*='language-'] {
+	border-radius: theme('borderRadius.2xl');
+}
+
+.rehype-code-title + pre[class*='language-'] {
+	border-bottom-left-radius: theme('borderRadius.2xl');
+	border-bottom-right-radius: theme('borderRadius.2xl');
+}
+
+/* Inline code */
+:not(pre) > code {
+	color: var(--code-block-color) !important;
+	font-weight: theme('fontWeight.semibold') !important;
+	padding: 0 0.3em;
+	border-radius: 0.3em;
+	border-width: 1px;
+	&::before,
+	&::after {
+		content: '' !important;
+	}
+}
+
+.code-line {
+	display: block;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-left: -16px;
+	margin-right: -16px;
+	border-left-width: 4px;
+	border-left-color: rgba(31, 41, 55, 0); /* Set code block color */
+	&:hover {
+		background: rgba(55, 130, 255, 0.1);
+	}
+}
+
+.code-line.inserted {
+	background-color: rgba(16, 185, 129, 0.2); /* Set inserted line (+) color */
+}
+
+.code-line.deleted {
+	background-color: rgba(239, 68, 68, 0.2); /* Set deleted line (-) color */
+}
+
+.highlight-line {
+	background-color: rgba(55, 130, 255, 0.3);
+	border-left-width: 4px;
+	border-left-color: rgb(59, 130, 246);
+}
+
+.line-number::before {
+	display: inline-block;
+	width: 1rem;
+	text-align: right;
+	margin-right: 16px;
+	margin-left: -8px;
+	color: rgba(156, 163, 175, 0.8); /* Line number color */
+	content: attr(line);
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: var(--comment);
+}
+
+.token.punctuation {
+	color: var(--punctuation);
+}
+
+.token.parameter {
+	color: var(--parameter);
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+	color: var(--property);
+}
+
+.token.namespace {
+	color: var(--namespace);
+}
+
+.token.selector,
+.token.attr-name,
+.token.builtin {
+	color: var(--builtin);
+}
+
+.token.string,
+.token.char {
+	color: var(--string);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css,
+.style {
+	color: var(--punctuation);
+	background: transparent;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: var(--keyword);
+}
+
+.token.class-name {
+	color: var(--class);
+}
+
+.token.function {
+	color: var(--function);
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: var(--regex);
+}

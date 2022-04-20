@@ -1,226 +1,148 @@
-pre {
-	--prism-border-radius: theme('borderRadius.2xl');
-	--prism-font-weight: theme('fontWeight.semibold');
-	--prism-font-size: theme('fontSize.base');
-	--prism-code-color: theme('colors.amber[600]')
-	--prism-foreground-color: theme('colors.black');
-	--prism-background-color: theme('colors.gray[100]');
-	--comment: theme('colors.gray[400]');
-	--string: theme('colors.cyan[900]');
-	--property: theme('colors.cyan[800]');
-	--literal: theme('colors.blue[500]');
-	--keyword: theme('colors.blue[700]');
-	--parameter: theme('colors.yellow[900]');
-	--punctuation: theme('colors.gray[600]');
-	--class: theme('colors.teal[900]');
-	--function: theme('colors.red[600]');
-	--namespace: theme('colors.cyan[700]');
-	--number: #1c6b48;
-	--boolean: #1c6b48;
-	--variable: #c2b36e;
-	--deleted: #a14f55;
-	--builtin: #e0a569;
-	--decorator: #bd8f8f;
-	--regex: #ab5e3f;
-	--json-property: #6b8b9e;
-	--line-number: #888888;
-	--line-number-gutter: #eeeeee;
-	--line-highlight-background: #444444;
+/* PrismJS 1.28.0
+https://prismjs.com/download.html#themes=prism&languages=bash+diff+git+makefile+powershell+regex&plugins=line-highlight+line-numbers+file-highlight+command-line+toolbar+copy-to-clipboard+diff-highlight */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+pre[id].linkable-line-numbers span.line-numbers-rows {
+	pointer-events: all;
+}
+pre[id].linkable-line-numbers span.line-numbers-rows > span:before {
+	cursor: pointer;
+}
+pre[id].linkable-line-numbers span.line-numbers-rows > span:hover:before {
+	background-color: rgba(128, 128, 128, 0.2);
+}
+.line-numbers-rows > span:before {
+	content: counter(linenumber);
+	color: #999;
+	display: block;
+	padding-right: 0.8em;
+	text-align: right;
 }
 
-.dark pre {
-	--prism-foreground-color: theme('colors.white');
-	--prism-background-color: theme('colors.gray[700]');
-	--comment: theme('colors.gray[400]');
-	--string: theme('colors.amber[200]');
-	--property: theme('colors.cyan[400]');
-	--literal: theme('colors.blue[500]');
-	--keyword: theme('colors.blue[400]');
-	--parameter: theme('colors.yellow[500]');
-	--punctuation: theme('colors.white');
-	--class: theme('colors.teal[300]');
-	--function: theme('colors.red[400]');
-	--namespace: theme('colors.cyan[200]');
-	--number: #1c6b48;
-	--boolean: #1c6b48;
-	--variable: #c2b36e;
-	--deleted: #a14f55;
-	--builtin: #e0a569;
-	--decorator: #bd8f8f;
-	--regex: #ab5e3f;
-	--json-property: #6b8b9e;
-	--line-number: #888888;
-	--line-number-gutter: #eeeeee;
-	--line-highlight-background: #444444;
-}
-
-
-.md\:prose :where(a):not(:where([class~="not-prose"] *)) {
-    text-decoration: none;;
-}
-
-code[class*="language-"],
-pre[class*="language-"] {
-	font-family: 'JetBrains Mono';
-	font-weight: var(--prism-font-weight);
-	direction: ltr;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	line-height: 1.5;
-
-	-moz-tab-size: 2;
-	-o-tab-size: 2;
-	tab-size: 2;
-
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-}
-
-
-/* Code blocks */
-pre[class*="language-"] {
-	padding: 1.5em;
-	margin: 0.25em 0 2em 0;
-	overflow: auto;
-}
-
-.md\:code :not(:where([class~="not-prose"] *)) {
-	color: theme('colors.red[500]');
-	background: theme('colors.gray[100]');
-	font-weight: theme('fontWeight.semibold');
-	border-radius: theme('borderRadius.lg');
-	padding: 0 0.5em;
-	&::before, &::after{
-		content: '';
-	}
-}
-
-.rehype-code-title {
-	font-weight: bold;
-	margin-bottom: 0;
-	text-align: left;
+.command-line-prompt {
+	border-right: 1px solid #999;
+	display: block;
+	float: left;
+	font-size: 100%;
+	letter-spacing: -1px;
 	margin-right: 1em;
+	pointer-events: none;
+	text-align: right;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
-/* Inline code */
-:not(pre) > code {
-	padding: 0 0.3em;
-	border-radius: 0.3em;
-	border-width: 1px;
+.command-line-prompt > span:before {
+	opacity: 0.7;
+	content: ' ';
+	display: block;
+	padding-right: 0.8em;
 }
 
-.code-highlight {
-  float: left; /* 1 */
-  min-width: 100%; /* 2 */
+.command-line-prompt > span[data-user]:before {
+	content: '[' attr(data-user) '@' attr(data-host) '] $';
 }
 
-.code-line {
-  display: block;
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-left: -16px;
-  margin-right: -16px;
-  border-left-width: 4px;
-  border-left-color: rgba(31, 41, 55, 0); /* Set code block color */
-  &:hover{
-	  background:  rgba(55, 130, 255, 0.1);
-  }
+.command-line-prompt > span[data-user='root']:before {
+	content: '[' attr(data-user) '@' attr(data-host) '] #';
 }
 
-.code-line.inserted {
-  background-color: rgba(16, 185, 129, 0.2); /* Set inserted line (+) color */
+.command-line-prompt > span[data-prompt]:before {
+	content: attr(data-prompt);
 }
 
-.code-line.deleted {
-  background-color: rgba(239, 68, 68, 0.2); /* Set deleted line (-) color */
+.command-line-prompt > span[data-continuation-prompt]:before {
+	content: attr(data-continuation-prompt);
 }
 
-
-.highlight-line {
-	background-color: rgba(55, 130, 255, 0.3);
-	border-left-width: 4px;
-	border-left-color: rgb(59, 130, 246);	
+.command-line span.token.output {
+	/* Make shell output lines a bit lighter to distinguish them from shell commands */
+	opacity: 0.7;
 }
 
-.line-number::before {
-  display: inline-block;
-  width: 1rem;
-  text-align: right;
-  margin-right: 16px;
-  margin-left: -8px;
-  color: rgba(156, 163, 175, 0.8); /* Line number color */
-  content: attr(line);
+div.code-toolbar {
+	position: relative;
 }
 
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-	color: var(--comment);
+div.code-toolbar > .toolbar {
+	position: absolute;
+	z-index: 10;
+	top: 0.3em;
+	right: 0.2em;
+	transition: opacity 0.3s ease-in-out;
+	opacity: 0;
 }
 
-.token.punctuation {
-	color: var(--punctuation);
+div.code-toolbar:hover > .toolbar {
+	opacity: 1;
 }
 
-.token.parameter {
-	color: var(--parameter);
+/* Separate line b/c rules are thrown out if selector is invalid.
+   IE11 and old Edge versions don't support :focus-within. */
+div.code-toolbar:focus-within > .toolbar {
+	opacity: 1;
 }
 
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol {
-	color: var(--property);
+div.code-toolbar > .toolbar > .toolbar-item {
+	display: inline-block;
 }
 
-.token.namespace {
-	color: var(--namespace);
+div.code-toolbar > .toolbar > .toolbar-item > a {
+	cursor: pointer;
 }
 
-.token.selector,
-.token.attr-name,
-.token.builtin,
-{
-	color: var(--builtin);
+div.code-toolbar > .toolbar > .toolbar-item > button {
+	background: none;
+	border: 0;
+	color: inherit;
+	font: inherit;
+	line-height: normal;
+	overflow: visible;
+	padding: 0;
+	-webkit-user-select: none; /* for button */
+	-moz-user-select: none;
+	-ms-user-select: none;
 }
 
-.token.string,
-.token.char {
-	color: var(--string);
+div.code-toolbar > .toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar > .toolbar-item > span {
+	color: #bbb;
+	font-size: 0.8em;
+	padding: 0 0.5em;
+	background: #f5f2f0;
+	background: rgba(224, 224, 224, 0.2);
+	box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
+	border-radius: 0.5em;
 }
 
-.token.operator,
-.token.entity,
-.token.url,
-.language-css,
-.style {
-	color: var(--punctuation);
-	background: transparent;
+div.code-toolbar > .toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar > .toolbar-item > a:focus,
+div.code-toolbar > .toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar > .toolbar-item > span:hover,
+div.code-toolbar > .toolbar > .toolbar-item > span:focus {
+	color: inherit;
+	text-decoration: none;
 }
 
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-	color: var(--keyword);
+pre.diff-highlight > code .token.deleted:not(.prefix),
+pre > code.diff-highlight .token.deleted:not(.prefix) {
+	background-color: rgba(255, 0, 0, 0.1);
+	color: inherit;
+	display: block;
 }
 
-.token.class-name {
-	color: var(--class);
-}
-
-.token.function {
-	color: var(--function);
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-	color: var(--regex);
+pre.diff-highlight > code .token.inserted:not(.prefix),
+pre > code.diff-highlight .token.inserted:not(.prefix) {
+	background-color: rgba(0, 255, 128, 0.1);
+	color: inherit;
+	display: block;
 }

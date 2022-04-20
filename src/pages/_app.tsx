@@ -3,11 +3,12 @@ import { AnimatePresence } from 'framer-motion'
 import MainLayout from '@/components/MainLayout'
 import MotionLayout from '@/components/Layouts/MotionLayout'
 import DefaultSEO from '@/components/DefaultSEO'
+import 'prismjs/plugins/command-line/prism-command-line.min'
 
 import MaintenancePage from './maintenance'
 import '@/styles/globals.css'
+import '@/styles/prose.css'
 import '@/styles/prism.css'
-// import '@code-hike/mdx/dist/index.css'
 
 function App({ Component, pageProps, router }: any) {
 	const url = `https://skagur.dev${router.route}`

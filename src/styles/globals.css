@@ -26,6 +26,32 @@ body::-webkit-scrollbar {
 	}
 }
 
+@media (max-width: 768px) {
+	.article-content .anchor {
+		/* reduce the margin for "#" */
+		margin-left: -0.65em;
+	}
+}
+
+.article-content .anchor:hover {
+	visibility: visible;
+	text-decoration-line: none;
+}
+
+.article-content *:hover > .anchor {
+	visibility: visible;
+	text-decoration-line: none;
+}
+
+.article-content .anchor:after {
+	color: var(--text-secondary-color);
+	content: '#';
+}
+
+.article-content .text-secondary {
+	color: var(--text-secondary-color);
+}
+
 .react-icons {
 	vertical-align: middle;
 }

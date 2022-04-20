@@ -10,11 +10,14 @@ import remarkToc from 'remark-toc'
 import { remarkMdxFrontmatter } from 'remark-mdx-frontmatter'
 import rehypeSlug from 'rehype-slug'
 import rehypeCodeTitles from 'rehype-code-titles'
-import theme from 'shiki/themes/github-light.json' assert { type: 'json' }
 import rehypePrismPlus from 'rehype-prism-plus'
-import rehypePrism from 'rehype-prism'
+// import rehypePrism from 'rehype-prism'
 
 const computedFields: ComputedFields = {
+	wordCount: {
+		type: 'number',
+		resolve: (blog) => blog.body.raw.split(/\s+/gu).length,
+	},
 	readingTime: {
 		type: 'json',
 		resolve: (blog) => readingTime(blog.body.raw),
@@ -75,19 +78,19 @@ export default makeSource({
 		],
 		rehypePlugins: [
 			rehypeSlug,
+			rehypeCodeTitles,
+			rehypePrismPlus,
 			[
 				rehypeAutolinkHeadings,
 				{
 					behavior: 'wrap',
 					properties: {
-						class: 'anchor',
-						ariaHidden: true,
+						className: ['anchor'],
 						tabIndex: -1,
+						ariaHidden: true,
 					},
 				},
 			],
-			rehypeCodeTitles,
-			rehypePrismPlus,
 		],
 	},
 })

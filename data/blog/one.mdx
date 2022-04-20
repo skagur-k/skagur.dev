@@ -13,7 +13,11 @@ ogImage:
 
 # Best React Folder Structures | Beginner - Intermediate - Advanced Guide for Intermediate Programmers around the world
 
-## Memorata nudumque
+## Memorata nuducd /usr/local/etc
+
+<Shell output={1} language='bash'>
+	cd /usr/local/etc cp php.ini php.ini.bak vi php.ini hello
+</Shell>
 
 [Lorem](http://in.org/) markdownum voce; aliter discedite ibimus rubuerunt aevum
 contra Lethes pudor alta adeo Medea.
@@ -32,33 +36,43 @@ contra Lethes pudor alta adeo Medea.
 | col 2 is |   centered    |  $12  |
 | col 3 is | right-aligned |  $1   |
 
+```shell commandline
+ls
+File updated: blog/one.mdx
+Generated 3 documents in .contentlayer
+wait  - compiling...
+event - compiled successfully in 37 ms (88 modules)
+wait  - compiling...
+event - compiled client and server successfully in 224 ms (469 modules)
+```
+
 ```java:hello.java showLineNumbers
 package mypackage;
 
 import de.svenjacobs.loremipsum.LoremIpsum;
 
 public class MyClass {
-  private LoremIpsum loremIpsum;
+	private LoremIpsum loremIpsum;
 
-  public MyClass() {
+	public MyClass() {
 	this.loremIpsum = new LoremIpsum();
-  }
+}
 
-  public MyData createDummyData(int a, double b) {
+public MyData createDummyData(int a, double b) {
 	MyData data = new MyData();
 
-    // returns 50 words of lorem ipsum text
+	// returns 50 words of lorem ipsum text
 	data.setText( loremIpsum.getWords( 50 ) );
 
-    // returns 150 words of lorem ipsum text starting with
-    // the third word (text will not begin with "Lorem ipsum")
-    data.setAnotherText( loremIpsum.getWords( 150, 2 ) );
+	// returns 150 words of lorem ipsum text starting with
+	// the third word (text will not begin with "Lorem ipsum")
+	data.setAnotherText( loremIpsum.getWords( 150, 2 ) );
 
-    // returns two paragraphs of lorem ipsum
-    data.setYetAnotherText( loremIpsum.getParagraphs( 2 ) );
+	// returns two paragraphs of lorem ipsum
+	data.setYetAnotherText( loremIpsum.getParagraphs( 2 ) );
 
-    return data;
-  }
+	return data;
+	}
 }
 ```
 
@@ -69,8 +83,6 @@ public class MyClass {
 
 ```java:hello.js {1,3-4} showLineNumbers
 function lorem(ipsum, dolor = 1) {
-(+)	const inserted;
-(-)	const deleted;
 	const sit = ipsum == null ? 0 : ipsum.sit
 	const sit = ipsum == null ? 0 : ipsum.sit
 	const string = 'Hello World!'
