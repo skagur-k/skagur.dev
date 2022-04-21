@@ -68,7 +68,7 @@ function BlogListLayout({ posts, title, initialPosts = [], pagination }) {
 
 				return (
 					<li key={slug} className='pb-8'>
-						<article className='space-y-2'>
+						<div className='space-y-2'>
 							<dl>
 								<dt className='sr-only'>Published On</dt>
 								<dd className='text-tiny font-base leading-6'>
@@ -99,7 +99,7 @@ function BlogListLayout({ posts, title, initialPosts = [], pagination }) {
 									{summary}
 								</div>
 							</div>
-						</article>
+						</div>
 					</li>
 				)
 			})}

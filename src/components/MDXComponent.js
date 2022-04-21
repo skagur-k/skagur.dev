@@ -81,7 +81,7 @@ const a = ({ href, ...rest }) => {
 	return <a target='_blank' rel='noopener noreferrer' href={href} {...rest} />
 }
 
-const h1 = (props) => <h1 {...props} className='text-lg md:text-3xl' />
+const h1 = (props) => <h1 {...props} className='text-lg md:text-2xl' />
 
 const h2 = (props) => <h2 {...props} className='text-lg md:text-xl' />
 
@@ -106,12 +106,17 @@ const Img = ({ src, alt, width, height, caption }) => {
 	)
 }
 
+const strong = (props) => {
+	return <strong className='inline shadow-2xl' {...props} />
+}
+
 const MDXComponents = {
 	h1,
 	h2,
 	h3,
 	a,
 	Alert,
+	strong,
 	Img,
 }
 
