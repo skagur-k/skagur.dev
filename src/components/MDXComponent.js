@@ -1,11 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaLink, FaInfoCircle } from 'react-icons/fa'
-import { BsExclamationCircleFill, BsFillCheckSquareFill } from 'react-icons/bs'
-import { RiAlarmWarningFill } from 'react-icons/ri'
-import { AiFillWarning } from 'react-icons/ai'
-
-import classNames from 'classnames'
+import { BiCheckSquare, BiError, BiBell, BiInfoCircle } from 'react-icons/bi'
 
 export const Title = (props) => (
 	<h1
@@ -27,32 +22,32 @@ export const Author = ({ children, ...rest }) => {
 }
 
 const Alert = ({ type, children, ...rest }) => {
-	const iconClassName = 'w-4 h-4 mr-2'
+	const iconClassName = 'w-6 h-6 mr-2'
 
 	const data = {
 		note: {
 			color: 'bg-blue-100',
 			textColor: 'text-blue-900',
 			text: 'Note',
-			icon: <FaInfoCircle className={iconClassName} />,
+			icon: <BiInfoCircle className={iconClassName} />,
 		},
 		tip: {
 			color: 'bg-green-100',
 			textColor: 'text-green-900',
 			text: 'Tip',
-			icon: <BsFillCheckSquareFill className={iconClassName} />,
+			icon: <BiCheckSquare className={iconClassName} />,
 		},
 		warning: {
 			color: 'bg-red-100',
 			textColor: 'text-red-900',
 			text: 'Warning',
-			icon: <RiAlarmWarningFill className={iconClassName} />,
+			icon: <BiBell className={iconClassName} />,
 		},
 		important: {
 			color: 'bg-yellow-100',
 			textColor: 'text-yellow-900',
 			text: 'Important',
-			icon: <AiFillWarning className={iconClassName} />,
+			icon: <BiError className={iconClassName} />,
 		},
 	}
 
@@ -61,9 +56,11 @@ const Alert = ({ type, children, ...rest }) => {
 	return (
 		<div
 			role='warning'
-			className={`alert flex items-center ${alert.color} ${alert.textColor} bg-opacity-90 my-6 px-6 py-6 rounded-2xl shadow-md`}>
-			<i className='inline-block'>{alert.icon}</i>
-			<span className='font-semibold mr-3'>{alert.text}:</span>
+			className={`alert flex items-center ${alert.color} ${alert.textColor} dark:bg-opacity-70 bg-opacity-90 my-6 px-4 py-4 rounded-3xl shadow-lg`}>
+			<div className='flex items-center'>
+				<i>{alert.icon}</i>
+				<span className='font-semibold mr-3'>{alert.text}:</span>
+			</div>
 			{children}
 		</div>
 	)
@@ -90,27 +87,22 @@ const h2 = (props) => <h2 {...props} className='text-lg md:text-xl' />
 
 const h3 = (props) => <h3 {...props} className='text-lg md:text-lg' />
 
-const ResponsiveImage = (props) => {
+const Img = ({ src, alt, width, height, caption }) => {
 	return (
-		<Image
-			alt={props.alt}
-			layout='responsive'
-			className='w-full h-full'
-			{...props}
-		/>
-	)
-}
-
-function pre(props) {
-	const { className, children, ...rest } = { ...props }
-	const childClassNames = classNames('relative', className)
-	return (
-		<pre className={childClassNames} {...rest}>
-			<div className='hidden hover:absolute copy-button right-8 top-2 border-2 p-2 border-black'>
-				Copy
-			</div>
-			{children}
-		</pre>
+		<figure>
+			<Image
+				className='rounded-3xl shadow-2xl'
+				layout='responsive'
+				priority='true'
+				src={src}
+				alt={alt}
+				width={width}
+				height={height}
+			/>
+			<figcaption className='text-center font-semibold text-base'>
+				{caption ?? null}
+			</figcaption>
+		</figure>
 	)
 }
 
@@ -120,7 +112,7 @@ const MDXComponents = {
 	h3,
 	a,
 	Alert,
-	img: ResponsiveImage,
+	Img,
 }
 
 export default MDXComponents

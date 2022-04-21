@@ -68,11 +68,11 @@ article h1,
 h2,
 h3,
 h4 {
-	@apply relative;
+	@apply no-underline;
 }
 
 article a {
-	@apply no-underline;
+	@apply underline underline-offset-2 hover:text-blue-600 dark:hover:text-blue-400;
 }
 
 blockquote {
@@ -89,7 +89,7 @@ pre[class*='language-'] {
 	font-weight: var(--font-weight);
 
 	color: var(--foreground-color);
-	background-color: var(--background-color);
+	background-color: transparent;
 
 	direction: ltr;
 	text-align: left;
@@ -131,18 +131,20 @@ pre[class*='language-'] {
 	&::-webkit-scrollbar-track {
 		background-color: var(--background-color);
 	}
+
+	@apply border-gray-200 dark:border-gray-600 border-2;
 }
 
 .rehype-code-title {
 	background-color: var(--title-bg);
 	color: var(--foreground-color);
 	font-weight: theme('fontWeight.semibold');
+	font-family: theme('fontFamily.mono');
 	font-size: theme('fontSize.sm');
-	font-style: italic;
 	text-align: left;
 	border-top-left-radius: theme('borderRadius.xl');
 	border-top-right-radius: theme('borderRadius.xl');
-	padding: theme('spacing.1') 0 theme('spacing.1') theme('spacing.4');
+	padding: theme('spacing.4') 0 theme('spacing.2') theme('spacing.6');
 
 	+ pre[class*='language-'] {
 		border-top-left-radius: theme('borderRadius.none');
@@ -154,6 +156,7 @@ pre[class*='language-'] {
 
 :not(.rehype-code-title) + pre[class*='language-'] {
 	border-radius: theme('borderRadius.2xl');
+	@apply border-gray-200 dark:border-gray-600 border-2;
 }
 
 /* Inline code */

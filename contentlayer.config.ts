@@ -11,7 +11,7 @@ import { remarkMdxFrontmatter } from 'remark-mdx-frontmatter'
 import rehypeSlug from 'rehype-slug'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrismPlus from 'rehype-prism-plus'
-import { h } from 'hastscript'
+import rehypeImage from 'rehype-img-size'
 // import rehypePrism from 'rehype-prism'
 
 const computedFields: ComputedFields = {

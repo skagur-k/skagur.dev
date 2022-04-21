@@ -4,6 +4,8 @@ import SocialIcon from '@/components/SocialIcon'
 import { NextSeo } from 'next-seo'
 import { useEffect, useState } from 'react'
 import { FaChevronRight } from 'react-icons/fa'
+import Image from 'next/image'
+import profilePic from '@/public/static/images/profile.png'
 
 function Home() {
 	const [mounted, setMounted] = useState(false)
@@ -48,6 +50,13 @@ function Home() {
 							<FaChevronRight />
 						</InternalLink>
 					</div>
+					<Image
+						alt='profile'
+						layout='responsive'
+						width='100'
+						height='100'
+						src={profilePic}
+					/>
 				</div>
 			)}
 		</>

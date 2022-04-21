@@ -47,7 +47,7 @@ export default function Post({ data, prev, next }) {
 
 			<article className='flex justify-center'>
 				{mounted && (
-					<div className='prose-sm md:prose max-w-sm sm:max-w-2xl md:max-w-3xl dark:prose-invert'>
+					<div className='prose-sm md:prose max-w-lg sm:max-w-3xl md:max-w-3xl dark:prose-invert'>
 						<MDXContent components={{ ...MDXComponents }} />
 					</div>
 				)}
