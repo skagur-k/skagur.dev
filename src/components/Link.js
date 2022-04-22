@@ -7,7 +7,7 @@ const CustomLink = ({ children, href, ...rest }) => {
 
 	if (isInternalLink) {
 		return (
-			<Link href={href} passHref={true} $scroll={false}>
+			<Link href={href} passHref={true}>
 				<a {...rest}>{children} </a>
 			</Link>
 		)
@@ -15,9 +15,9 @@ const CustomLink = ({ children, href, ...rest }) => {
 
 	if (isAnchorLink) {
 		return (
-			<a href={href} {...rest}>
+			<Link href={href} {...rest}>
 				{children}
-			</a>
+			</Link>
 		)
 	}
 

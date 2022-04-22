@@ -7,6 +7,7 @@ import { format, parseISO } from 'date-fns'
 import MDXComponents, { Author } from '@/components/MDXComponent'
 import { FcCalendar, FcOpenedFolder, FcAlarmClock } from 'react-icons/fc'
 import siteMetaData from '@/data/siteMetaData'
+import Link from '@/components/Link'
 
 export default function Post({ data, prev, next }) {
 	const [mounted, setMounted] = useState(false)
@@ -25,6 +26,7 @@ export default function Post({ data, prev, next }) {
 		url,
 	}
 
+	console.log(slug)
 	return (
 		<>
 			<NextSeo {...meta} />
@@ -58,9 +60,17 @@ export default function Post({ data, prev, next }) {
 				)}
 			</article>
 			<div className='hidden md:flex justify-evenly mt-16'>
-				<div>{prev ? prev.title : null}</div>
+				<div>
+					{prev ? (
+						<Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
+					) : null}
+				</div>
 
-				<div>{next ? next.title : null}</div>
+				<div>
+					{next ? (
+						<Link href={`/blog/${next.slug}`}>{next.title}</Link>
+					) : null}
+				</div>
 			</div>
 		</>
 	)

@@ -50,13 +50,6 @@ function Home() {
 							<FaChevronRight />
 						</InternalLink>
 					</div>
-					<Image
-						alt='profile'
-						layout='responsive'
-						width='100'
-						height='100'
-						src={profilePic}
-					/>
 				</div>
 			)}
 		</>

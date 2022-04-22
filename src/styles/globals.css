@@ -23,15 +23,7 @@ body {
 }
 
 ::selection {
-	@apply text-white bg-gray-500;
-}
-
-ul {
-	margin-bottom: theme('spacing.8');
-}
-
-.react-icons {
-	vertical-align: middle;
+	@apply text-white bg-sky-700;
 }
 
 input:-webkit-autofill,
