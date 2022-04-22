@@ -34,8 +34,8 @@ article {
 html.dark article {
 	--foreground-color: theme('colors.white');
 	--background-color: theme('colors.gray[700]');
-	--code-block-color: theme('colors.gray[200]');
 	--title-bg: theme('colors.gray[600]');
+	--code-block-color: theme('colors.red[500]');
 	--scroll-track: theme('colors.gray[500]');
 	--comment: theme('colors.gray[400]');
 	--string: theme('colors.amber[200]');
@@ -64,7 +64,7 @@ article .anchor {
 	@apply font-semibold no-underline hover:text-sky-600 dark:hover:text-sky-400 transition-colors duration-200;
 }
 
-.author-info {
+article .author-info {
 	@apply flex items-start mt-12;
 
 	& .author-img {
@@ -84,8 +84,8 @@ article .anchor {
 	}
 }
 
-article a {
-	@apply underline-offset-0 decoration-2 decoration-sky-500 hover:text-sky-500 transition-colors duration-200 !important;
+article :not(h1, h2, h3, h4) > a {
+	@apply underline-offset-0  font-semibold underline decoration-2 decoration-sky-500 hover:text-sky-500 transition-colors duration-200 !important;
 }
 
 blockquote {
@@ -113,10 +113,16 @@ del {
 
 /* ::TODO: style for dark mode */
 strong {
-	/* display: inline; */
-	/* box-shadow: inset 0 -10px 0 #fef3c7 !important; */
+	@apply bg-sky-100 dark:bg-sky-200 dark:text-gray-900 px-1 mx-2 font-semibold !important;
+}
 
-	@apply inline shadow-[inset_0_-8px_0px_rgba(254,243,160,1)] dark:shadow-none !important;
+.alert {
+	strong {
+		@apply bg-transparent px-1 mx-1 font-semibold !important;
+	}
+}
+
+strong :not(.alert) {
 }
 
 /* Code Section (pre, code) */
@@ -199,15 +205,20 @@ pre[class*='language-'] {
 /* Inline code */
 :not(pre) > code {
 	color: var(--code-block-color) !important;
+	background: theme('colors.gray.200');
 	font-weight: theme('fontWeight.semibold') !important;
-	padding: theme('spacing.0') theme('spacing.2');
+	padding: theme('spacing.0') theme('spacing.1');
 	margin: theme('spacing.0') theme('spacing.1');
-	border-radius: theme('borderRadius.md');
-	border-width: 1px;
 	&::before,
 	&::after {
 		content: '' !important;
 	}
+
+	@apply rounded-md;
+}
+
+.alert code {
+	@apply bg-transparent;
 }
 
 .code-line {
@@ -232,7 +243,7 @@ pre[class*='language-'] {
 }
 
 .highlight-line {
-	background-color: rgba(55, 130, 255, 0.3);
+	background-color: rgba(55, 130, 255, 0.2);
 	border-left-width: 4px;
 	border-left-color: rgb(59, 130, 246);
 }

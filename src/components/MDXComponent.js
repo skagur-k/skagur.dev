@@ -63,7 +63,7 @@ const Alert = ({ type, children, ...rest }) => {
 	return (
 		<div
 			role='warning'
-			className={`alert flex items-center ${alert.color} ${alert.textColor} dark:bg-opacity-70 bg-opacity-90 my-6 px-4 py-4 rounded-3xl shadow-lg`}>
+			className={`alert flex items-center ${alert.color} ${alert.textColor} bg-opacity-90 my-6 px-4 py-4 rounded-3xl shadow-lg`}>
 			<div className='flex items-center'>
 				<i>{alert.icon}</i>
 				<span className='font-semibold mr-3'>{alert.text}:</span>
@@ -88,11 +88,11 @@ const a = ({ href, ...rest }) => {
 	return <a target='_blank' rel='noopener noreferrer' href={href} {...rest} />
 }
 
-const h1 = (props) => <h1 {...props} className='text-lg md:text-2xl' />
+const h1 = (props) => <h1 {...props} className='text-2xl md:text-3xl' />
 
-const h2 = (props) => <h2 {...props} className='text-lg md:text-xl' />
+const h2 = (props) => <h2 {...props} className='text-xl md:text-2xl' />
 
-const h3 = (props) => <h3 {...props} className='text-lg md:text-lg' />
+const h3 = (props) => <h3 {...props} className='text-lg md:text-xl' />
 
 const Img = ({ src, alt, width, height, caption }) => {
 	return (
