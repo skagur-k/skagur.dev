@@ -24,7 +24,8 @@ module.exports = {
 			'7xl': '5rem',
 		},
 		fontFamily: {
-			sans: ['"Inter"', ...defaultTheme.fontFamily.sans],
+			sans: ['"Inter"', 'Noto Sans KR', ...defaultTheme.fontFamily.sans],
+			kr: ['"Noto Sans KR"'],
 			serif: ['Georgia', ...defaultTheme.fontFamily.serif],
 			mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular'],
 		},
