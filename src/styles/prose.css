@@ -61,11 +61,31 @@ html.dark article {
 }
 
 article .anchor {
-	@apply font-semibold no-underline hover:text-sky-600 dark:hover:text-sky-400;
+	@apply font-semibold no-underline hover:text-sky-600 dark:hover:text-sky-400 transition-colors duration-200;
+}
+
+.author-info {
+	@apply flex items-start mt-12;
+
+	& .author-img {
+		@apply rounded-full align-middle hidden md:flex;
+	}
+
+	& .author-details {
+		@apply flex flex-col ml-6;
+	}
+
+	& .author-name {
+		@apply text-base font-semibold flex;
+	}
+
+	& .author-description {
+		@apply text-sm my-2;
+	}
 }
 
 article a {
-	@apply underline-offset-0 decoration-2 decoration-sky-500/80 hover:text-sky-600 !important;
+	@apply underline-offset-0 decoration-2 decoration-sky-500 hover:text-sky-500 transition-colors duration-200 !important;
 }
 
 blockquote {
@@ -93,8 +113,10 @@ del {
 
 /* ::TODO: style for dark mode */
 strong {
-	display: inline;
-	box-shadow: inset 0 -10px 0 #fef3c7 !important;
+	/* display: inline; */
+	/* box-shadow: inset 0 -10px 0 #fef3c7 !important; */
+
+	@apply inline shadow-[inset_0_-8px_0px_rgba(254,243,160,1)] dark:shadow-none !important;
 }
 
 /* Code Section (pre, code) */
@@ -176,12 +198,11 @@ pre[class*='language-'] {
 
 /* Inline code */
 :not(pre) > code {
-	background-color: var(--background-color);
 	color: var(--code-block-color) !important;
 	font-weight: theme('fontWeight.semibold') !important;
-	padding: 0 0.5em;
-	margin: 0 0.2em;
-	border-radius: theme('borderRadius.xl');
+	padding: theme('spacing.0') theme('spacing.2');
+	margin: theme('spacing.0') theme('spacing.1');
+	border-radius: theme('borderRadius.md');
 	border-width: 1px;
 	&::before,
 	&::after {

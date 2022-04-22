@@ -1,4 +1,3 @@
-import siteMetadata from '@/data/siteMetaData'
 import BlogListLayout from '@/components/Layouts/BlogListLayout'
 import { InferGetStaticPropsType } from 'next'
 import { NextSeo } from 'next-seo'

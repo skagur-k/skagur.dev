@@ -1,23 +1,30 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { BiCheckSquare, BiError, BiBell, BiInfoCircle } from 'react-icons/bi'
+import SocialIcon from '@/components/SocialIcon'
+import siteMetadata from '@/data/siteMetaData'
 
-export const Title = (props) => (
-	<h1
-		{...props}
-		className='text-2xl md:text-5xl font-extrabold leading-12 mt-4 mb-6 text-center '
-	/>
-)
-
-export const Author = ({ children, ...rest }) => {
+export const Author = ({ name, imgsrc, description, ...rest }) => {
 	return (
-		<div className='mb-12 '>
-			<p
-				className='text-base md:text-lg text-center font-semibold'
-				{...rest}>
-				{children}
-			</p>
-		</div>
+		<article className='author-info'>
+			<div>
+				<Image
+					layout='intrinsic'
+					priority='true'
+					src={imgsrc}
+					alt='Profile Picture'
+					className='author-img'
+					width={100}
+					height={100}
+				/>
+			</div>
+			<div className='author-details'>
+				<a className='author-name' href={siteMetadata.github} {...rest}>
+					{name}
+				</a>
+				<p className='author-description'>{description}</p>
+			</div>
+		</article>
 	)
 }
 
@@ -91,7 +98,6 @@ const Img = ({ src, alt, width, height, caption }) => {
 	return (
 		<figure>
 			<Image
-				className='rounded-3xl shadow-2xl'
 				layout='responsive'
 				priority='true'
 				src={src}
@@ -106,17 +112,12 @@ const Img = ({ src, alt, width, height, caption }) => {
 	)
 }
 
-const strong = (props) => {
-	return <strong className='inline shadow-2xl' {...props} />
-}
-
 const MDXComponents = {
 	h1,
 	h2,
 	h3,
 	a,
 	Alert,
-	strong,
 	Img,
 }
 

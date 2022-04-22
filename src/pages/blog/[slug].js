@@ -4,8 +4,9 @@ import { useRouter } from 'next/router'
 import { allBlogs } from 'contentlayer/generated'
 import { useEffect, useState } from 'react'
 import { format, parseISO } from 'date-fns'
-import MDXComponents, { Title, Author } from '@/components/MDXComponent'
+import MDXComponents, { Author } from '@/components/MDXComponent'
 import { FcCalendar, FcOpenedFolder, FcAlarmClock } from 'react-icons/fc'
+import siteMetaData from '@/data/siteMetaData'
 
 export default function Post({ data, prev, next }) {
 	const [mounted, setMounted] = useState(false)
@@ -44,11 +45,15 @@ export default function Post({ data, prev, next }) {
 					<p>{readingTime.text}</p>
 				</div>
 			</div>
-
 			<article className='flex justify-center'>
 				{mounted && (
 					<div className='prose-sm md:prose max-w-lg sm:max-w-3xl md:max-w-2xl dark:prose-invert'>
 						<MDXContent components={{ ...MDXComponents }} />
+						<Author
+							name={siteMetaData.author}
+							imgsrc={siteMetaData.authorProfilePic}
+							description={siteMetaData.authorDescription}
+						/>
 					</div>
 				)}
 			</article>
