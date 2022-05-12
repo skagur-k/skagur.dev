@@ -86,10 +86,10 @@ article .author-info {
 
 article {
 	h1 {
-		@apply text-2xl !important;
+		@apply text-3xl !important;
 	}
 	h2 {
-		@apply text-xl !important;
+		@apply text-2xl !important;
 	}
 	h3 {
 		@apply text-lg !important;
@@ -160,7 +160,7 @@ pre[class*='language-'] {
 	-ms-hyphens: none;
 	hyphens: none;
 
-	@apply text-xs md:text-sm;
+	@apply text-xs md:text-base;
 }
 
 pre[class*='language-'] {
@@ -173,17 +173,9 @@ pre[class*='language-'] {
 	scrollbar-width: thin;
 
 	&::-webkit-scrollbar {
-		display: block;
+		display: none;
 		height: 0.5em;
 	}
-	&::-webkit-scrollbar-thumb {
-		background-color: var(--scroll-track);
-	}
-
-	&::-webkit-scrollbar-track {
-		background-color: var(--background-color);
-	}
-
 	@apply border-gray-200 dark:border-gray-600 border-2;
 }
 

@@ -1,8 +1,33 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { BiCheckSquare, BiError, BiBell, BiInfoCircle } from 'react-icons/bi'
-import SocialIcon from '@/components/SocialIcon'
 import siteMetadata from '@/data/siteMetaData'
+import { FcCalendar, FcOpenedFolder, FcAlarmClock } from 'react-icons/fc'
+import { format, parseISO } from 'date-fns'
+
+export const PostInfo = ({ author, publishedAt, readingTime }) => {
+	return (
+		<div className='flex justify-between items-center px-0 mb-4'>
+			<p className='font-semibold text-sm bg-sky-200 text-sky-800 px-2 rounded-'>
+				{author}
+			</p>
+			<div className='flex justify-center space-x-6 text-gray-400 text-sm md:text-sm'>
+				<div className='flex items-center space-x-2 justify-center'>
+					<FcOpenedFolder className='w-4 h-4' />
+					<p>Blog</p>
+				</div>
+				<div className='flex items-center space-x-2 justify-center'>
+					<FcCalendar className='w-4 h-4' />
+					<p>{format(parseISO(publishedAt), 'dd LLLL, yyyy')}</p>
+				</div>
+				<div className='flex items-center space-x-2 justify-center'>
+					<FcAlarmClock className='w-4 h-4' />
+					<p>{readingTime.text}</p>
+				</div>
+			</div>
+		</div>
+	)
+}
 
 export const Author = ({ name, imgsrc, description, ...rest }) => {
 	return (
@@ -67,12 +92,12 @@ const Alert = ({ type, children, ...rest }) => {
 	return (
 		<div
 			role='warning'
-			className={`alert flex items-center ${alert.color} ${alert.textColor} bg-opacity-90 my-6 px-4 py-4 rounded-xl shadow-xl dark:shadow-gray-700`}>
+			className={`alert flex items-center ${alert.color} ${alert.textColor} bg-opacity-90 my-6 px-4 py-2 rounded-xl shadow-xl dark:shadow-gray-700`}>
 			<div className='flex items-center'>
 				<i>{alert.icon}</i>
 				<span className='font-semibold mr-3'>{alert.text}:</span>
 			</div>
-			{children}
+			<div className='inline-block'>{children}</div>
 		</div>
 	)
 }

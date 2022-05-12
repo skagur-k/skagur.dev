@@ -10,7 +10,7 @@ const ProjectsPage = () => {
 				</h1>
 				<h2 className='text-gray-400 dark:text-gray-400 font-base'>
 					<span className='underline decoration-wavy decoration-amber-500 underline-offset-4'>
-						Everything
+						Things
 					</span>{' '}
 					I worked on.
 				</h2>

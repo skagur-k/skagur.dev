@@ -1,94 +1,83 @@
-import siteMetadata from '@/data/siteMetaData'
-import Link, { ExternalLink, InternalLink } from '@/components/Link'
-import SocialIcon from '@/components/SocialIcon'
-import Logo from '@/components/Logo'
+import Link from '@/components/Link'
 import { NextSeo } from 'next-seo'
 import { useEffect, useState } from 'react'
-import { FaChevronRight } from 'react-icons/fa'
-import Image from 'next/image'
-import profilePic from '@/public/static/images/profile.png'
+import GitHubProfile from '@/components/GitHubProfile'
 
-function Home() {
+function Home({ ghmeta }: any) {
 	const [mounted, setMounted] = useState(false)
-	useEffect(() => setMounted(true), [])
+	useEffect(() => {
+		setMounted(true)
+	}, [])
+
+	console.log(ghmeta)
 
 	return (
 		<>
 			<NextSeo />
 			{mounted && (
-				<div className='flex flex-col mt-8 md:mt-32'>
-					<div className=' space-y-8'>
-						<h1 className='text-2xl md:text-5xl font-medium'>
+				<div className='flex flex-col mt-8 md:mt-20'>
+					<div className='space-y-4'>
+						<h1 className='text-xl md:text-4xl font-medium'>
 							안녕하세요.{' '}
-							<span className='font-bold text-amber-500'>
+							<span className='gradient-text font-bold text-amber-500'>
 								김남혁
 							</span>{' '}
 							입니다.
 						</h1>
-						<h1 className='text-xl md:text-4xl font-bold'>
+						<h1 className='text-xl md:text-3xl font-medium'>
 							Hi, I am{' '}
 							<span className='underline underline-offset-8 font-bold decoration-wavy decoration-amber-500'>
 								Nam Hyuck Kim.
 							</span>{' '}
 						</h1>
 					</div>
+
 					<div>
-						<div className='mt-12'>
-							<h2 className='text-lg md:text-xl my-4 font-semibold'>
-								I am a developer from{' '}
-								<span className='text-blue-300 dark:text-blue-300'>
-									South
-								</span>{' '}
-								<span className='text-red-300 dark:text-red-300'>
-									Korea
-								</span>
-								. Welcome to this blog. This is where I reside
-								and share what I deem to be useful 👍.
-							</h2>
+						<div className='flex'>
+							<GitHubProfile ghmeta={ghmeta} />
 						</div>
 						<div className='text-md md:text-lg mt-12 space-y-4'>
-							<h2>
-								Check out
-								<InternalLink href='/projects'>
+							<h2 className=''>
+								<Link
+									className='font-bold text-lg underline decoration-2 underline-offset-0 decoration-amber-500 hover:text-amber-500 mr-3'
+									href='/about'>
 									/about
-								</InternalLink>
-								If you are interested in who I am 😎.
+								</Link>
+								If you are interested in who I am. 😎
 							</h2>
-							<h2>
-								Check out
-								<InternalLink href='/projects'>
+							<h2 className=''>
+								<Link
+									className='font-bold text-lg underline decoration-2 underline-offset-0 decoration-amber-500 hover:text-amber-500 mr-3'
+									href='/projects'>
 									/projects
-								</InternalLink>
-								If you are interested in what I worked on 💾.
+								</Link>
+								If you are interested in what I worked on. 💾
 							</h2>
-							<h2>
-								Check out
-								<InternalLink href='/blog'>
+							<h2 className=''>
+								<Link
+									className='font-bold text-lg underline decoration-2 underline-offset-0 decoration-amber-500 hover:text-amber-500 mr-3'
+									href='/blog'>
 									/blog
-								</InternalLink>{' '}
-								if you wnat to read some of my writings 📄.
+								</Link>{' '}
+								if you would like to do some reading.
 							</h2>
-						</div>
-
-						<div className='flex justify-between items-center mt-8'>
-							<div className='hidden md:inline-flex space-x-4 items-center justify-center md:justify-start'>
-								<SocialIcon
-									kind='github'
-									href={siteMetadata.github}
-									size={8}
-								/>
-								<SocialIcon
-									kind='linkedin'
-									href={siteMetadata.linkedin}
-									size={8}
-								/>
-							</div>
 						</div>
 					</div>
 				</div>
 			)}
 		</>
 	)
+}
+
+export async function getStaticProps() {
+	const res = await fetch('https://api.github.com/users/skagur-k')
+	const ghmeta = await res.json()
+	console.log(ghmeta)
+	return {
+		props: {
+			ghmeta,
+		},
+	}
 }
 
 export default Home

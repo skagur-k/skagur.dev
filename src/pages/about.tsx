@@ -11,7 +11,7 @@ const AboutPage = () => {
 				</h1>
 				<h2 className='text-gray-400 dark:text-gray-400  '>
 					<span className='underline decoration-wavy decoration-amber-500 underline-offset-4'>
-						Everything
+						Snippets
 					</span>{' '}
 					about me.
 				</h2>

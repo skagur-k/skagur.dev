@@ -13,12 +13,12 @@
 		"test": "jest --watch"
 	},
 	"dependencies": {
-		"@code-hike/mdx": "^0.4.0-next.3",
 		"classnames": "^2.3.1",
 		"contentlayer": "^0.2.4",
 		"date-fns": "^2.28.0",
 		"framer-motion": "^6.2.10",
 		"gray-matter": "^4.0.3",
+		"hangul-js": "^0.2.6",
 		"next": "^12.1.5",
 		"next-contentlayer": "^0.2.4",
 		"next-seo": "^5.4.0",
@@ -26,6 +26,7 @@
 		"next-themes": "^0.1.1",
 		"prismjs": "^1.28.0",
 		"react": "18.0.0",
+		"react-curved-arrow": "^0.1.0",
 		"react-dom": "18.0.0",
 		"react-icons": "^4.3.1",
 		"reading-time": "^1.5.0",

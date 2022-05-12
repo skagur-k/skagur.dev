@@ -3,11 +3,8 @@ import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { allBlogs } from 'contentlayer/generated'
 import { useEffect, useState } from 'react'
-import { format, parseISO } from 'date-fns'
-import { FcCalendar, FcOpenedFolder, FcAlarmClock } from 'react-icons/fc'
-import MDXComponents, { Author } from '@/components/MDXComponent'
+import MDXComponents, { Author, PostInfo } from '@/components/MDXComponent'
 import siteMetaData from '@/data/siteMetaData'
-import Link from '@/components/Link'
 import Image from 'next/image'
 
 export default function Post({ data, prev, next }) {
@@ -19,7 +16,8 @@ export default function Post({ data, prev, next }) {
 
 	const MDXContent = useMDXComponent(data.body.code)
 
-	const { title, summary, publishedAt, slug, readingTime, coverImg } = data
+	const { title, summary, publishedAt, slug, readingTime, coverImg, author } =
+		data
 
 	const meta = {
 		title,
@@ -30,72 +28,42 @@ export default function Post({ data, prev, next }) {
 
 	console.log(slug)
 	return (
-		<>
-			<NextSeo {...meta} />
-			<div className='flex flex-col space-y-4'>
-				<h1 className='text-2xl md:text-5xl text-center font-extrabold leading-12'>
-					{title}
-				</h1>
+		mounted && (
+			<>
+				<NextSeo {...meta} />
+				<div className='flex flex-col space-y-4'>
+					<h1 className='text-2xl md:text-5xl text-center font-extrabold leading-12'>
+						{title}
+					</h1>
 
-				<div className='cover-image relative w-full h-fit'>
-					<Image
-						layout='fill'
-						src={coverImg}
-						alt={`Cover Image - ${title}`}
-					/>
-				</div>
-			</div>
-
-			<article className='flex justify-center'>
-				{mounted && (
-					<div className='relative prose-sm md:prose px-4 sm:px-0 max-w-xl md:max-w-3xl dark:prose-invert'>
-						<div className='flex justify-between items-center px-0 mb-4'>
-							<p className='font-semibold text-sm bg-sky-200 text-sky-800 px-2 rounded-'>
-								Nam Hyuck Kim
-							</p>
-							<div className='flex justify-center space-x-6 text-gray-400 text-sm md:text-sm'>
-								<div className='flex items-center space-x-2 justify-center'>
-									<FcOpenedFolder className='w-4 h-4' />
-									<p>Blog</p>
-								</div>
-								<div className='flex items-center space-x-2 justify-center'>
-									<FcCalendar className='w-4 h-4' />
-									<p>
-										{format(
-											parseISO(publishedAt),
-											'dd LLLL, yyyy'
-										)}
-									</p>
-								</div>
-								<div className='flex items-center space-x-2 justify-center'>
-									<FcAlarmClock className='w-4 h-4' />
-									<p>{readingTime.text}</p>
-								</div>
-							</div>
-						</div>
-						<MDXContent components={{ ...MDXComponents }} />
-						<Author
-							name={siteMetaData.author}
-							imgsrc={siteMetaData.authorProfilePic}
-							description={siteMetaData.authorDescription}
-						/>
+					<div className='cover-image relative w-full h-fit'>
+						{coverImg && (
+							<Image
+								layout='fill'
+								src={coverImg}
+								alt={`Cover Image - ${title}`}
+							/>
+						)}
 					</div>
-				)}
-			</article>
-			<div className='hidden md:flex justify-evenly mt-16'>
-				<div>
-					{prev ? (
-						<Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
-					) : null}
 				</div>
 
-				<div>
-					{next ? (
-						<Link href={`/blog/${next.slug}`}>{next.title}</Link>
-					) : null}
-				</div>
-			</div>
-		</>
+				<article className='flex-column justify-center'>
+					<PostInfo
+						author={author}
+						publishedAt={publishedAt}
+						readingTime={readingTime}
+					/>
+					<div className='mt-12 mx-auto prose px-2 sm:px-0 max-w-xl sm:max-w-3xl dark:prose-invert'>
+						<MDXContent components={{ ...MDXComponents }} />
+					</div>
+					<Author
+						name={siteMetaData.author}
+						imgsrc={siteMetaData.authorProfilePic}
+						description={siteMetaData.authorDescription}
+					/>
+				</article>
+			</>
+		)
 	)
 }
 

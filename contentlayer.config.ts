@@ -11,7 +11,6 @@ import { remarkMdxFrontmatter } from 'remark-mdx-frontmatter'
 import rehypeSlug from 'rehype-slug'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrismPlus from 'rehype-prism-plus'
-import rehypeImage from 'rehype-img-size'
 // import rehypePrism from 'rehype-prism'
 
 const computedFields: ComputedFields = {
@@ -40,6 +39,11 @@ export const Blog = defineDocumentType(() => ({
 		title: {
 			type: 'string',
 			description: 'Title of the blog post',
+			required: true,
+		},
+		author: {
+			type: 'string',
+			description: 'Author of the post',
 			required: true,
 		},
 		summary: {
