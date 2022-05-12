@@ -52,8 +52,13 @@ export const Blog = defineDocumentType(() => ({
 			description: 'Published date of the post',
 			required: true,
 		},
+		coverImg: {
+			type: 'string',
+			required: false,
+		},
 		tags: {
 			type: 'string',
+			required: false,
 		},
 		isDraft: {
 			type: 'boolean',

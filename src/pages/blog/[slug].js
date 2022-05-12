@@ -4,10 +4,11 @@ import { useRouter } from 'next/router'
 import { allBlogs } from 'contentlayer/generated'
 import { useEffect, useState } from 'react'
 import { format, parseISO } from 'date-fns'
-import MDXComponents, { Author } from '@/components/MDXComponent'
 import { FcCalendar, FcOpenedFolder, FcAlarmClock } from 'react-icons/fc'
+import MDXComponents, { Author } from '@/components/MDXComponent'
 import siteMetaData from '@/data/siteMetaData'
 import Link from '@/components/Link'
+import Image from 'next/image'
 
 export default function Post({ data, prev, next }) {
 	const [mounted, setMounted] = useState(false)
@@ -18,7 +19,8 @@ export default function Post({ data, prev, next }) {
 
 	const MDXContent = useMDXComponent(data.body.code)
 
-	const { title, summary, publishedAt, slug, readingTime } = data
+	const { title, summary, publishedAt, slug, readingTime, coverImg } = data
+
 	const meta = {
 		title,
 		description: summary,
@@ -30,26 +32,47 @@ export default function Post({ data, prev, next }) {
 	return (
 		<>
 			<NextSeo {...meta} />
-			<h1 className='text-2xl md:text-4xl font-extrabold leading-12 mt-4 mb-8 text-center '>
-				{title}
-			</h1>
-			<div className='flex justify-center mb-10 md:mb-20 space-x-6 text-gray-400 text-sm md:text-base'>
-				<div className='flex items-center space-x-2 justify-center'>
-					<FcOpenedFolder className='w-4 h-4' />
-					<p>Blog</p>
-				</div>
-				<div className='flex items-center space-x-2 justify-center'>
-					<FcCalendar className='w-4 h-4' />
-					<p>{format(parseISO(publishedAt), 'dd LLLL, yyyy')}</p>
-				</div>
-				<div className='flex items-center space-x-2 justify-center'>
-					<FcAlarmClock className='w-4 h-4' />
-					<p>{readingTime.text}</p>
+			<div className='flex flex-col space-y-4'>
+				<h1 className='text-2xl md:text-5xl text-center font-extrabold leading-12'>
+					{title}
+				</h1>
+
+				<div className='cover-image relative w-full h-fit'>
+					<Image
+						layout='fill'
+						src={coverImg}
+						alt={`Cover Image - ${title}`}
+					/>
 				</div>
 			</div>
+
 			<article className='flex justify-center'>
 				{mounted && (
-					<div className='prose-sm sm:prose-lg max-w-2xl sm:max-w-3xl md:max-w-3xl dark:prose-invert'>
+					<div className='relative prose-sm md:prose px-4 sm:px-0 max-w-xl md:max-w-3xl dark:prose-invert'>
+						<div className='flex justify-between items-center px-0 mb-4'>
+							<p className='font-semibold text-sm bg-sky-200 text-sky-800 px-2 rounded-'>
+								Nam Hyuck Kim
+							</p>
+							<div className='flex justify-center space-x-6 text-gray-400 text-sm md:text-sm'>
+								<div className='flex items-center space-x-2 justify-center'>
+									<FcOpenedFolder className='w-4 h-4' />
+									<p>Blog</p>
+								</div>
+								<div className='flex items-center space-x-2 justify-center'>
+									<FcCalendar className='w-4 h-4' />
+									<p>
+										{format(
+											parseISO(publishedAt),
+											'dd LLLL, yyyy'
+										)}
+									</p>
+								</div>
+								<div className='flex items-center space-x-2 justify-center'>
+									<FcAlarmClock className='w-4 h-4' />
+									<p>{readingTime.text}</p>
+								</div>
+							</div>
+						</div>
 						<MDXContent components={{ ...MDXComponents }} />
 						<Author
 							name={siteMetaData.author}

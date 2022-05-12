@@ -7,7 +7,6 @@ html {
 	font-family: 'Inter' 'Noto Sans KR';
 	scroll-behavior: smooth;
 	height: 100%;
-	@apply text-gray-500 dark:text-gray-100 list-none;
 }
 
 @font-face {
@@ -29,7 +28,7 @@ body {
 		display: none;
 	}
 
-	@apply bg-white text-black dark:bg-gray-800 dark:text-white antialiased h-full transition-colors duration-300;
+	@apply list-none bg-white text-gray-700 dark:bg-gray-900 dark:text-gray-200 antialiased h-full transition-colors duration-200;
 }
 
 ::selection {
