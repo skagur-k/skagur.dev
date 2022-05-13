@@ -60,10 +60,6 @@ html.dark article {
 	--line-highlight-background: #444444;
 }
 
-article .anchor {
-	@apply font-semibold no-underline hover:text-sky-700 dark:hover:text-sky-400;
-}
-
 article .author-info {
 	@apply flex items-start mt-12;
 
@@ -84,26 +80,6 @@ article .author-info {
 	}
 }
 
-article {
-	h1 {
-		@apply text-3xl !important;
-	}
-	h2 {
-		@apply text-2xl !important;
-	}
-	h3 {
-		@apply text-lg !important;
-	}
-}
-
-article :not(h1, h2, h3, h4) > a {
-	@apply underline-offset-0  font-semibold underline decoration-2 decoration-sky-500 hover:text-sky-500 transition-colors !important;
-}
-
-blockquote {
-	@apply border-l-4 border-l-sky-500/80 ml-1 my-8 px-4 !important;
-}
-
 ul.contains-task-list {
 	@apply list-none pl-0 my-6 font-semibold;
 
@@ -117,24 +93,14 @@ ul.contains-task-list {
 	}
 }
 
-del {
-	text-decoration-line: line-through;
-	text-decoration-style: wavy;
-	text-decoration-color: red;
-}
 
-/* ::TODO: style for dark mode */
-strong {
-	@apply bg-sky-100 dark:bg-sky-200 dark:text-gray-900 px-1 mx-1 font-semibold !important;
-}
-
-.alert {
-	strong {
-		@apply bg-white/60 px-1 mx-1 font-semibold !important;
-	}
-}
 
 /* Code Section (pre, code) */
+
+:not(pre) > code {
+	@apply rounded-none px-1 mx-2 font-semibold dark:text-black dark:bg-gray-200;
+}
+
 code[class*='language-'],
 pre[class*='language-'] {
 	font-family: 'JetBrains Mono';
@@ -160,7 +126,7 @@ pre[class*='language-'] {
 	-ms-hyphens: none;
 	hyphens: none;
 
-	@apply text-xs md:text-base;
+	@apply text-sm md:text-base;
 }
 
 pre[class*='language-'] {
@@ -184,15 +150,15 @@ pre[class*='language-'] {
 	color: var(--foreground-color);
 	font-weight: theme('fontWeight.semibold');
 	font-family: theme('fontFamily.mono');
-	font-size: theme('fontSize.sm');
+	font-size: theme('fontSize.base');
 	text-align: left;
 	border-top-left-radius: theme('borderRadius.xl');
 	border-top-right-radius: theme('borderRadius.xl');
-	padding: theme('spacing.4') 0 theme('spacing.2') theme('spacing.6');
+	padding: theme('spacing.2') 0 theme('spacing.1') theme('spacing.6');
 
 	+ pre[class*='language-'] {
 		border-top-left-radius: theme('borderRadius.none');
-		border-top-left-radius: theme('borderRadius.none');
+		border-top-right-radius: theme('borderRadius.none');
 		border-bottom-left-radius: theme('borderRadius.2xl');
 		border-bottom-right-radius: theme('borderRadius.2xl');
 	}
@@ -201,25 +167,6 @@ pre[class*='language-'] {
 :not(.rehype-code-title) + pre[class*='language-'] {
 	border-radius: theme('borderRadius.2xl');
 	@apply border-gray-200 dark:border-gray-600 border-2;
-}
-
-/* Inline code */
-:not(pre) > code {
-	color: var(--code-block-color) !important;
-	background: theme('colors.gray.200');
-	font-weight: theme('fontWeight.semibold') !important;
-	padding: theme('spacing.0') theme('spacing.1');
-	margin: theme('spacing.0') theme('spacing.1');
-	&::before,
-	&::after {
-		content: '' !important;
-	}
-
-	@apply rounded-md;
-}
-
-.alert code {
-	@apply bg-transparent;
 }
 
 .code-line {

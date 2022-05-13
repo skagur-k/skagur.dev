@@ -1,4 +1,3 @@
-import MotionLayout from '@/components/Layouts/MotionLayout'
 import { NextSeo } from 'next-seo'
 
 const AboutPage = () => {
@@ -16,6 +15,8 @@ const AboutPage = () => {
 					about me.
 				</h2>
 			</div>
+
+			<div></div>
 		</>
 	)
 }

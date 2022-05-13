@@ -1,3 +1,4 @@
+import Project from '@/components/Project'
 import { NextSeo } from 'next-seo'
 
 const ProjectsPage = () => {
@@ -14,6 +15,11 @@ const ProjectsPage = () => {
 					</span>{' '}
 					I worked on.
 				</h2>
+			</div>
+
+			<div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-12'>
+				<Project>asdsad</Project>
+				<Project>asdsad</Project>
 			</div>
 		</>
 	)

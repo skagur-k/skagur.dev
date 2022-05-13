@@ -1,5 +1,6 @@
 import Header from './Header'
 import Footer from './Footer'
+import ScrollToTopButton from '../ScrollToTop'
 
 const Layout = ({ children }) => {
 	return (
@@ -7,6 +8,7 @@ const Layout = ({ children }) => {
 			<Header />
 			<main className='mt-8 mb-auto'>{children}</main>
 			<Footer />
+			<ScrollToTopButton />
 		</div>
 	)
 }

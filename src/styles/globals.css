@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	blockquote {
+		@apply border-l-4 border-l-sky-500/80 ml-1 my-8 px-4;
+	}
+}
+
 html {
 	font-size: 14px;
 	font-family: 'Inter' 'Noto Sans KR';
@@ -36,7 +42,13 @@ body {
 }
 
 .gradient-text {
-	background: linear-gradient(-45deg, #6355a4, #6355a4, #e89a3e, #e89a3e);
+	background: linear-gradient(
+		-45deg,
+		theme('colors.sky.500'),
+		theme('colors.sky.500'),
+		theme('colors.amber.500'),
+		theme('colors.amber.500')
+	);
 	background-size: 300%;
 	text-transform: uppercase;
 	-webkit-background-clip: text;

@@ -1,9 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { BiCheckSquare, BiError, BiBell, BiInfoCircle } from 'react-icons/bi'
+import {
+	BiCheckSquare,
+	BiError,
+	BiBell,
+	BiInfoCircle,
+	BiLink,
+} from 'react-icons/bi'
 import siteMetadata from '@/data/siteMetaData'
 import { FcCalendar, FcOpenedFolder, FcAlarmClock } from 'react-icons/fc'
 import { format, parseISO } from 'date-fns'
+import classNames from 'classnames'
 
 export const PostInfo = ({ author, publishedAt, readingTime }) => {
 	return (
@@ -86,42 +93,77 @@ const Alert = ({ type, children, ...rest }) => {
 			icon: <BiError className={iconClassName} />,
 		},
 	}
-
 	const alert = data[type]
-	console.log(alert)
 	return (
 		<div
 			role='warning'
-			className={`alert flex items-center ${alert.color} ${alert.textColor} bg-opacity-90 my-6 px-4 py-2 rounded-xl shadow-xl dark:shadow-gray-700`}>
+			className={`alert flex items-center ${alert.color} ${alert.textColor} dark:bg-opacity-100 dark:shadow-none my-6 mx-4 px-4 py-2 rounded-lg shadow-xl dark:shadow-gray-700`}>
 			<div className='flex items-center'>
 				<i>{alert.icon}</i>
 				<span className='font-semibold mr-3'>{alert.text}:</span>
 			</div>
-			<div className='inline-block'>{children}</div>
+			<div className='text-sm sm:text-base'>{children}</div>
 		</div>
 	)
 }
 
-const a = ({ href, ...rest }) => {
+const a = ({ children, href, ...rest }) => {
 	const isInternalLink =
 		href && (href.startsWith('/') || href.startsWith('#'))
 
 	if (isInternalLink) {
 		return (
 			<Link href={href}>
-				<a {...rest} />
+				<a
+					{...rest}
+					className='underline font-bold hover:text-sky-500 hover:underline decoration-2'>
+					{children}
+				</a>
 			</Link>
 		)
 	}
 
-	return <a target='_blank' rel='noopener noreferrer' href={href} {...rest} />
+	return (
+		<a
+			target='_blank'
+			rel='noopener noreferrer'
+			href={href}
+			{...rest}
+			className={`inline-flex relative items-center underline hover:text-sky-500 font-bold hover:underline decoration-2`}>
+			{children}
+			{/* <BiLink className='ml-1 absolute w-6 h-6 stroke-0' /> */}
+		</a>
+	)
 }
 
-const h1 = (props) => <h1 {...props} className='text-2xl sm:text-2xl' />
+const h1 = (props) => (
+	<h1 {...props} className='text-2xl sm:text-3xl decoration-transparent' />
+)
 
-const h2 = (props) => <h2 {...props} className='text-xl sm:text-xl' />
+const h2 = (props) => (
+	<h2 {...props} className='text-xl sm:text-2xl decoration-transparent' />
+)
 
-const h3 = (props) => <h3 {...props} className='text-lg sm:text-lg' />
+const h3 = (props) => (
+	<h3 {...props} className='text-lg sm:text-xl decoration-transparent' />
+)
+
+const code = (props) => (
+	<code
+		{...props}
+		className={classNames(
+			props.className,
+			`before:content-none after:content-none text-white bg-gray-600`
+		)}
+	/>
+)
+
+const del = (props) => (
+	<del
+		{...props}
+		className='line-through decoration-wavy decoration-4 decoration-red-500'
+	/>
+)
 
 const Img = ({ src, alt, width, height, caption }) => {
 	return (
@@ -141,6 +183,23 @@ const Img = ({ src, alt, width, height, caption }) => {
 	)
 }
 
+const strong = (props) => {
+	return (
+		<strong
+			{...props}
+			className='bg-sky-100 dark:bg-sky-200 dark:text-gray-900 font-semibold mx-0 px-1'></strong>
+	)
+}
+
+const blockquote = (props) => {
+	return (
+		<blockquote
+			{...props}
+			className='borde-rl-0 border-l-sky-300/40 ml-0 my-4 px-4'
+		/>
+	)
+}
+
 const MDXComponents = {
 	h1,
 	h2,
@@ -148,6 +207,10 @@ const MDXComponents = {
 	a,
 	Alert,
 	Img,
+	code,
+	strong,
+	blockquote,
+	del,
 }
 
 export default MDXComponents

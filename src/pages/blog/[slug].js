@@ -4,10 +4,11 @@ import { useRouter } from 'next/router'
 import { allBlogs } from 'contentlayer/generated'
 import { useEffect, useState } from 'react'
 import MDXComponents, { Author, PostInfo } from '@/components/MDXComponent'
-import siteMetaData from '@/data/siteMetaData'
 import Image from 'next/image'
+import GithubProfile from '@/components/GitHubProfile'
+import Link from '@/components/Link'
 
-export default function Post({ data, prev, next }) {
+export default function Post({ data, prev, next, ghmeta }) {
 	const [mounted, setMounted] = useState(false)
 	useEffect(() => setMounted(true), [])
 
@@ -47,20 +48,18 @@ export default function Post({ data, prev, next }) {
 					</div>
 				</div>
 
-				<article className='flex-column justify-center'>
+				<article className='flex-col justify-center'>
 					<PostInfo
 						author={author}
 						publishedAt={publishedAt}
 						readingTime={readingTime}
 					/>
-					<div className='mt-12 mx-auto prose px-2 sm:px-0 max-w-xl sm:max-w-3xl dark:prose-invert'>
+					<div className='mt-12 mx-auto prose-lg px-2 sm:px-0 max-w-xl sm:max-w-3xl dark:prose-invert'>
 						<MDXContent components={{ ...MDXComponents }} />
 					</div>
-					<Author
-						name={siteMetaData.author}
-						imgsrc={siteMetaData.authorProfilePic}
-						description={siteMetaData.authorDescription}
-					/>
+					<div className='flex justify-center items-center mt-14'>
+						<GithubProfile className='px-8' ghmeta={ghmeta} />
+					</div>
 				</article>
 			</>
 		)
@@ -68,6 +67,9 @@ export default function Post({ data, prev, next }) {
 }
 
 export async function getStaticProps({ params }) {
+	const res = await fetch('https://api.github.com/users/skagur-k')
+	const ghmeta = await res.json()
+
 	const postIndex = allBlogs.findIndex(
 		(post) => post.slug === `${params.slug}`
 	)
@@ -76,6 +78,7 @@ export async function getStaticProps({ params }) {
 	const data = allBlogs[postIndex]
 	return {
 		props: {
+			ghmeta,
 			data,
 			prev,
 			next,
