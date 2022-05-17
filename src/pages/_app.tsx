@@ -6,7 +6,6 @@ import DefaultSEO from '@/components/DefaultSEO'
 import MaintenancePage from './maintenance'
 import '@/styles/globals.css'
 import '@/styles/prose.css'
-import Logo from '@/components/Logo'
 
 function App({ Component, pageProps, router }: any) {
 	const url = `https://skagur.dev${router.route}`
@@ -17,12 +16,7 @@ function App({ Component, pageProps, router }: any) {
 			<>
 				<DefaultSEO />
 				<ThemeProvider defaultTheme='dark' attribute='class'>
-					<div className='flex-col my-80 text-center space-y-20'>
-						<Logo size='lg' weight='bold' />
-						<h1 className='text-lg font-bold'>
-							🚧 Website Currently Under Constructon 🚧
-						</h1>
-					</div>
+					<MaintenancePage />
 				</ThemeProvider>
 			</>
 		)
