@@ -13,7 +13,23 @@ function App({ Component, pageProps, router }: any) {
 	// Shows maintenance page if the env var NEXT_PUBLIC_MAINTENANCE is set to true.
 	if (process.env.NEXT_PUBLIC_MAINTENANCE === 'true') {
 		console.log('🚧 Website Under Constructon 🚧')
-		return <MaintenancePage />
+		return (
+			<>
+				<DefaultSEO />
+				<ThemeProvider defaultTheme='dark' attribute='class'>
+					<MainLayout>
+						<AnimatePresence
+							exitBeforeEnter
+							initial={false}
+							onExitComplete={() => window.scrollTo(0, 0)}>
+							<MotionLayout key={url}>
+								<MaintenancePage />
+							</MotionLayout>
+						</AnimatePresence>
+					</MainLayout>
+				</ThemeProvider>
+			</>
+		)
 	}
 
 	return (
