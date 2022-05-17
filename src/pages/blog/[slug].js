@@ -3,10 +3,9 @@ import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { allBlogs } from 'contentlayer/generated'
 import { useEffect, useState } from 'react'
-import MDXComponents, { Author, PostInfo } from '@/components/MDXComponent'
+import MDXComponents, { PostInfo } from '@/components/MDXComponent'
 import Image from 'next/image'
 import GithubProfile from '@/components/GitHubProfile'
-import Link from '@/components/Link'
 
 export default function Post({ data, prev, next, ghmeta }) {
 	const [mounted, setMounted] = useState(false)
@@ -27,16 +26,15 @@ export default function Post({ data, prev, next, ghmeta }) {
 		url,
 	}
 
-	console.log(slug)
 	return (
 		mounted && (
 			<>
 				<NextSeo {...meta} />
 				<div className='flex flex-col space-y-4'>
-					<h1 className='text-2xl md:text-5xl text-center font-extrabold leading-12'>
+					<h1 className='text-2xl md:text-3xl text-center font-extrabold leading-12 md:mb-20 md:mt-12 mt-0 mb-12'>
 						{title}
 					</h1>
-
+					{/* 
 					<div className='cover-image relative w-full h-fit'>
 						{coverImg && (
 							<Image
@@ -45,7 +43,7 @@ export default function Post({ data, prev, next, ghmeta }) {
 								alt={`Cover Image - ${title}`}
 							/>
 						)}
-					</div>
+					</div> */}
 				</div>
 
 				<article className='flex-col justify-center'>
@@ -69,13 +67,13 @@ export default function Post({ data, prev, next, ghmeta }) {
 export async function getStaticProps({ params }) {
 	const res = await fetch('https://api.github.com/users/skagur-k')
 	const ghmeta = await res.json()
-
 	const postIndex = allBlogs.findIndex(
 		(post) => post.slug === `${params.slug}`
 	)
 	const prev = allBlogs[postIndex + 1] || null
 	const next = allBlogs[postIndex - 1] || null
 	const data = allBlogs[postIndex]
+
 	return {
 		props: {
 			ghmeta,

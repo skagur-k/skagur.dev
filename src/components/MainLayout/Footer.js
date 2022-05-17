@@ -20,9 +20,9 @@ const Footer = () => {
 					<Link href='/'>
 						<Logo size='tiny' weight='medium' />
 					</Link>
-					<div className='flex justify-items-center items-center space-x-1 text-gray-500 text-tiny'>
+					<div className='flex justify-items-center items-center space-x-1 text-gray-500 text-sm'>
 						<div>{`© ${new Date().getFullYear()}`}</div>
-						<div>namhyuck.james@gmail.com</div>
+						<div>Nam Hyuck, Kim. All Rights Reserved.</div>
 					</div>
 				</div>
 				{mounted && (

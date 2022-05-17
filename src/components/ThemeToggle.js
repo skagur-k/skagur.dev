@@ -15,7 +15,7 @@ const Switch = () => {
 		<button
 			aria-label='Toggle Dark Mode'
 			type='button'
-			className='btn rounded p-1 items-center hover:text-amber-600 dark:hover:text-amber-500 hover:ring-2 ring-gray-500 transition-all'
+			className='btn rounded px-2 items-center hover:text-amber-600 dark:hover:text-amber-500 hover:ring-2 ring-gray-500 transition-all'
 			onClick={() =>
 				setTheme(currentTheme === 'dark' ? 'light' : 'dark')
 			}>

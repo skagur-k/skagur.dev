@@ -6,7 +6,7 @@ import { allBlogs } from 'contentlayer/generated'
 
 const POSTS_PER_PAGE = 5
 
-const Blog = ({
+const BlogPage = ({
 	initialPosts,
 	blogPosts,
 	pagination,
@@ -57,4 +57,4 @@ export async function getStaticProps() {
 	}
 }
 
-export default Blog
+export default BlogPage

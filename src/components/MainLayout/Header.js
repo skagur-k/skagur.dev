@@ -5,6 +5,7 @@ import headerNavLinks from '@/lib/headerNavLinks'
 import Switch from '../ThemeToggle'
 import MobileMenu from '../MobileMenu'
 import { useRouter } from 'next/router'
+import useReadingProgress from '@/lib/utils/useReadingProgress'
 
 // TODO: Add hamburger icon & consider headlessui for the drop menu.
 
@@ -13,26 +14,37 @@ function NavItem({ href, text }) {
 	const isActive = router.asPath === href
 
 	return (
-		<Link
-			href={href}
-			className={`hover:text-amber-500 font-medium ${
-				isActive ? 'text-amber-500' : ''
-			}`}>
-			{text}
-		</Link>
+		<li>
+			<Link
+				href={href}
+				className={`hover:text-amber-500 font-medium ${
+					isActive ? 'text-amber-500' : ''
+				}`}>
+				{text}
+			</Link>
+		</li>
 	)
 }
 
 const Header = () => {
+	const router = useRouter()
+	const isPost = router.asPath.startsWith('/blog/') ? true : false
+
+	const completion = useReadingProgress()
+
+	const inlineStyle = {
+		width: `${completion}%`,
+	}
+
 	return (
-		<header className='flex item-center py-8 px-4 md:px-0 justify-between'>
+		<header className='relative flex item-center py-8 md:px-0 justify-between'>
 			<div className='flex items-center'>
 				<Link href='/' aria-label={siteMetadata.headerTitle}>
 					<Logo size='xl' weight='bold' />
 				</Link>
 			</div>
-			<div className='hidden md:flex'>
-				<div className='flex items-center space-x-8'>
+			<div className='hidden sm:flex'>
+				<nav className='flex items-center space-x-8'>
 					{headerNavLinks.map((link) => (
 						<NavItem
 							key={link.title}
@@ -41,11 +53,19 @@ const Header = () => {
 						/>
 					))}
 					<Switch />
-				</div>
+				</nav>
 			</div>
-			<div className='flex md:hidden'>
+			<nav className='flex sm:hidden space-x-6'>
+				<Switch />
+
 				<MobileMenu />
-			</div>
+			</nav>
+			{isPost && (
+				<span
+					style={inlineStyle}
+					className={`fixed bg-yellow-500 dark:bg-sky-500 h-1 left-0 top-0`}
+				/>
+			)}
 		</header>
 	)
 }

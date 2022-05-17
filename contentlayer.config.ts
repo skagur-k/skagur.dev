@@ -11,9 +11,8 @@ import { remarkMdxFrontmatter } from 'remark-mdx-frontmatter'
 import rehypeSlug from 'rehype-slug'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypePrismPlus from 'rehype-prism-plus'
-// import rehypePrism from 'rehype-prism'
 
-const computedFields: ComputedFields = {
+const blogComputedFields: ComputedFields = {
 	wordCount: {
 		type: 'number',
 		resolve: (blog) => blog.body.raw.split(/\s+/gu).length,
@@ -64,22 +63,66 @@ export const Blog = defineDocumentType(() => ({
 			type: 'string',
 			required: false,
 		},
-		isDraft: {
-			type: 'boolean',
-			description: 'If the post is a draft',
-			default: true,
+		ogImage: {
+			type: 'string',
+			description: 'Open Graph Image of the blog post',
+		},
+		slug: {
+			type: 'string',
+		},
+	},
+	computedFields: blogComputedFields,
+}))
+
+const projectComputedFields: ComputedFields = {
+	slug: {
+		type: 'string',
+		resolve: (project) =>
+			`${project._raw.sourceFileName
+				.replace(/\.mdx/, '')
+				.replace(/\s/g, '-')}`,
+	},
+}
+
+export const Project = defineDocumentType(() => ({
+	name: 'Project',
+	filePathPattern: 'project/*.mdx',
+	contentType: 'mdx',
+	fields: {
+		title: {
+			type: 'string',
+			description: 'Title of the blog post',
+			required: true,
+		},
+		description: {
+			type: 'string',
+			description: 'Summary of the blog post',
+			required: false,
+		},
+		publishedAt: {
+			type: 'string',
+			description: 'Published date of the post',
+			required: true,
+		},
+		coverImg: {
+			type: 'string',
+			required: false,
+		},
+		stack: {
+			type: 'string',
+			required: false,
 		},
 		ogImage: {
 			type: 'string',
 			description: 'Open Graph Image of the blog post',
 		},
 	},
-	computedFields,
+	computedFields: projectComputedFields,
 }))
 
 export default makeSource({
 	contentDirPath: 'data',
-	documentTypes: [Blog],
+	documentTypes: [Blog, Project],
 	mdx: {
 		remarkPlugins: [
 			[remarkToc, { heading: 'Contents' }],

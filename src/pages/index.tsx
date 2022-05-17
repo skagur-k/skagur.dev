@@ -10,8 +10,6 @@ function Home({ ghmeta }: any) {
 		setMounted(true)
 	}, [])
 
-	console.log(ghmeta)
-
 	return (
 		<>
 			<NextSeo />
@@ -49,7 +47,7 @@ function Home({ ghmeta }: any) {
 							<h2 className=''>
 								<Link
 									className='font-bold text-lg underline decoration-2 underline-offset-0 decoration-amber-500 hover:text-amber-500 mr-3'
-									href='/projects'>
+									href='/project'>
 									/projects
 								</Link>
 								If you are interested in what I worked on. 💾
@@ -73,7 +71,6 @@ function Home({ ghmeta }: any) {
 export async function getStaticProps() {
 	const res = await fetch('https://api.github.com/users/skagur-k')
 	const ghmeta = await res.json()
-	console.log(ghmeta)
 	return {
 		props: {
 			ghmeta,
