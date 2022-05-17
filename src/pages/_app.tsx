@@ -6,27 +6,23 @@ import DefaultSEO from '@/components/DefaultSEO'
 import MaintenancePage from './maintenance'
 import '@/styles/globals.css'
 import '@/styles/prose.css'
+import Logo from '@/components/Logo'
 
 function App({ Component, pageProps, router }: any) {
 	const url = `https://skagur.dev${router.route}`
 
 	// Shows maintenance page if the env var NEXT_PUBLIC_MAINTENANCE is set to true.
 	if (process.env.NEXT_PUBLIC_MAINTENANCE === 'true') {
-		console.log('🚧 Website Under Constructon 🚧')
 		return (
 			<>
 				<DefaultSEO />
 				<ThemeProvider defaultTheme='dark' attribute='class'>
-					<MainLayout>
-						<AnimatePresence
-							exitBeforeEnter
-							initial={false}
-							onExitComplete={() => window.scrollTo(0, 0)}>
-							<MotionLayout key={url}>
-								<MaintenancePage />
-							</MotionLayout>
-						</AnimatePresence>
-					</MainLayout>
+					<div className='flex-col my-80 text-center space-y-20'>
+						<Logo size='lg' weight='bold' />
+						<h1 className='text-lg font-bold'>
+							🚧 Website Currently Under Constructon 🚧
+						</h1>
+					</div>
 				</ThemeProvider>
 			</>
 		)
