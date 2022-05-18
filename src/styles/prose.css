@@ -80,6 +80,10 @@ article .author-info {
 	}
 }
 
+.anchor {
+	@apply no-underline !important;
+}
+
 ul.contains-task-list {
 	@apply list-none pl-0 my-6 font-semibold;
 
@@ -93,12 +97,10 @@ ul.contains-task-list {
 	}
 }
 
-
-
 /* Code Section (pre, code) */
 
 :not(pre) > code {
-	@apply rounded-none px-1 mx-2 font-semibold dark:text-black dark:bg-gray-200;
+	@apply rounded-lg px-1 py-1 mx-2 font-semibold dark:text-sky-500 dark:bg-gray-800;
 }
 
 code[class*='language-'],
@@ -126,7 +128,7 @@ pre[class*='language-'] {
 	-ms-hyphens: none;
 	hyphens: none;
 
-	@apply text-sm md:text-base;
+	@apply text-sm md:text-sm;
 }
 
 pre[class*='language-'] {
@@ -272,17 +274,4 @@ pre[class*='language-'] {
 .token.important,
 .token.variable {
 	color: var(--regex);
-}
-
-#contents,
-#contents + ul {
-	@apply flex lg:sticky lg:w-1/2 top-[320px];
-}
-
-h1#contents {
-	@apply mb-4;
-}
-
-#contents + ul p {
-	@apply mt-0 p-0;
 }

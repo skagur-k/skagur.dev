@@ -124,11 +124,7 @@ export default makeSource({
 	contentDirPath: 'data',
 	documentTypes: [Blog, Project],
 	mdx: {
-		remarkPlugins: [
-			[remarkToc, { heading: 'Contents' }],
-			remarkMdxFrontmatter,
-			remarkGfm,
-		],
+		remarkPlugins: [remarkMdxFrontmatter, remarkGfm],
 		rehypePlugins: [
 			rehypeSlug,
 			rehypeCodeTitles,

@@ -61,7 +61,7 @@ export default function MobileMenu() {
 											<div className='flex items-center'>
 												<SiGithub className='w-6 h-6' />
 												<span className='ml-2 font-base'>
-													Source
+													GitHub
 												</span>
 											</div>
 										</button>

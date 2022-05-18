@@ -2,10 +2,10 @@ import Link from '@/components/Link'
 import { NextSeo } from 'next-seo'
 import { useEffect, useState, createContext } from 'react'
 import GitHubProfile from '@/components/GitHubProfile'
+import loadGitHubProfile from '@/lib/utils/loadGitHubProfile'
 
-function Home({ ghmeta }: any) {
+function Home({ profile }: any) {
 	const [mounted, setMounted] = useState(false)
-	const [gh] = useState(ghmeta)
 	useEffect(() => {
 		setMounted(true)
 	}, [])
@@ -17,21 +17,21 @@ function Home({ ghmeta }: any) {
 				<div className='flex-col mt-8 md:mt-20'>
 					<div className='relative md:flex justify-between items-end'>
 						<div className='space-y-4 mb-10'>
-							<h1 className='text-3xl md:text-4xl font-medium'>
-								안녕하세요.{' '}
-								<span className='gradient-text font-bold text-amber-500'>
+							<h1 className='text-2xl md:text-3xl font-medium'>
+								안녕하세요,{' '}
+								<span className='gradient-text font-black text-amber-500'>
 									김남혁
 								</span>{' '}
 								입니다.
 							</h1>
-							<h1 className='text-2xl md:text-3xl font-medium'>
+							<h1 className='text-xl md:text-2xl font-medium'>
 								Hi, I am{' '}
 								<span className='underline underline-offset-8 font-bold decoration-wavy decoration-amber-500'>
 									Nam Hyuck Kim.
 								</span>{' '}
 							</h1>
 						</div>
-						<GitHubProfile className='' ghmeta={gh} />
+						<GitHubProfile className='' ghmeta={profile} />
 					</div>
 					<div>
 						<div className='flex'></div>
@@ -69,11 +69,11 @@ function Home({ ghmeta }: any) {
 }
 
 export async function getStaticProps() {
-	const res = await fetch('https://api.github.com/users/skagur-k')
-	const ghmeta = await res.json()
+	const profile = await loadGitHubProfile()
+
 	return {
 		props: {
-			ghmeta,
+			profile,
 		},
 	}
 }

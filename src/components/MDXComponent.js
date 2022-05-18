@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import copy from 'copy-text-to-clipboard'
 import Link from 'next/link'
 import {
 	BiCheckSquare,
@@ -7,7 +8,6 @@ import {
 	BiInfoCircle,
 	BiLink,
 } from 'react-icons/bi'
-import siteMetadata from '@/data/siteMetaData'
 import { FcCalendar, FcOpenedFolder, FcAlarmClock } from 'react-icons/fc'
 import { format, parseISO } from 'date-fns'
 import classNames from 'classnames'
@@ -36,60 +36,36 @@ export const PostInfo = ({ author, publishedAt, readingTime }) => {
 	)
 }
 
-export const Author = ({ name, imgsrc, description, ...rest }) => {
-	return (
-		<article className='author-info'>
-			<div>
-				<Image
-					layout='intrinsic'
-					priority='true'
-					src={imgsrc}
-					alt='Profile Picture'
-					className='author-img'
-					width={100}
-					height={100}
-				/>
-			</div>
-			<div className='author-details'>
-				<a className='author-name' href={siteMetadata.github} {...rest}>
-					{name}
-				</a>
-				<p className='author-description'>{description}</p>
-			</div>
-		</article>
-	)
-}
-
 const Alert = ({ type, children, ...rest }) => {
 	const iconClassName = 'w-6 h-6 mr-2'
 
 	const data = {
 		note: {
-			color: 'bg-blue-100',
-			textColor: 'text-blue-900',
-			borderColor: 'border-blue-900',
-			text: 'Note',
+			color: 'bg-slate-50',
+			textColor: 'text-slate-900',
+			borderColor: 'bg-slate-400 ',
+			text: 'NOTE',
 			icon: <BiInfoCircle className={iconClassName} />,
 		},
 		tip: {
-			color: 'bg-green-100',
+			color: 'bg-green-50',
 			textColor: 'text-green-900',
-			borderColor: 'border-green-900',
-			text: 'Tip',
+			borderColor: 'bg-green-400',
+			text: 'TIP',
 			icon: <BiCheckSquare className={iconClassName} />,
 		},
 		warning: {
-			color: 'bg-red-100',
+			color: 'bg-red-50',
 			textColor: 'text-red-900',
-			borderColor: 'border-red-900',
-			text: 'Warning',
+			borderColor: 'bg-red-400',
+			text: 'WARNING',
 			icon: <BiBell className={iconClassName} />,
 		},
-		important: {
-			color: 'bg-yellow-100',
+		caution: {
+			color: 'bg-yellow-50',
 			textColor: 'text-yellow-900',
-			borderColor: 'border-yellow-900',
-			text: 'Important',
+			borderColor: 'bg-yellow-400',
+			text: 'CAUTION',
 			icon: <BiError className={iconClassName} />,
 		},
 	}
@@ -97,17 +73,22 @@ const Alert = ({ type, children, ...rest }) => {
 	return (
 		<div
 			role='warning'
-			className={`alert flex items-center ${alert.color} ${alert.textColor} dark:bg-opacity-100 dark:shadow-none my-6 mx-4 px-4 py-2 rounded-lg shadow-xl dark:shadow-gray-700`}>
+			className={`relative flex-col items-center ${alert.color} ${alert.textColor} my-6 px-4 py-4 rounded-lg shadow-md`}>
+			<div
+				className={`absolute w-1 h-full left-0 top-0 rounded-l-md ${alert.borderColor}`}
+			/>
 			<div className='flex items-center'>
 				<i>{alert.icon}</i>
-				<span className='font-semibold mr-3'>{alert.text}:</span>
+				<span className='font-semibold mr-3 text-sm'>
+					{alert.text}:
+				</span>
 			</div>
-			<div className='text-sm sm:text-base'>{children}</div>
+			<div className='text-sm sm:text-base mt-2'>{children}</div>
 		</div>
 	)
 }
 
-const a = ({ children, href, ...rest }) => {
+const a = ({ children, href, className, ...rest }) => {
 	const isInternalLink =
 		href && (href.startsWith('/') || href.startsWith('#'))
 
@@ -116,7 +97,10 @@ const a = ({ children, href, ...rest }) => {
 			<Link href={href}>
 				<a
 					{...rest}
-					className='underline font-bold hover:text-sky-500 hover:underline decoration-2'>
+					className={classNames(
+						'underline font-bold hover:text-sky-500 hover:underline decoration-2',
+						className
+					)}>
 					{children}
 				</a>
 			</Link>
@@ -137,15 +121,24 @@ const a = ({ children, href, ...rest }) => {
 }
 
 const h1 = (props) => (
-	<h1 {...props} className='text-2xl sm:text-3xl decoration-transparent' />
+	<h1
+		{...props}
+		className='text-2xl sm:text-3xl w-fit decoration-transparent no-underline'
+	/>
 )
 
 const h2 = (props) => (
-	<h2 {...props} className='text-xl sm:text-2xl decoration-transparent' />
+	<h2
+		{...props}
+		className='text-xl sm:text-2xl w-fit decoration-transparent'
+	/>
 )
 
 const h3 = (props) => (
-	<h3 {...props} className='text-lg sm:text-xl decoration-transparent' />
+	<h3
+		{...props}
+		className='text-lg sm:text-xl w-fit decoration-transparent'
+	/>
 )
 
 const code = (props) => (
@@ -153,7 +146,7 @@ const code = (props) => (
 		{...props}
 		className={classNames(
 			props.className,
-			`before:content-none after:content-none text-white bg-gray-600`
+			`before:content-none after:content-none text-sky-700 bg-gray-100`
 		)}
 	/>
 )
