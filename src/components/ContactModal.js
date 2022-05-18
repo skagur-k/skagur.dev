@@ -63,7 +63,7 @@ export default function ContactModal() {
 										className='text-lg font-bold leading-6 text-gray-900'>
 										Contacts
 									</Dialog.Title>
-									<div className='mt-4 space-y-4 cursor-pointer text-gray-800'>
+									<div className='mt-4 space-y-4 text-gray-800'>
 										<div
 											onClick={() => {
 												copyToClipBoard(
@@ -71,7 +71,7 @@ export default function ContactModal() {
 												)
 												setIsCopied(true)
 											}}
-											className='-ml-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out  hover:bg-slate-500 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-slate-500 focus-visible:ring-opacity-50'>
+											className='-ml-3 cursor-pointer flex items-center rounded-lg p-2 transition duration-150 ease-in-out  hover:bg-slate-500 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-slate-500 focus-visible:ring-opacity-50'>
 											<div className='flex h-10 w-10 items-center justify-center '>
 												<SiMaildotru className='mr-2 w-10 h-10' />
 											</div>
@@ -132,8 +132,10 @@ export default function ContactModal() {
 function copyToClipBoard(text) {
 	navigator.clipboard.writeText(text)
 	toast.info('Copied!', {
+		icon: '🚀',
 		position: 'top-right',
-		autoClose: 500,
+		className: 'font-black',
+		autoClose: 800,
 		hideProgressBar: true,
 		closeOnClick: true,
 		pauseOnHover: false,

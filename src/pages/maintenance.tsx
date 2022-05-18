@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify'
 const MaintenancePage = (): JSX.Element => {
 	return (
 		<div className='flex flex-col justify-center bg-gray-900 min-h-screen text-center space-y-12'>
+			<ToastContainer />
 			<Logo size='2xl' weight='bold' />
 			<div className='relative flex flex-col text-3xl font-medium'>
 				{/* <Construction className='absolute scale-75 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-full' /> */}
@@ -24,7 +25,6 @@ const MaintenancePage = (): JSX.Element => {
 			</div>
 			<div className='inline-flex justify-center space-x-10'>
 				<ContactModal />
-				<ToastContainer />
 			</div>
 		</div>
 	)
