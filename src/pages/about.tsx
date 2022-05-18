@@ -1,6 +1,9 @@
+import GithubProfile from '@/components/GitHubProfile'
 import { NextSeo } from 'next-seo'
+import { useMDXComponent } from 'next-contentlayer/hooks'
+import MDXComponents from '@/components/MDXComponent'
 
-const AboutPage = () => {
+const AboutPage = ({ profilemeta }: any) => {
 	return (
 		<>
 			<NextSeo title='About' />
@@ -16,9 +19,25 @@ const AboutPage = () => {
 				</h2>
 			</div>
 
-			<div></div>
+			<div className='flex-col items-center justify-center'>
+				<GithubProfile className='' ghmeta={profilemeta} />
+				<div className='mt-8'>
+					<h2>안녕하세요 김남혁입니다.</h2>
+				</div>
+			</div>
 		</>
 	)
+}
+
+export async function getStaticProps() {
+	const profile = await fetch('https://api.github.com/users/skagur-k')
+	const profilemeta = await profile.json()
+
+	return {
+		props: {
+			profilemeta,
+		},
+	}
 }
 
 export default AboutPage

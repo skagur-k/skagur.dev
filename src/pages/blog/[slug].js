@@ -56,7 +56,10 @@ export default function Post({ data, prev, next, ghmeta }) {
 						<MDXContent components={{ ...MDXComponents }} />
 					</div>
 					<div className='flex justify-center items-center mt-14'>
-						<GithubProfile className='px-8' ghmeta={ghmeta} />
+						<GithubProfile
+							className='pl-10 pr-32 mr-4'
+							ghmeta={ghmeta}
+						/>
 					</div>
 				</article>
 			</>

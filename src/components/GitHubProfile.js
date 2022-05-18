@@ -17,6 +17,7 @@ const GithubProfile = ({ ghmeta, className, ...rest }) => {
 					layout='fixed'
 					width='100'
 					height='100'
+					priority='true'
 					src={ghmeta.avatar_url}></Image>
 				<div className=' flex-column space-y-1 ml-14 pr-2'>
 					<h1 className='group-hover:text-white font-bold text-2xl text-gray-800 dark:text-gray-100'>

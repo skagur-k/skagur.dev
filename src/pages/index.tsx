@@ -1,6 +1,6 @@
 import Link from '@/components/Link'
 import { NextSeo } from 'next-seo'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, createContext } from 'react'
 import GitHubProfile from '@/components/GitHubProfile'
 
 function Home({ ghmeta }: any) {
@@ -31,7 +31,7 @@ function Home({ ghmeta }: any) {
 								</span>{' '}
 							</h1>
 						</div>
-						<GitHubProfile className='to' ghmeta={ghmeta} />
+						<GitHubProfile className='' ghmeta={gh} />
 					</div>
 					<div>
 						<div className='flex'></div>
