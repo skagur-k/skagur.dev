@@ -30,7 +30,7 @@ module.exports = withContentlayer({
 		return config
 	},
 	images: {
-		domains: ['avatars.githubusercontent.com'],
+		domains: ['avatars.githubusercontent.com', 'img.shields.io'],
 		formats: ['image/avif', 'image/webp'],
 	},
 })

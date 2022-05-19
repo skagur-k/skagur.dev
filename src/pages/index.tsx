@@ -1,6 +1,6 @@
 import Link from '@/components/Link'
 import { NextSeo } from 'next-seo'
-import { useEffect, useState, createContext } from 'react'
+import { useEffect, useState } from 'react'
 import GitHubProfile from '@/components/GitHubProfile'
 import loadGitHubProfile from '@/lib/utils/loadGitHubProfile'
 

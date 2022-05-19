@@ -19,9 +19,10 @@ const GithubProfile = ({ ghmeta, className, ...rest }) => {
 						layout='fixed'
 						width='100'
 						height='100'
-						priority='true'
+						priority={true}
+						quality={100}
 						placeholder='blur'
-						blurDataURL='@/public/static/images/placeholder'
+						blurDataURL='url(@/public/static/images/placeholder)'
 						src={ghmeta.avatar_url}
 					/>
 				)}

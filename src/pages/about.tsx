@@ -1,8 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
+
 import GithubProfile from '@/components/GitHubProfile'
 import { NextSeo } from 'next-seo'
 import IntroTab from '@/components/IntroTab'
 import loadGitHubProfile from '@/lib/utils/loadGitHubProfile'
 import ContactModal from '@/components/ContactModal'
+import Image from 'next/image'
 
 function AboutPage({ profile }: any): JSX.Element {
 	return (
@@ -27,6 +30,7 @@ function AboutPage({ profile }: any): JSX.Element {
 				</div>
 				<div className='mt-12 mx-auto prose-lg px-2 sm:px-0 max-w-xl sm:max-w-3xl dark:prose-invert'></div>
 			</div>
+
 			<ContactModal />
 		</>
 	)
