@@ -16,7 +16,10 @@ function App({ Component, pageProps, router }: any) {
 		return (
 			<>
 				<DefaultSEO />
-				<ThemeProvider defaultTheme='dark' attribute='class'>
+				<ThemeProvider
+					defaultTheme='dark'
+					attribute='class'
+					enableSystem={false}>
 					<MaintenancePage />
 				</ThemeProvider>
 			</>
@@ -26,7 +29,10 @@ function App({ Component, pageProps, router }: any) {
 	return (
 		<>
 			<DefaultSEO />
-			<ThemeProvider defaultTheme='dark' attribute='class'>
+			<ThemeProvider
+				defaultTheme='dark'
+				attribute='class'
+				enableSystem={false}>
 				<MainLayout>
 					<AnimatePresence
 						exitBeforeEnter

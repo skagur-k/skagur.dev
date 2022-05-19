@@ -4,7 +4,7 @@ import { ToastContainer } from 'react-toastify'
 
 const MaintenancePage = (): JSX.Element => {
 	return (
-		<div className='flex flex-col justify-center bg-gray-900 min-h-screen text-center space-y-12'>
+		<div className='flex flex-col justify-center min-h-screen text-center space-y-12'>
 			<ToastContainer />
 			<Logo size='2xl' weight='bold' />
 			<div className='relative flex flex-col text-3xl font-medium'>
