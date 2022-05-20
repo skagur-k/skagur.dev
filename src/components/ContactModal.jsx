@@ -4,8 +4,9 @@ import Link from '@/components/Link'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { toast } from 'react-toastify'
+import classNames from 'classnames'
 
-export default function ContactModal() {
+export default function ContactModal({ className }) {
 	let [isOpen, setIsOpen] = useState(false)
 	let [isCopied, setIsCopied] = useState(false)
 
@@ -20,12 +21,16 @@ export default function ContactModal() {
 
 	return (
 		<>
-			<div className='flex items-center justify-center'>
+			<div
+				className={classNames(
+					className,
+					'flex items-center justify-center'
+				)}>
 				<button
 					type='button'
-					className='inline-flex justify-center rounded-md border border-transparent bg-slate-500 dark:bg-slate-800 px-4 py-2 font-semibold text-gray-100 dark:text-white hover:bg-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
+					className='inline-flex justify-center rounded-md border border-transparent bg-gray-500 dark:bg-slate-800 px-4 py-2 font-semibold text-gray-200 dark:text-white hover:bg-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
 					onClick={openModal}>
-					Contact Me
+					Contacts
 				</button>
 			</div>
 

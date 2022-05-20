@@ -8,7 +8,7 @@ const Project = ({ frontmatter }) => {
 	return (
 		<Link href={`/project/${slug}`}>
 			<div className={styles.cardwrapper}>
-				<div className='bg-[url(../../public/static/images/bg1.webp)] bg-cover bg-no-repeat transition-transform'>
+				<div className='bg-[url(../../public/static/images/hero.webp)] bg-cover transition-transform'>
 					<div className={styles.cardcontent}>
 						<div className='flex justify-between mt-40'>
 							<h1 className={styles.cardtitle}>{title}</h1>
