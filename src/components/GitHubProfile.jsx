@@ -21,8 +21,6 @@ const GithubProfile = ({ ghmeta, className, ...rest }) => {
 						height='100'
 						priority={true}
 						quality={100}
-						placeholder='blur'
-						blurDataURL='url(@/public/static/images/placeholder)'
 						src={ghmeta.avatar_url}
 					/>
 				)}

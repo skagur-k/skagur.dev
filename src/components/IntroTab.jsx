@@ -9,7 +9,7 @@ export default function IntroTab() {
 	return (
 		<div className='w-full py-2 shadow-sm	'>
 			<Tab.Group>
-				<Tab.List className='flex space-x-1 rounded-xl dark:bg-slate-500/20 bg-slate-900/20 p-1'>
+				<Tab.List className='flex space-x-1 rounded-xl dark:bg-slate-500/40 bg-slate-900/20 p-1'>
 					<Tab
 						className={({ selected }) =>
 							classNames(
@@ -68,8 +68,8 @@ export default function IntroTab() {
 							'ring-white ring-opacity-10 ring-offset-1 ring-offset-blue-400 focus:outline-none focus:ring-1'
 						)}>
 						<h2>
-							안녕하세요. 이것저것 배우는 것을 좋아하는 개발자,{' '}
-							<span className='font-black'>김남혁</span>
+							안녕하세요. 이것저것 배우고 만들어보는 것을 좋아하는
+							사람, <span className='font-black'>김남혁</span>
 							입니다.
 						</h2>
 						<ul className='mt-6 space-y-4'>

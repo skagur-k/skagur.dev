@@ -1,5 +1,3 @@
-import Image from 'next/image'
-import hero from '@/public/static/images/hero.webp'
 import Link from '@/components/Link'
 import styles from './Project.module.css'
 
@@ -8,7 +6,7 @@ const Project = ({ frontmatter }) => {
 	return (
 		<Link href={`/project/${slug}`}>
 			<div className={styles.cardwrapper}>
-				<div className='bg-[url(../../public/static/images/hero.webp)] bg-cover transition-transform'>
+				<div className='bg-[url(../../public/static/images/bg1.webp)] bg-cover transition-transform'>
 					<div className={styles.cardcontent}>
 						<div className='flex justify-between mt-40'>
 							<h1 className={styles.cardtitle}>{title}</h1>

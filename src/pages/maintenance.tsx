@@ -24,7 +24,7 @@ const MaintenancePage = (): JSX.Element => {
 				</div>
 			</div>
 			<div className='inline-flex justify-center space-x-10'>
-				<ContactModal />
+				<ContactModal className='' />
 			</div>
 		</div>
 	)

@@ -16,9 +16,9 @@ export default function MobileMenu() {
 		<div className='z-50'>
 			<Menu as='div' className='relative inline-block'>
 				<div>
-					<Menu.Button className='inline-flex w-full p-1 justify-center rounded-md focus-visible:ring-2 focus-visible:ring-white ring-1 ring-amber-500'>
+					<Menu.Button className='inline-flex w-full p-1 justify-center rounded-md focus-visible:ring-2 focus-visible:ring-white hover:ring-2 hover:ring-amber-500'>
 						<BiMenuAltRight
-							className='h-8 w-8 text-black dark:text-amber-500 hover:text-amber-500 hover:dark:text-amber-400'
+							className='h-8 w-8 text-black dark:text-amber-500 hover:text-amber-500 hover:dark:text-amber-100'
 							aria-hidden='true'
 						/>
 					</Menu.Button>
@@ -42,13 +42,15 @@ export default function MobileMenu() {
 													active
 														? 'bg-amber-500 text-white'
 														: 'text-gray-900'
-												} group flex w-full items-center rounded-md px-2 py-3 text-base`}>
+												} group flex w-full items-center rounded-md px-2 py-3 text-base font-medium`}>
 												{link.fullTitle}
 											</button>
 										</Link>
 									)}
 								</Menu.Item>
 							))}
+						</div>
+						<div className='px-1 py-3'>
 							<Menu.Item>
 								{({ active }) => (
 									<Link href={siteMetadata.github}>
@@ -60,7 +62,7 @@ export default function MobileMenu() {
 											} group flex w-full items-center rounded-md px-2 py-3 text-base`}>
 											<div className='flex items-center'>
 												<SiGithub className='w-6 h-6' />
-												<span className='ml-2 font-base'>
+												<span className='ml-3 font-medium'>
 													GitHub
 												</span>
 											</div>

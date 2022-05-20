@@ -43,7 +43,7 @@ const Header = () => {
 					<Logo size='xl' weight='bold' />
 				</Link>
 			</div>
-			<div className='hidden sm:flex'>
+			<div className='hidden sm:hidden'>
 				<nav className='flex items-center space-x-8'>
 					{headerNavLinks.map((link) => (
 						<NavItem
@@ -55,7 +55,7 @@ const Header = () => {
 					<Switch />
 				</nav>
 			</div>
-			<nav className='flex sm:hidden space-x-6'>
+			<nav className='flex space-x-6'>
 				<Switch />
 
 				<MobileMenu />
