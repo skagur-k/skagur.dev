@@ -46,7 +46,7 @@ function AboutPage({ profile }: any): JSX.Element {
 					</span>{' '}
 					🎯
 				</h2>
-				<div className='flex gap-2 flex-wrap'>
+				<div className='flex gap-4 flex-wrap'>
 					<Badge.JavaBadge />
 					<Badge.BootBadge />
 					<Badge.ReactBadge />
@@ -63,7 +63,7 @@ function AboutPage({ profile }: any): JSX.Element {
 					</span>{' '}
 					🔨
 				</h2>
-				<div className='flex gap-2 flex-wrap'>
+				<div className='flex gap-4 flex-wrap'>
 					<Badge.VSCBadge />
 					<Badge.PostmanBadge />
 					<Badge.GitHubBadge />

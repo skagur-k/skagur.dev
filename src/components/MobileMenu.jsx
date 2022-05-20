@@ -1,17 +1,13 @@
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import { useRouter } from 'next/router'
 import { BiMenuAltRight } from 'react-icons/bi'
 import Link from './Link'
 import headerNavLinks from '@/lib/headerNavLinks'
 import { SiGithub } from 'react-icons/si'
 import siteMetadata from '@/data/siteMetaData'
-import GithubProfile from './GitHubProfile'
-import Logo from './Logo'
+import ContactModal from '@/components/ContactModal'
 
 export default function MobileMenu() {
-	const router = useRouter()
-
 	return (
 		<div className='z-50'>
 			<Menu as='div' className='relative inline-block'>
