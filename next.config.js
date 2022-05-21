@@ -4,8 +4,9 @@ const { withContentlayer } = require('next-contentlayer')
 
 const nextConfig = {
 	reactStrictMode: true,
+	webpack5: true,
+	swcMinify: true,
 	pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
-	// swcMinify: true,
 	typescript: {
 		ignoreBuildErrors: true,
 	},
@@ -22,6 +23,7 @@ const nextConfig = {
 
 module.exports = withContentlayer({
 	nextConfig,
+
 	webpack: (config) => {
 		config.module.rules.push({
 			test: /\.svg?$/,

@@ -36,7 +36,7 @@ function AboutPage({ profile }: any): JSX.Element {
 					<IntroTab />
 				</div>
 			</div>
-			<hr className='my-12' />
+			<hr className='my-6' />
 
 			<div className='flex flex-col justify-center mt-12'>
 				<h2 className='text-xl font-bold mb-8 text-center'>
@@ -46,38 +46,43 @@ function AboutPage({ profile }: any): JSX.Element {
 					</span>{' '}
 					🎯
 				</h2>
-				<div className='flex gap-4 flex-wrap'>
-					<Badge.JavaBadge />
-					<Badge.BootBadge />
-					<Badge.ReactBadge />
-					<Badge.NextBadge />
-					<Badge.HTMLBadge />
-					<Badge.JSBadge />
+				<div className='flex gap-4 flex-wrap justify-center'>
+					<Badge name='java' />
+					<Badge name='springboot' />
+					<Badge name='c' />
+					<Badge name='rust' />
+					<Badge name='react' />
+					<Badge name='nodejs' />
 				</div>
 			</div>
 			<div className='flex flex-col items-center justify-center mt-16'>
 				<h2 className='text-xl font-bold mb-8'>
 					🔨{' '}
 					<span className='underline decoration-wavy decoration-amber-500 underline-offset-4'>
-						I work with these tools
+						Tools
 					</span>{' '}
 					🔨
 				</h2>
-				<div className='flex gap-4 flex-wrap'>
-					<Badge.VSCBadge />
-					<Badge.PostmanBadge />
-					<Badge.GitHubBadge />
-					<Badge.VercelBadge />
-					<Badge.NodeBadge />
-					<Badge.ContentLayerBadge />
-					<Badge.TailwindBadge />
-					<Badge.WebpackBadge />
-					<Badge.AWSBadge />
-					<Badge.PythonBadge />
-					<Badge.FlutterBadge />
-					<Badge.LinuxBadge />
-					<Badge.BashBadge />
-					<Badge.MoreBadge />
+				<div className='flex gap-4 flex-wrap justify-center '>
+					<Badge name='github' />
+					<Badge name='aws' />
+					<Badge name='vercel' />
+					<Badge name='vscode' />
+					<Badge name='nextjs' />
+					<Badge name='tailwind' />
+					<Badge name='contentlayer' />
+					<Badge name='html5' />
+					<Badge name='javascript' />
+					<Badge name='postman' />
+					<Badge name='webpack' />
+					<Badge name='yarn' />
+					<Badge name='npm' />
+					<Badge name='linux' />
+					<Badge name='bash' />
+					<Badge name='powershell' />
+					<Badge name='flutter' />
+					<Badge name='latex' />
+					<Badge name='more' />
 				</div>
 			</div>
 			<div className='flex flex-col items-center justify-center mt-16'>
@@ -89,7 +94,7 @@ function AboutPage({ profile }: any): JSX.Element {
 					🎉
 				</h2>
 				<div className='flex gap-6'>
-					<Badge.AWSCertifiedBadge />
+					<Badge name='awscertified' />
 				</div>
 			</div>
 		</>
@@ -98,8 +103,6 @@ function AboutPage({ profile }: any): JSX.Element {
 
 export async function getStaticProps() {
 	const profile = await loadGitHubProfile()
-	console.log(profile)
-
 	return {
 		props: {
 			profile,

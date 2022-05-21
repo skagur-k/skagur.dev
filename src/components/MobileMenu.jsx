@@ -5,7 +5,6 @@ import Link from './Link'
 import headerNavLinks from '@/lib/headerNavLinks'
 import { SiGithub } from 'react-icons/si'
 import siteMetadata from '@/data/siteMetaData'
-import ContactModal from '@/components/ContactModal'
 
 export default function MobileMenu() {
 	return (

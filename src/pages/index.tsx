@@ -35,7 +35,7 @@ function Home({ profile }: any) {
 					</div>
 					<div>
 						<div className='flex'></div>
-						<div className='text-md md:text-lg mt-12 space-y-4'>
+						{/* <div className='text-md md:text-lg mt-12 space-y-4'>
 							<h2 className=''>
 								<Link
 									className='font-bold text-lg underline decoration-2 underline-offset-0 decoration-amber-500 hover:text-amber-500 mr-3'
@@ -60,7 +60,7 @@ function Home({ profile }: any) {
 								</Link>{' '}
 								if you would like to do some reading.
 							</h2>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			)}

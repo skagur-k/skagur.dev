@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import { allBlogs } from 'contentlayer/generated'
 import { useEffect, useState } from 'react'
 import MDXComponents, { PostInfo } from '@/components/MDXComponent'
-import Image from 'next/image'
 import GithubProfile from '@/components/GitHubProfile'
 import loadGitHubProfile from '@/lib/utils/loadGitHubProfile'
 
@@ -35,16 +34,6 @@ export default function Post({ data, prev, next, profile }) {
 					<h1 className='text-2xl md:text-3xl text-center font-extrabold leading-12 md:mb-20 md:mt-12 mt-0 mb-12'>
 						{title}
 					</h1>
-					{/* 
-					<div className='cover-image relative w-full h-fit'>
-						{coverImg && (
-							<Image
-								layout='fill'
-								src={coverImg}
-								alt={`Cover Image - ${title}`}
-							/>
-						)}
-					</div> */}
 				</div>
 
 				<article className='flex-col justify-center'>

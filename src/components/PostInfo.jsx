@@ -4,7 +4,7 @@ import { format, parseISO } from 'date-fns'
 const PostInfo = ({ author, publishedAt, readingTime }) => {
 	return (
 		<div className='flex justify-between items-center px-0 mb-4'>
-			<p className='font-semibold text-sm bg-sky-200 text-sky-800 px-2 rounded-'>
+			<p className='font-semibold text-sm bg-sky-200 text-sky-800 px-2'>
 				{author}
 			</p>
 			<div className='flex justify-center space-x-6 text-gray-400 text-sm md:text-sm'>

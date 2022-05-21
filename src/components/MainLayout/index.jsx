@@ -1,7 +1,7 @@
 import Header from './Header'
 import Footer from './Footer'
 import ScrollToTopButton from '../ScrollToTop'
-import { ToastContainer } from 'react-toastify'
+import { Toaster } from 'react-hot-toast'
 
 const Layout = ({ children }) => {
 	return (
@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
 			<main className='mt-4 mb-auto'>{children}</main>
 			<Footer />
 			<ScrollToTopButton />
-			<ToastContainer limit={1} />
+			<Toaster />
 		</div>
 	)
 }

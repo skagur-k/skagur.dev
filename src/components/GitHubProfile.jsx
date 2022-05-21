@@ -27,7 +27,7 @@ const GithubProfile = ({ ghmeta, className, ...rest }) => {
 
 				<div className='flex justify-between items-center w-fit'>
 					<div className=' flex-column space-y-1 ml-8 pr-2'>
-						<h1 className='group-hover:text-white flex items-center font-bold text-2xl text-gray-800 dark:text-gray-100'>
+						<h1 className='group-hover:text-white flex items-center font-bold text-base sm:text-xl text-gray-800 dark:text-gray-100'>
 							{ghmeta.name}
 							<SiGithub className='group-hover:text-white w-6 h-6 ml-4' />
 						</h1>

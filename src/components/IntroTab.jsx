@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Tab } from '@headlessui/react'
+import ContactModal from './ContactModal'
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ')
@@ -7,7 +8,7 @@ function classNames(...classes) {
 
 export default function IntroTab() {
 	return (
-		<div className='w-full py-2 shadow-sm	'>
+		<div className='w-full py-2 shadow-sm relative'>
 			<Tab.Group>
 				<Tab.List className='flex space-x-1 rounded-xl dark:bg-slate-500/40 bg-slate-900/20 p-1'>
 					<Tab
@@ -59,7 +60,9 @@ export default function IntroTab() {
 								Back-end Programming
 							</li>
 							<li>🎈 I like trying new things. </li>
-							<li>🏃‍♂️ I enjoy outdoor activities. </li>
+							<li>
+								🏃‍♂️ I excercise to keep my body and mind healthy.{' '}
+							</li>
 						</ul>
 					</Tab.Panel>
 					<Tab.Panel
@@ -90,6 +93,7 @@ export default function IntroTab() {
 					</Tab.Panel>
 				</Tab.Panels>
 			</Tab.Group>
+			<ContactModal className='flex mt-4 md:absolute right-3 bottom-5' />
 		</div>
 	)
 }

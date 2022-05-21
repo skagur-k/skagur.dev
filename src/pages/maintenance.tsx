@@ -1,11 +1,11 @@
 import ContactModal from '@/components/ContactModal'
 import Logo from '@/components/Logo'
-import { ToastContainer } from 'react-toastify'
+import { Toaster } from 'react-hot-toast'
 
 const MaintenancePage = (): JSX.Element => {
 	return (
 		<div className='flex flex-col justify-center min-h-screen text-center space-y-12'>
-			<ToastContainer />
+			<Toaster />
 			<Logo size='2xl' weight='bold' />
 			<div className='relative flex flex-col text-3xl font-medium'>
 				{/* <Construction className='absolute scale-75 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-full' /> */}
