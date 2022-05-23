@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://skagur.dev</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-04-15T14:06:13.710Z</lastmod></url>
-<url><loc>https://skagur.dev/about</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-04-15T14:06:13.710Z</lastmod></url>
-<url><loc>https://skagur.dev/blog</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-04-15T14:06:13.710Z</lastmod></url>
-<url><loc>https://skagur.dev/maintenance</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-04-15T14:06:13.710Z</lastmod></url>
-<url><loc>https://skagur.dev/projects</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-04-15T14:06:13.710Z</lastmod></url>
-<url><loc>https://skagur.dev/tags</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-04-15T14:06:13.710Z</lastmod></url>
-<url><loc>https://skagur.dev/blog/one</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-04-15T14:06:13.710Z</lastmod></url>
+<url><loc>https://skagur.dev</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-20T15:02:12.924Z</lastmod></url>
+<url><loc>https://skagur.dev/about</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-20T15:02:12.924Z</lastmod></url>
+<url><loc>https://skagur.dev/blog</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-20T15:02:12.924Z</lastmod></url>
+<url><loc>https://skagur.dev/maintenance</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-20T15:02:12.924Z</lastmod></url>
+<url><loc>https://skagur.dev/project</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-20T15:02:12.924Z</lastmod></url>
+<url><loc>https://skagur.dev/project/one</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-20T15:02:12.924Z</lastmod></url>
+<url><loc>https://skagur.dev/project/two</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-20T15:02:12.924Z</lastmod></url>
+<url><loc>https://skagur.dev/blog/one-two-three</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-20T15:02:12.924Z</lastmod></url>
+<url><loc>https://skagur.dev/blog/one</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-20T15:02:12.924Z</lastmod></url>
+<url><loc>https://skagur.dev/blog/two</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-20T15:02:12.924Z</lastmod></url>
 </urlset>

@@ -1,12 +1,15 @@
 import siteMetadata from '@/data/siteMetaData'
 import { SiGithub, SiLinkedin, SiMaildotru } from 'react-icons/si'
-import { FaExternalLinkAlt, FaRegCopy } from 'react-icons/fa'
+import { FaExternalLinkAlt } from 'react-icons/fa'
+import { FiPhoneCall } from 'react-icons/fi'
+import { FaRegCopy } from 'react-icons/fa'
 import Link from '@/components/Link'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
-import { toast } from 'react-toastify'
+import { toast } from 'react-hot-toast'
+import classNames from 'classnames'
 
-export default function ContactModal() {
+export default function ContactModal({ className, children }) {
 	let [isOpen, setIsOpen] = useState(false)
 	let [isCopied, setIsCopied] = useState(false)
 
@@ -21,12 +24,16 @@ export default function ContactModal() {
 
 	return (
 		<>
-			<div className='flex items-center justify-center'>
+			<div
+				className={classNames(
+					className,
+					'flex items-center justify-center'
+				)}>
 				<button
 					type='button'
-					className='inline-flex justify-center rounded-md border border-transparent bg-slate-500 dark:bg-slate-800 px-4 py-2 font-semibold text-gray-100 dark:text-white hover:bg-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
+					className='inline-flex justify-center rounded-full border border-transparent bg-gray-600 dark:bg-slate-700 p-4 font-semibold text-gray-200 dark:text-white hover:bg-gray-300 dark:hover:bg-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
 					onClick={openModal}>
-					Contact Me
+					<FiPhoneCall className='text-2xl' />
 				</button>
 			</div>
 
@@ -76,7 +83,6 @@ export default function ContactModal() {
 											<div className='flex h-10 w-10 items-center justify-center '>
 												<SiMaildotru className='mr-2 w-10 h-10' />
 											</div>
-
 											<div className=' flex items-center justify-between w-full'>
 												<div className=' ml-4'>
 													<p className='text-sm font-semibold'>
@@ -88,7 +94,7 @@ export default function ContactModal() {
 														</p>
 													</div>
 												</div>
-												<FaRegCopy className='text-white w-5 h-5' />
+												<FaRegCopy className='text-xl text-gray-500 md:text-white mr-2' />
 											</div>
 										</div>
 										<Link
@@ -97,7 +103,7 @@ export default function ContactModal() {
 											<div className='flex h-10 w-10 shrink-0 items-center justify-center'>
 												<SiGithub className='mr-2 w-10 h-10' />
 											</div>
-											<div className='flex items-center justify-between w-full'>
+											<div className='flex justify-between items-center w-full'>
 												<div className='ml-4'>
 													<p className='text-sm font-semibold'>
 														GitHub
@@ -106,7 +112,7 @@ export default function ContactModal() {
 														{siteMetadata.github}
 													</p>
 												</div>
-												<FaExternalLinkAlt className='text-white' />
+												<FaExternalLinkAlt className='text-gray-500 md:text-white text-lg mr-2' />
 											</div>
 										</Link>
 										<Link
@@ -115,8 +121,7 @@ export default function ContactModal() {
 											<div className='flex h-10 w-10 shrink-0 items-center justify-center'>
 												<SiLinkedin className='mr-2 w-10 h-10' />
 											</div>
-
-											<div className='flex items-center justify-between w-full'>
+											<div className='flex justify-between items-center w-full'>
 												<div className='ml-4'>
 													<p className='text-sm font-semibold'>
 														LinkedIn
@@ -125,7 +130,7 @@ export default function ContactModal() {
 														{siteMetadata.linkedin}
 													</p>
 												</div>
-												<FaExternalLinkAlt className='text-white' />
+												<FaExternalLinkAlt className='text-gray-500 md:text-white text-lg mr-2' />
 											</div>
 										</Link>
 									</div>
@@ -141,15 +146,15 @@ export default function ContactModal() {
 
 function copyToClipBoard(text) {
 	navigator.clipboard.writeText(text)
-	toast.info('Copied!', {
+	toast.success('Copied!', {
+		duration: 2000,
+		position: 'bottom-center',
+		className: 'font-semibold',
 		icon: '🚀',
-		position: 'top-right',
-		className: 'font-black',
-		autoClose: 800,
-		hideProgressBar: true,
-		closeOnClick: true,
-		pauseOnHover: false,
-		draggable: true,
-		progress: undefined,
+		iconTheme: {
+			primary: '#000',
+			secondary: '#fff',
+		},
+		// Aria
 	})
 }

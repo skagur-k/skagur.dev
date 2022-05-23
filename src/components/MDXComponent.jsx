@@ -9,26 +9,23 @@ import {
 	BiLink,
 } from 'react-icons/bi'
 import { FcCalendar, FcOpenedFolder, FcAlarmClock } from 'react-icons/fc'
-import { format, parseISO } from 'date-fns'
+import { format, parseISO, formatDistanceToNow } from 'date-fns'
 import classNames from 'classnames'
 
 export const PostInfo = ({ author, publishedAt, readingTime }) => {
 	return (
 		<div className='flex justify-between items-center px-0 mb-6'>
-			<p className='font-semibold text-sm bg-sky-200 text-sky-800 px-2'>
+			<p className='font-semibold text-sm bg-sky-200 text-sky-800 px-2 rounded-xl'>
 				{author}
 			</p>
-			<div className='flex justify-center space-x-6 text-gray-400 text-xs md:text-xs font-semibold'>
+			<div className='flex justify-center space-x-2 text-gray-600 text-sm md:text-sm font-medium'>
 				<div className='flex items-center space-x-2 justify-center'>
-					<FcOpenedFolder className='w-4 h-4' />
 					<p>Blog</p>
 				</div>
 				<div className='flex items-center space-x-2 justify-center'>
-					<FcCalendar className='w-4 h-4' />
 					<p>{format(parseISO(publishedAt), 'dd LLLL, yyyy')}</p>
 				</div>
 				<div className='flex items-center space-x-2 justify-center'>
-					<FcAlarmClock className='w-4 h-4' />
 					<p>{readingTime.text}</p>
 				</div>
 			</div>

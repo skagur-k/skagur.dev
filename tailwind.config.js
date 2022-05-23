@@ -46,13 +46,6 @@ module.exports = {
 					900: '#111111',
 				},
 			},
-			typography: ({ theme }) => {
-				return {
-					DEFAULT: {
-						css: {},
-					},
-				}
-			},
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],

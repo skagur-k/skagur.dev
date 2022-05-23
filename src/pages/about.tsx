@@ -5,9 +5,16 @@ import { NextSeo } from 'next-seo'
 import IntroTab from '@/components/IntroTab'
 import loadGitHubProfile from '@/lib/utils/loadGitHubProfile'
 import ContactModal from '@/components/ContactModal'
-import Image from 'next/image'
+import Badge from '@/components/TechStackIcons'
+import { useEffect, useState } from 'react'
 
 function AboutPage({ profile }: any): JSX.Element {
+	const [mounted, setMounted] = useState(false)
+
+	useEffect(() => {
+		setMounted(true)
+	}, [])
+
 	return (
 		<>
 			<NextSeo title='About' />
@@ -23,22 +30,79 @@ function AboutPage({ profile }: any): JSX.Element {
 				</h2>
 			</div>
 
-			<div className='flex-col w-full items-center justify-center'>
+			<div className='flex flex-col w-full justify-center'>
 				<GithubProfile className='' ghmeta={profile} />
 				<div className='mt-8 space-y-4'>
 					<IntroTab />
 				</div>
-				<div className='mt-12 mx-auto prose-lg px-2 sm:px-0 max-w-xl sm:max-w-3xl dark:prose-invert'></div>
 			</div>
+			<hr className='my-6' />
 
-			<ContactModal />
+			<div className='flex flex-col justify-center mt-12'>
+				<h2 className='text-xl font-bold mb-8 text-center'>
+					🎯{' '}
+					<span className='underline decoration-wavy decoration-amber-500 underline-offset-4'>
+						Skills
+					</span>{' '}
+					🎯
+				</h2>
+				<div className='flex gap-4 flex-wrap justify-center'>
+					<Badge name='java' />
+					<Badge name='springboot' />
+					<Badge name='c' />
+					<Badge name='rust' />
+					<Badge name='react' />
+					<Badge name='nodejs' />
+				</div>
+			</div>
+			<div className='flex flex-col items-center justify-center mt-16'>
+				<h2 className='text-xl font-bold mb-8'>
+					🔨{' '}
+					<span className='underline decoration-wavy decoration-amber-500 underline-offset-4'>
+						Tools
+					</span>{' '}
+					🔨
+				</h2>
+				<div className='flex gap-4 flex-wrap justify-center '>
+					<Badge name='github' />
+					<Badge name='aws' />
+					<Badge name='vercel' />
+					<Badge name='vscode' />
+					<Badge name='nextjs' />
+					<Badge name='tailwind' />
+					<Badge name='contentlayer' />
+					<Badge name='html5' />
+					<Badge name='javascript' />
+					<Badge name='postman' />
+					<Badge name='webpack' />
+					<Badge name='yarn' />
+					<Badge name='npm' />
+					<Badge name='linux' />
+					<Badge name='bash' />
+					<Badge name='powershell' />
+					<Badge name='flutter' />
+					<Badge name='latex' />
+					<Badge name='more' />
+				</div>
+			</div>
+			<div className='flex flex-col items-center justify-center mt-16'>
+				<h2 className='text-xl font-bold mb-8'>
+					🎉{' '}
+					<span className='underline decoration-wavy decoration-amber-500 underline-offset-4'>
+						Certifications
+					</span>{' '}
+					🎉
+				</h2>
+				<div className='flex gap-6'>
+					<Badge name='awscertified' />
+				</div>
+			</div>
 		</>
 	)
 }
 
 export async function getStaticProps() {
 	const profile = await loadGitHubProfile()
-
 	return {
 		props: {
 			profile,

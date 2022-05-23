@@ -1,5 +1,6 @@
 import Logo from '@/lib/getLogo'
 import { Tab } from '@headlessui/react'
+import ContactModal from './ContactModal'
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ')
@@ -7,9 +8,9 @@ function classNames(...classes) {
 
 export default function IntroTab() {
 	return (
-		<div className='w-full py-2 shadow-md dark:shadow-gray-800/20 text-lg'>
+		<div className='w-full py-2 shadow-sm relative'>
 			<Tab.Group>
-				<Tab.List className='flex space-x-1 rounded-xl dark:bg-slate-500/20 bg-slate-900/20 p-1'>
+				<Tab.List className='flex space-x-1 rounded-xl dark:bg-slate-500/40 bg-slate-900/20 p-1'>
 					<Tab
 						className={({ selected }) =>
 							classNames(
@@ -63,6 +64,9 @@ export default function IntroTab() {
 								Back-end Programming
 							</li>
 							<li>🎈 I like trying new things. </li>
+							<li>
+								🏃‍♂️ I excercise to keep my body and mind healthy.{' '}
+							</li>
 						</ul>
 					</Tab.Panel>
 					<Tab.Panel
@@ -71,8 +75,8 @@ export default function IntroTab() {
 							'ring-white ring-opacity-10 space-y-4 ring-offset-1 ring-offset-blue-400 focus:outline-none focus:ring-1'
 						)}>
 						<h2>
-							안녕하세요. 이것저것 배우는 것을 좋아하는 개발자,{' '}
-							<span className='font-black'>김남혁</span>
+							안녕하세요. 이것저것 배우고 만들어보는 것을 좋아하는
+							사람, <span className='font-black'>김남혁</span>
 							입니다.
 						</h2>
 						<p>
@@ -99,6 +103,7 @@ export default function IntroTab() {
 					</Tab.Panel>
 				</Tab.Panels>
 			</Tab.Group>
+			<ContactModal className='flex mt-4 md:absolute right-3 bottom-5' />
 		</div>
 	)
 }
