@@ -1,5 +1,6 @@
 import siteMetadata from '@/data/siteMetaData'
 import { SiGithub, SiLinkedin, SiMaildotru } from 'react-icons/si'
+import { FaExternalLinkAlt, FaRegCopy } from 'react-icons/fa'
 import Link from '@/components/Link'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
@@ -75,7 +76,8 @@ export default function ContactModal() {
 											<div className='flex h-10 w-10 items-center justify-center '>
 												<SiMaildotru className='mr-2 w-10 h-10' />
 											</div>
-											<div className=' flex items-center shrink-0 justify-between w-full'>
+
+											<div className=' flex items-center justify-between w-full'>
 												<div className=' ml-4'>
 													<p className='text-sm font-semibold'>
 														Email
@@ -86,6 +88,7 @@ export default function ContactModal() {
 														</p>
 													</div>
 												</div>
+												<FaRegCopy className='text-white w-5 h-5' />
 											</div>
 										</div>
 										<Link
@@ -94,13 +97,16 @@ export default function ContactModal() {
 											<div className='flex h-10 w-10 shrink-0 items-center justify-center'>
 												<SiGithub className='mr-2 w-10 h-10' />
 											</div>
-											<div className='ml-4'>
-												<p className='text-sm font-semibold'>
-													GitHub
-												</p>
-												<p className='text-sm'>
-													{siteMetadata.github}
-												</p>
+											<div className='flex items-center justify-between w-full'>
+												<div className='ml-4'>
+													<p className='text-sm font-semibold'>
+														GitHub
+													</p>
+													<p className='text-sm'>
+														{siteMetadata.github}
+													</p>
+												</div>
+												<FaExternalLinkAlt className='text-white' />
 											</div>
 										</Link>
 										<Link
@@ -109,13 +115,17 @@ export default function ContactModal() {
 											<div className='flex h-10 w-10 shrink-0 items-center justify-center'>
 												<SiLinkedin className='mr-2 w-10 h-10' />
 											</div>
-											<div className='ml-4'>
-												<p className='text-sm font-semibold'>
-													LinkedIn
-												</p>
-												<p className='text-sm'>
-													{siteMetadata.linkedin}
-												</p>
+
+											<div className='flex items-center justify-between w-full'>
+												<div className='ml-4'>
+													<p className='text-sm font-semibold'>
+														LinkedIn
+													</p>
+													<p className='text-sm'>
+														{siteMetadata.linkedin}
+													</p>
+												</div>
+												<FaExternalLinkAlt className='text-white' />
 											</div>
 										</Link>
 									</div>

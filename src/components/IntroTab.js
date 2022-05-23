@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import Logo from '@/lib/getLogo'
 import { Tab } from '@headlessui/react'
 
 function classNames(...classes) {
@@ -7,7 +7,7 @@ function classNames(...classes) {
 
 export default function IntroTab() {
 	return (
-		<div className='w-full py-2 shadow-sm	'>
+		<div className='w-full py-2 shadow-md dark:shadow-gray-800/20 text-lg'>
 			<Tab.Group>
 				<Tab.List className='flex space-x-1 rounded-xl dark:bg-slate-500/20 bg-slate-900/20 p-1'>
 					<Tab
@@ -39,17 +39,21 @@ export default function IntroTab() {
 					<Tab.Panel
 						className={classNames(
 							'rounded-xl p-4',
-							'ring-white ring-opacity-10 ring-offset-1 ring-offset-blue-400 focus:outline-none focus:ring-1'
+							'ring-white ring-opacity-10 space-y-4 ring-offset-1 ring-offset-blue-400 focus:outline-none focus:ring-1'
 						)}>
 						<h2>
 							Hi, I am{' '}
-							<span className='font-black'>Nam Hyuck Kim</span> 😁
+							<span className='font-bold'>Nam Hyuck Kim</span>
 						</h2>
+						<p>
+							<Logo /> is my humble space where I showcase myself
+							and share my experiences as a developer. Feel free
+							to contact me if you have any questions 😎.
+						</p>
 						<ul className='mt-6 space-y-4'>
 							<li>
 								🏫 I have a Bachelor&apos;s Degree in
-								Information Technology from Hong Kong
-								Polytechnic University in 2019
+								Information Technology from HKPU.
 							</li>
 							<li>
 								🚀 Recently, I&apos;ve been exploring{' '}
@@ -59,19 +63,24 @@ export default function IntroTab() {
 								Back-end Programming
 							</li>
 							<li>🎈 I like trying new things. </li>
-							<li>🏃‍♂️ I enjoy outdoor activities. </li>
 						</ul>
 					</Tab.Panel>
 					<Tab.Panel
 						className={classNames(
 							'rounded-xl p-4',
-							'ring-white ring-opacity-10 ring-offset-1 ring-offset-blue-400 focus:outline-none focus:ring-1'
+							'ring-white ring-opacity-10 space-y-4 ring-offset-1 ring-offset-blue-400 focus:outline-none focus:ring-1'
 						)}>
 						<h2>
 							안녕하세요. 이것저것 배우는 것을 좋아하는 개발자,{' '}
 							<span className='font-black'>김남혁</span>
 							입니다.
 						</h2>
+						<p>
+							<Logo />는 저를 소개하는 동시에, 제가 개발자로
+							성장하는 과정을 기록하기 위해 구축한
+							포트폴리오/블로그 사이트입니다. 문의사항은 아래
+							연락처로 부탁드립니다 😊.
+						</p>
 						<ul className='mt-6 space-y-4'>
 							<li>
 								🏫 홍콩이공대학교 졸업 - BSc

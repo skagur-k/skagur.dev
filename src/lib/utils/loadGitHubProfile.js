@@ -1,3 +1,5 @@
+import profile_placeholder from '@/lib/profile_placeholder'
+
 export default async function loadGitHubProfile() {
 	const headers = {
 		Authorization: `token ${process.env.GITHUB_API_TOKEN}`,
@@ -7,7 +9,8 @@ export default async function loadGitHubProfile() {
 	const profile = await fetch(`https://api.github.com/users/skagur-k`, {
 		headers,
 	})
-
-	const profilemeta = await profile.json()
-	return profilemeta
+	if (!profile.ok) return profile_placeholder
+	const data = await profile.json()
+	console.log(data)
+	return data
 }

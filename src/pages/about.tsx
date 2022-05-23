@@ -38,7 +38,6 @@ function AboutPage({ profile }: any): JSX.Element {
 
 export async function getStaticProps() {
 	const profile = await loadGitHubProfile()
-	console.log(profile)
 
 	return {
 		props: {
