@@ -10,20 +10,24 @@ const nextConfig = {
 	typescript: {
 		ignoreBuildErrors: true,
 	},
-	async redirects() {
-		return [
-			{
-				source: '/github',
-				destination: 'https://github.com/skagur-k',
-				permanent: true,
-			},
-		]
-	},
 }
 
 module.exports = withContentlayer({
 	nextConfig,
-
+	async redirects() {
+		return [
+			{
+				source: '/project/:path*',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/github',
+				destination: 'https://github.com/skagur-k/',
+				permanent: true,
+			},
+		]
+	},
 	webpack: (config) => {
 		config.module.rules.push({
 			test: /\.svg?$/,

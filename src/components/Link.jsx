@@ -7,7 +7,7 @@ const CustomLink = ({ children, href, ...rest }) => {
 
 	if (isInternalLink) {
 		return (
-			<Link href={href} passHref={true}>
+			<Link href={href} passHref={true} {...rest}>
 				<a {...rest}>{children} </a>
 			</Link>
 		)
@@ -35,9 +35,7 @@ export const InternalLink = ({ children, href, ...rest }) => {
 				href={href}
 				className='z-0 w-fit mx-1 p-1 text-base font-bold no-underline overflow-hidden relative rounded-md before:absolute before:z-[-1] before:top-full before:left-0 before:right-0 before:-bottom-0.5 before:rounded-md before:bg-opacity-80 before:bg-amber-500 hover:before:top-0 before:transition-all before:delay-75 before:duration-100'
 				{...rest}>
-				<div className='inline-flex items-center space-x-2'>
-					{children}
-				</div>
+				<div className='inline-flex items-center space-x-2'>{children}</div>
 			</a>
 		</Link>
 	)

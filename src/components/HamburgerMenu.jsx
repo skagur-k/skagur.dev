@@ -6,7 +6,7 @@ import headerNavLinks from '@/lib/headerNavLinks'
 import { SiGithub } from 'react-icons/si'
 import siteMetadata from '@/data/siteMetaData'
 
-export default function MobileMenu() {
+export default function HamburgerMenu() {
 	return (
 		<div className='z-50'>
 			<Menu as='div' className='relative inline-block'>
@@ -34,9 +34,7 @@ export default function MobileMenu() {
 										<Link href={link.href}>
 											<button
 												className={`${
-													active
-														? 'bg-amber-500 text-white'
-														: 'text-gray-900'
+													active ? 'bg-amber-500 text-white' : 'text-gray-900'
 												} group flex w-full items-center rounded-md px-2 py-3 text-base font-medium`}>
 												{link.fullTitle}
 											</button>
@@ -51,15 +49,11 @@ export default function MobileMenu() {
 									<Link href={siteMetadata.github}>
 										<button
 											className={`${
-												active
-													? 'bg-amber-500 text-white'
-													: 'text-gray-900'
+												active ? 'bg-amber-500 text-white' : 'text-gray-900'
 											} group flex w-full items-center rounded-md px-2 py-3 text-base`}>
 											<div className='flex items-center'>
 												<SiGithub className='w-6 h-6' />
-												<span className='ml-3 font-medium'>
-													GitHub
-												</span>
+												<span className='ml-3 font-medium'>GitHub</span>
 											</div>
 										</button>
 									</Link>
@@ -71,13 +65,9 @@ export default function MobileMenu() {
 								{({ inactive }) => (
 									<Link href='/'>
 										<div className='flex justify-center w-full items-center rounded-md px-2 py-2 text-right text-gray-900'>
-											<span className='text-amber-500'>
-												&lt;&nbsp;&nbsp;
-											</span>
+											<span className='text-amber-500'>&lt;&nbsp;&nbsp;</span>
 											skagur.dev
-											<span className='text-amber-500'>
-												&nbsp;/&nbsp;&gt;
-											</span>
+											<span className='text-amber-500'>&nbsp;/&nbsp;&gt;</span>
 										</div>
 									</Link>
 								)}

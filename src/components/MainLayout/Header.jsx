@@ -3,7 +3,7 @@ import Link from '@/components/Link'
 import Logo from '@/components/Logo'
 import headerNavLinks from '@/lib/headerNavLinks'
 import Switch from '../ThemeToggle'
-import MobileMenu from '../MobileMenu'
+import HamburgerMenu from '../HamburgerMenu'
 import { useRouter } from 'next/router'
 import useReadingProgress from '@/lib/utils/useReadingProgress'
 
@@ -46,11 +46,7 @@ const Header = () => {
 			<div className='hidden sm:hidden'>
 				<nav className='flex items-center space-x-8'>
 					{headerNavLinks.map((link) => (
-						<NavItem
-							key={link.title}
-							href={link.href}
-							text={link.title}
-						/>
+						<NavItem key={link.title} href={link.href} text={link.title} />
 					))}
 					<Switch />
 				</nav>
@@ -58,7 +54,7 @@ const Header = () => {
 			<nav className='flex space-x-6'>
 				<Switch />
 
-				<MobileMenu />
+				<HamburgerMenu />
 			</nav>
 			{isPost && (
 				<span

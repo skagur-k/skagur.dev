@@ -6,7 +6,6 @@ import {
 import readingTime from 'reading-time'
 import remarkGfm from 'remark-gfm'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import remarkToc from 'remark-toc'
 import { remarkMdxFrontmatter } from 'remark-mdx-frontmatter'
 import rehypeSlug from 'rehype-slug'
 import rehypeCodeTitles from 'rehype-code-titles'
@@ -24,15 +23,13 @@ const blogComputedFields: ComputedFields = {
 	slug: {
 		type: 'string',
 		resolve: (blog) =>
-			`${blog._raw.sourceFileName
-				.replace(/\.mdx/, '')
-				.replace(/\s/g, '-')}`,
+			`${blog._raw.sourceFileName.replace(/\.mdx/, '').replace(/\s/g, '-')}`,
 	},
 }
 
 export const Blog = defineDocumentType(() => ({
 	name: 'Blog',
-	filePathPattern: 'blog/*.mdx',
+	filePathPattern: '*.mdx',
 	contentType: 'mdx',
 	fields: {
 		title: {
@@ -74,55 +71,9 @@ export const Blog = defineDocumentType(() => ({
 	computedFields: blogComputedFields,
 }))
 
-const projectComputedFields: ComputedFields = {
-	slug: {
-		type: 'string',
-		resolve: (project) =>
-			`${project._raw.sourceFileName
-				.replace(/\.mdx/, '')
-				.replace(/\s/g, '-')}`,
-	},
-}
-
-export const Project = defineDocumentType(() => ({
-	name: 'Project',
-	filePathPattern: 'project/*.mdx',
-	contentType: 'mdx',
-	fields: {
-		title: {
-			type: 'string',
-			description: 'Title of the blog post',
-			required: true,
-		},
-		description: {
-			type: 'string',
-			description: 'Summary of the blog post',
-			required: false,
-		},
-		publishedAt: {
-			type: 'string',
-			description: 'Published date of the post',
-			required: true,
-		},
-		coverImg: {
-			type: 'string',
-			required: false,
-		},
-		stack: {
-			type: 'string',
-			required: false,
-		},
-		ogImage: {
-			type: 'string',
-			description: 'Open Graph Image of the blog post',
-		},
-	},
-	computedFields: projectComputedFields,
-}))
-
 export default makeSource({
-	contentDirPath: 'data',
-	documentTypes: [Blog, Project],
+	contentDirPath: 'data/blog',
+	documentTypes: [Blog],
 	mdx: {
 		remarkPlugins: [remarkMdxFrontmatter, remarkGfm],
 		rehypePlugins: [
