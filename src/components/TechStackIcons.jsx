@@ -1,5 +1,3 @@
-import awsbadge from '@/public/static/images/aws_ccp_badge.png'
-import Image from 'next/image'
 import {
 	SiReact,
 	SiJava,
@@ -245,9 +243,7 @@ const BadgeTemplate = ({ icon, bg, iconColor, textColor, children }) => {
 		<div
 			className={`flex h-10 items-center space-x-2 py-2 px-3 cursor-pointer ${bg} rounded-md shadow-lg shadow-black/30 dark:shadow-gray-500/30`}>
 			{Icon && <Icon className={`text-2xl ${iconColor}`} />}
-			<h2 className={`text-base font-semibold ${textColor}`}>
-				{children}
-			</h2>
+			<h2 className={`text-base font-semibold ${textColor}`}>{children}</h2>
 		</div>
 	)
 }

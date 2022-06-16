@@ -5,7 +5,7 @@ import { Toaster } from 'react-hot-toast'
 
 const Layout = ({ children }) => {
 	return (
-		<div className='max-w-2xl sm:max-w-4xl mx-auto px-6 sm:px-4 flex flex-col min-h-screen '>
+		<div className='max-w-2xl sm:max-w-3xl mx-auto px-8 sm:px-4 flex flex-col min-h-screen '>
 			<Header />
 			<main className='mt-4 mb-auto'>{children}</main>
 			<Footer />
