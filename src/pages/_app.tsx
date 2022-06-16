@@ -6,7 +6,6 @@ import DefaultSEO from '@/components/DefaultSEO'
 import MaintenancePage from './maintenance'
 import '@/styles/globals.css'
 import '@/styles/prose.css'
-import '@/styles/ReactToastify.css'
 
 function App({ Component, pageProps, router }: any) {
 	const url = `https://skagur.dev${router.route}`
