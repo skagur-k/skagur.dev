@@ -1,4 +1,3 @@
-import Logo from '@/lib/getLogo'
 import { Tab } from '@headlessui/react'
 import ContactModal from './ContactModal'
 
@@ -43,18 +42,17 @@ export default function IntroTab() {
 							'ring-white ring-opacity-10 space-y-4 ring-offset-1 ring-offset-blue-400 focus:outline-none focus:ring-1'
 						)}>
 						<h2>
-							Hi, I am{' '}
-							<span className='font-bold'>Nam Hyuck Kim</span>
+							Hi, I am <span className='font-bold'>Nam Hyuck Kim</span>
 						</h2>
 						<p>
-							<Logo /> is my humble space where I showcase myself
-							and share my experiences as a developer. Feel free
-							to contact me if you have any questions 😎.
+							skagur.dev is my humble garden🌳 where I showcase myself and share
+							my experiences as a developer. Feel free to contact me if you have
+							any questions 😎.
 						</p>
 						<ul className='mt-6 space-y-4'>
 							<li>
-								🏫 I have a Bachelor&apos;s Degree in
-								Information Technology from HKPU.
+								🏫 I have a Bachelor&apos;s Degree in Information Technology
+								from HKPU.
 							</li>
 							<li>
 								🚀 Recently, I&apos;ve been exploring{' '}
@@ -64,9 +62,7 @@ export default function IntroTab() {
 								Back-end Programming
 							</li>
 							<li>🎈 I like trying new things. </li>
-							<li>
-								🏃‍♂️ I excercise to keep my body and mind healthy.{' '}
-							</li>
+							<li>🏃‍♂️ I excercise to keep my body and mind healthy. </li>
 						</ul>
 					</Tab.Panel>
 					<Tab.Panel
@@ -75,15 +71,14 @@ export default function IntroTab() {
 							'ring-white ring-opacity-10 space-y-4 ring-offset-1 ring-offset-blue-400 focus:outline-none focus:ring-1'
 						)}>
 						<h2>
-							안녕하세요. 이것저것 배우고 만들어보는 것을 좋아하는
-							사람, <span className='font-black'>김남혁</span>
+							안녕하세요. 이것저것 배우고 만들어보는 것을 좋아하는 사람,{' '}
+							<span className='font-black'>김남혁</span>
 							입니다.
 						</h2>
 						<p>
-							<Logo />는 저를 소개하는 동시에, 제가 개발자로
-							성장하는 과정을 기록하기 위해 구축한
-							포트폴리오/블로그 사이트입니다. 문의사항은 아래
-							연락처로 부탁드립니다 😊.
+							이 곳은 저를 소개하는 동시에, 제가 개발자로 성장하는 과정을
+							기록하기 위해 구축한 포트폴리오/블로그 사이트입니다. 문의사항은
+							아래 연락처로 부탁드립니다 😊.
 						</p>
 						<ul className='mt-6 space-y-4'>
 							<li>

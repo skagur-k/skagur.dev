@@ -11,6 +11,5 @@ export default async function loadGitHubProfile() {
 	})
 	if (!profile.ok) return profile_placeholder
 	const data = await profile.json()
-	console.log(data)
 	return data
 }

@@ -12,12 +12,14 @@
 		"test": "jest --watch"
 	},
 	"dependencies": {
+		"csstype": "^3.1.0",
+		"framer-motion": "^6.2.10",
 		"next": "^12.1.6",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"framer-motion": "^6.2.10",
+		"react-hot-toast": "^2.2.0",
 		"react-icons": "^4.4.0",
-		"react-hot-toast": "^2.2.0"
+		"sharp": "^0.30.6"
 	},
 	"devDependencies": {
 		"@headlessui/react": "^1.6.1",
@@ -43,6 +45,7 @@
 		"next-seo": "^5.4.0",
 		"next-sitemap": "^2.5.20",
 		"next-themes": "^0.2.0",
+		"node-gyp": "^9.0.0",
 		"postcss": "^8.4.12",
 		"prismjs": "^1.28.0",
 		"reading-time": "^1.5.0",
