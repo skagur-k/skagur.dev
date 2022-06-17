@@ -15,10 +15,8 @@ const Switch = () => {
 		<button
 			aria-label='Toggle Dark Mode'
 			type='button'
-			className='btn rounded px-2 items-center hover:text-amber-600 dark:hover:text-amber-500 hover:ring-2 ring-gray-500 transition-all'
-			onClick={() =>
-				setTheme(currentTheme === 'dark' ? 'light' : 'dark')
-			}>
+			className='btn rounded px-2 items-center hover:text-amber-500 dark:hover:text-amber-500 hover:ring-2 ring-gray-200 dark:ring-gray-500 transition-all'
+			onClick={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')}>
 			{currentTheme === 'dark' ? (
 				<HiSun className='h-7 w-7' />
 			) : (

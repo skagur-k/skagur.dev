@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 
 const { withContentlayer } = require('next-contentlayer')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+	enabled: process.env.ANALYZE === 'true',
+})
 
 const nextConfig = {
 	reactStrictMode: true,
@@ -12,50 +15,52 @@ const nextConfig = {
 	},
 }
 
-module.exports = withContentlayer({
-	nextConfig,
-	async redirects() {
-		return [
-			{
-				source: '/project/:path*',
-				destination: '/',
-				permanent: true,
-			},
-			{
-				source: '/github',
-				destination: 'https://github.com/skagur-k/',
-				permanent: true,
-			},
-		]
-	},
-	webpack: (config) => {
-		config.module.rules.push({
-			test: /\.svg?$/,
-			oneOf: [
+module.exports = withBundleAnalyzer(
+	withContentlayer({
+		nextConfig,
+		async redirects() {
+			return [
 				{
-					use: [
-						{
-							loader: '@svgr/webpack',
-							options: {
-								prettier: false,
-								svgo: true,
-								svgoConfig: {
-									plugins: [{ removeViewBox: false }],
-								},
-								titleProp: true,
-							},
-						},
-					],
-					issuer: {
-						and: [/\.(ts|tsx|js|jsx|md|mdx)$/],
-					},
+					source: '/project/:path*',
+					destination: '/',
+					permanent: true,
 				},
-			],
-		})
-		return config
-	},
-	images: {
-		domains: ['avatars.githubusercontent.com', 'img.shields.io'],
-		formats: ['image/avif', 'image/webp'],
-	},
-})
+				{
+					source: '/github',
+					destination: 'https://github.com/skagur-k/',
+					permanent: true,
+				},
+			]
+		},
+		webpack: (config) => {
+			config.module.rules.push({
+				test: /\.svg?$/,
+				oneOf: [
+					{
+						use: [
+							{
+								loader: '@svgr/webpack',
+								options: {
+									prettier: false,
+									svgo: true,
+									svgoConfig: {
+										plugins: [{ removeViewBox: false }],
+									},
+									titleProp: true,
+								},
+							},
+						],
+						issuer: {
+							and: [/\.(ts|tsx|js|jsx|md|mdx)$/],
+						},
+					},
+				],
+			})
+			return config
+		},
+		images: {
+			domains: ['avatars.githubusercontent.com', 'img.shields.io'],
+			formats: ['image/avif', 'image/webp'],
+		},
+	})
+)

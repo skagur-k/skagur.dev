@@ -7,7 +7,7 @@ import siteMetadata from '@/data/siteMetaData'
 
 function Hero() {
 	return (
-		<div className='flex flex-col-reverse space-y-4 space-y-reverse sm:flex-row justify-between sm:items-center'>
+		<div className='flex mt-4 flex-col-reverse space-y-4 space-y-reverse sm:flex-row justify-between sm:items-center'>
 			<div className='space-y-4 max-w-lg'>
 				<h1 className='gradient-text text-4xl sm:text-4xl font-black'>
 					Nam Hyuck Kim
@@ -21,13 +21,13 @@ function Hero() {
 				</div>
 				<div className='flex space-x-6 text-gray-800 dark:text-gray-200'>
 					<Link href='/about'>
-						<div className='flex items-center space-x-2 hover:text-sky-500 hover:ring-2 ring-sky-500 px-3 py-1 rounded-xl transition-colors duration-300'>
+						<div className='flex items-center space-x-2 hover:text-sky-500 hover:ring-2 ring-sky-500 px-3 py-1 rounded-xl '>
 							<BsFileEarmarkPost className='w-4 h-4' />
 							<p>Résumé</p>
 						</div>
 					</Link>
 					<Link href={siteMetadata.github}>
-						<div className='flex items-center space-x-2 hover:text-sky-500 hover:ring-2 ring-sky-500 px-3 py-1 rounded-xl transition-colors duration-300'>
+						<div className='flex items-center space-x-2 hover:text-sky-500 hover:ring-2 ring-sky-500 px-3 py-1 rounded-xl '>
 							<SiGithub className='w-4 h-4' />
 							<p>GitHub</p>
 						</div>

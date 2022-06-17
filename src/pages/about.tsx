@@ -40,11 +40,7 @@ function AboutPage({ profile }: any): JSX.Element {
 
 			<div className='flex flex-col justify-center mt-12'>
 				<h2 className='text-xl font-bold mb-8 text-center'>
-					🎯{' '}
-					<span className='underline decoration-wavy decoration-amber-500 underline-offset-4'>
-						Skills
-					</span>{' '}
-					🎯
+					🔨 Tools I work with 🔨
 				</h2>
 				<div className='flex gap-4 flex-wrap justify-center'>
 					<Badge name='java' />
@@ -55,14 +51,7 @@ function AboutPage({ profile }: any): JSX.Element {
 					<Badge name='nodejs' />
 				</div>
 			</div>
-			<div className='flex flex-col items-center justify-center mt-16'>
-				<h2 className='text-xl font-bold mb-8'>
-					🔨{' '}
-					<span className='underline decoration-wavy decoration-amber-500 underline-offset-4'>
-						Tools
-					</span>{' '}
-					🔨
-				</h2>
+			<div className='flex flex-col items-center justify-center mt-8'>
 				<div className='flex gap-4 flex-wrap justify-center '>
 					<Badge name='github' />
 					<Badge name='aws' />
@@ -86,16 +75,8 @@ function AboutPage({ profile }: any): JSX.Element {
 				</div>
 			</div>
 			<div className='flex flex-col items-center justify-center mt-16'>
-				<h2 className='text-xl font-bold mb-8'>
-					🎉{' '}
-					<span className='underline decoration-wavy decoration-amber-500 underline-offset-4'>
-						Certifications
-					</span>{' '}
-					🎉
-				</h2>
-				<div className='flex gap-6'>
-					<Badge name='awscertified' />
-				</div>
+				<h2 className='text-xl font-bold mb-8'>🎉 Certifications 🎉</h2>
+				<Badge name='awscertified' />
 			</div>
 		</>
 	)

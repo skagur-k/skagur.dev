@@ -10,14 +10,15 @@ function ProjectCard({ project }) {
 				</div>
 				<div className='flex flex-col flex-1 space-y-4'>
 					<div className='flex justify-between items-center'>
-						<div className='group-hover:text-sky-500 underline-offset-4 font-bold text-lg transition-colors duration-200'>
+						<div className='group-hover:text-sky-500 underline-offset-4 font-black text-lg'>
 							{project.name}
 						</div>
 						<div className='flex space-x-3'>
-							{project.stacks.map((stack, id) => {
+							{project.stacks.slice(0, 3).map((stack, id) => {
+								console.log(stack)
 								return (
 									<div key={id}>
-										<span>{stack.icon}</span>
+										<span className={`hover:text-sky-500`}>{stack.icon}</span>
 										<ReactTooltip effect='solid' />
 									</div>
 								)
@@ -25,7 +26,7 @@ function ProjectCard({ project }) {
 						</div>
 					</div>
 					<div className='text-gray-300 dark:text-gray-500'>
-						{project.description}
+						{project.summary}
 					</div>
 				</div>
 			</div>

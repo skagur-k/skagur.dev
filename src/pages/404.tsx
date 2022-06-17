@@ -11,11 +11,6 @@ const PageNotFound = () => {
 			<p className='font-bold text-gray-500'>
 				The URL of the page was not found.
 			</p>
-			<Link href='/' className=''>
-				<button className='bg-slate-700 text-white py-2 px-4 rounded-md'>
-					Go Home
-				</button>
-			</Link>
 		</div>
 	)
 }

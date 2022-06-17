@@ -13,7 +13,7 @@ function Home() {
 		<>
 			<NextSeo />
 			{mounted && (
-				<div className='flex-col space-y-16'>
+				<div className='flex-col space-y-12'>
 					<Hero />
 					<FeaturedProjects />
 				</div>

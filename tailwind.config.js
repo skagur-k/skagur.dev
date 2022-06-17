@@ -6,6 +6,7 @@ module.exports = {
 	content: [
 		'./src/pages/**/*.{js,jsx,ts,tsx}',
 		'./src/components/**/*.{js,jsx,ts,tsx}',
+		'./src/components/**/*.{js,jsx,ts,tsx}',
 	],
 	darkMode: 'class',
 	theme: {
@@ -33,6 +34,20 @@ module.exports = {
 			colors: {
 				transparent: 'transparent',
 				current: 'currentcolor',
+				midnight: '#121063',
+				metal: '#565584',
+				tahiti: '#3ab7bf',
+				silver: '#ecebff',
+				'bubble-gum': '#ff77e9',
+				bermuda: '#78dcca',
+				tailwind: '#06B6D4',
+				typescript: '#3178C6',
+				javascript: '#F7DF1E',
+				react: '#61DAFB',
+				spring: '#6DB33F',
+				java: '#FC4C02',
+				git: '#F05032',
+				github: '#181717',
 				gray: {
 					0: '#fff',
 					100: '#fafafa',

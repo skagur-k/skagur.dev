@@ -1,7 +1,4 @@
-import { useRouter } from 'next/router'
-
 const Logo = ({ size, weight }) => {
-	const router = useRouter()
 	return (
 		<div className='items-center'>
 			<h1 className={`inline-block font-${weight} text-${size}`}>

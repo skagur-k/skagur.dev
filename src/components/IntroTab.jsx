@@ -71,7 +71,7 @@ export default function IntroTab() {
 							'ring-white ring-opacity-10 space-y-4 ring-offset-1 ring-offset-blue-400 focus:outline-none focus:ring-1'
 						)}>
 						<h2>
-							안녕하세요. 이것저것 배우고 만들어보는 것을 좋아하는 사람,{' '}
+							안녕하세요. 이것저것 배우고 만들어보는 것을 좋아하는{' '}
 							<span className='font-black'>김남혁</span>
 							입니다.
 						</h2>

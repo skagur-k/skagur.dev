@@ -85,7 +85,7 @@ export default function ContactModal({ className }) {
 														<p className='text-sm'>{siteMetadata.email}</p>
 													</div>
 												</div>
-												<FaRegCopy className='text-xl text-gray-500 md:text-white mr-2' />
+												<FaRegCopy className='text-xl mr-2' />
 											</div>
 										</div>
 										<Link
@@ -99,7 +99,7 @@ export default function ContactModal({ className }) {
 													<p className='text-sm font-semibold'>GitHub</p>
 													<p className='text-sm'>{siteMetadata.github}</p>
 												</div>
-												<FaExternalLinkAlt className='text-gray-500 md:text-white text-lg mr-2' />
+												<FaExternalLinkAlt className='text-base mr-2' />
 											</div>
 										</Link>
 										<Link
@@ -113,7 +113,7 @@ export default function ContactModal({ className }) {
 													<p className='text-sm font-semibold'>LinkedIn</p>
 													<p className='text-sm'>{siteMetadata.linkedin}</p>
 												</div>
-												<FaExternalLinkAlt className='text-gray-500 md:text-white text-lg mr-2' />
+												<FaExternalLinkAlt className='text-base mr-2' />
 											</div>
 										</Link>
 									</div>

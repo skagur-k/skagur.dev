@@ -28,8 +28,8 @@ import {
 const SiContentLayer = () => {
 	return (
 		<svg
-			width='24'
-			height='24'
+			width='16'
+			height='16'
 			viewBox='0 0 22 24'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'>
@@ -241,9 +241,9 @@ const BadgeTemplate = ({ icon, bg, iconColor, textColor, children }) => {
 	const Icon = icon
 	return (
 		<div
-			className={`flex h-10 items-center space-x-2 py-2 px-3 cursor-pointer ${bg} rounded-md shadow-lg shadow-black/30 dark:shadow-gray-500/30`}>
-			{Icon && <Icon className={`text-2xl ${iconColor}`} />}
-			<h2 className={`text-base font-semibold ${textColor}`}>{children}</h2>
+			className={`flex h-6 items-center space-x-2 px-2 cursor-pointer ${bg} rounded-md shadow-lg shadow-black/30 dark:shadow-gray-500/30`}>
+			{Icon && <Icon className={`text-base ${iconColor}`} />}
+			<h2 className={`text-sm font-semibold ${textColor}`}>{children}</h2>
 		</div>
 	)
 }
