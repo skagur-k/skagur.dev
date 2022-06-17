@@ -241,7 +241,7 @@ const BadgeTemplate = ({ icon, bg, iconColor, textColor, children }) => {
 	const Icon = icon
 	return (
 		<div
-			className={`flex h-6 items-center space-x-2 px-2 cursor-pointer ${bg} rounded-md shadow-lg shadow-black/30 dark:shadow-gray-500/30`}>
+			className={`flex h-6 items-center space-x-2 px-2 cursor-pointer ${bg} rounded-md shadow-md shadow-black/30 dark:shadow-gray-500/30`}>
 			{Icon && <Icon className={`text-base ${iconColor}`} />}
 			<h2 className={`text-sm font-semibold ${textColor}`}>{children}</h2>
 		</div>

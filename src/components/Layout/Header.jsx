@@ -1,6 +1,5 @@
 import siteMetadata from '@/data/siteMetaData'
 import Link from '@/components/Link'
-import Logo from '@/components/Logo'
 import headerNavLinks from '@/lib/headerNavLinks'
 import Switch from '../ThemeToggle'
 import HamburgerMenu from '../HamburgerMenu'
@@ -40,7 +39,13 @@ const Header = () => {
 		<header className='relative flex item-center py-8 md:px-0 justify-between'>
 			<div className='flex items-center'>
 				<Link href='/' aria-label={siteMetadata.headerTitle}>
-					<Logo size='xl' weight='bold' />
+					<div className='items-center'>
+						<h1 className={`inline-block text-xl font-bold`}>
+							<span className='text-amber-500'>&lt;&nbsp;&nbsp;</span>
+							skagur.dev
+							<span className='text-amber-500'>&nbsp;/&nbsp;&gt;</span>
+						</h1>
+					</div>
 				</Link>
 			</div>
 			<div className='hidden sm:hidden'>

@@ -13,7 +13,8 @@ const DefaultSEO = () => {
 				site_name: 'skagur.dev',
 				url: 'https://skagur.dev/',
 				title: '[skagur.dev]',
-				description: '',
+				description:
+					'Minimal portfolio site designed and developed by Nam Hyuck Kim',
 				images: [
 					{
 						url: '/og-image.png',

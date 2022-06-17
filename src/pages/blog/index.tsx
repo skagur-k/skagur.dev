@@ -1,4 +1,4 @@
-import BlogListLayout from '@/components/Layouts/BlogListLayout'
+import BlogListLayout from '@/components/Layout/BlogListLayout'
 import { InferGetStaticPropsType } from 'next'
 import { NextSeo } from 'next-seo'
 import { compareDesc, parseISO } from 'date-fns'

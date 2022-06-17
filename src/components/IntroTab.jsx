@@ -45,21 +45,16 @@ export default function IntroTab() {
 							Hi, I am <span className='font-bold'>Nam Hyuck Kim</span>
 						</h2>
 						<p>
-							skagur.dev is my humble garden🌳 where I showcase myself and share
-							my experiences as a developer. Feel free to contact me if you have
-							any questions 😎.
+							skagur.dev a place where I say introduce myself to the world of
+							internet and share my experiences as a developer. Feel free to
+							contact me if you have any questions 😎.
 						</p>
 						<ul className='mt-6 space-y-4'>
-							<li>
-								🏫 I have a Bachelor&apos;s Degree in Information Technology
-								from HKPU.
-							</li>
 							<li>
 								🚀 Recently, I&apos;ve been exploring{' '}
 								<span className='font-semibold text-green-500'>
 									Spring Boot
-								</span>{' '}
-								Back-end Programming
+								</span>
 							</li>
 							<li>🎈 I like trying new things. </li>
 							<li>🏃‍♂️ I excercise to keep my body and mind healthy. </li>
@@ -82,15 +77,11 @@ export default function IntroTab() {
 						</p>
 						<ul className='mt-6 space-y-4'>
 							<li>
-								🏫 홍콩이공대학교 졸업 - BSc
-								<sub>&#40;Hons&#41;</sub> Information Technology
-							</li>
-							<li>
 								🚀 최근에는{' '}
 								<span className='font-semibold text-green-500'>
 									Spring Boot
 								</span>{' '}
-								백엔드 프로그래밍 공부를 하고 있습니다.
+								공부를 하고 있습니다.
 							</li>
 							<li>🎈 새로운 것에 도전하는걸 좋아합니다. </li>
 							<li>🏃‍♂️ 활동적인 것을 좋아합니다. </li>

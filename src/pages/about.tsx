@@ -36,7 +36,6 @@ function AboutPage({ profile }: any): JSX.Element {
 					<IntroTab />
 				</div>
 			</div>
-			<hr className='my-6' />
 
 			<div className='flex flex-col justify-center mt-12'>
 				<h2 className='text-xl font-bold mb-8 text-center'>

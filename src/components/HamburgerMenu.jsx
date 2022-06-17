@@ -26,7 +26,7 @@ export default function HamburgerMenu() {
 					leave='transition ease-in duration-75'
 					leaveFrom='transform opacity-100 scale-100'
 					leaveTo='transform opacity-0 scale-95'>
-					<Menu.Items className='absolute right-0 mt-4 p-2 w-50 origin-top-right divide-y font-semibold divide-gray-200 rounded-md bg-slate-100 shadow-lg ring-1 ring-white ring-opacity-5 '>
+					<Menu.Items className='absolute right-0 mt-4 p-2 w-50 origin-top-right divide-y font-semibold divide-gray-200 rounded-md bg-gray-100 shadow-lg ring-1 ring-white ring-opacity-5 '>
 						<div className='px-1 py-2 '>
 							{headerNavLinks.map((link) => (
 								<Menu.Item key={link.title}>
