@@ -3,15 +3,17 @@ import { Fragment, useState } from 'react'
 import { SiGithub } from 'react-icons/si'
 import Link from '@/components/Link'
 import { FaLink } from 'react-icons/fa'
-import ReactTooltip from 'react-tooltip'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
-import { BiChevronLeft } from 'react-icons/bi'
 import { FiChevronLeft } from 'react-icons/fi'
 
 export default function ProjectDetails({ project, onClose = () => {} }) {
 	let [isOpen, setIsOpen] = useState(true)
 	let imgSrc
+
+	function closeModal() {
+		setIsOpen(false)
+	}
 
 	const { resolvedTheme } = useTheme()
 
@@ -27,20 +29,32 @@ export default function ProjectDetails({ project, onClose = () => {} }) {
 	return (
 		<>
 			<Transition appear static show={isOpen} as={Fragment}>
-				<Dialog as='div' className='relative z-50' onClose={onClose}>
+				<Dialog as='div' className='relative z-50' onClose={closeModal}>
 					<div className='fixed inset-0 overflow-y-auto'>
-						{/* Backdrop */}
-						<div className='fixed inset-0 bg-black bg-opacity-25' />
+						<Transition.Child
+							as={Fragment}
+							enter='ease-out duration-300'
+							enterFrom='opacity-0'
+							enterTo='opacity-100'
+							leave='ease-in duration-100'
+							leaveFrom='opacity-100'
+							leaveTo='opacity-0'>
+							<div className='fixed inset-0 bg-black bg-opacity-25' />
+						</Transition.Child>
 
 						<div className='flex min-h-full items-center justify-center p-4 text-center'>
 							<Transition.Child
 								as={Fragment}
 								enter='ease-out duration-300'
 								enterFrom='opacity-0 scale-90'
-								enterTo='opacity-100 scale-100'>
+								enterTo='opacity-100 scale-100'
+								leave='ease-in duration-100'
+								leaveFrom='opacity-100 scale-100'
+								leaveTo='opacity-0 scale-95'
+								afterLeave={onClose}>
 								<Dialog.Panel className='w-full max-w-3xl transform overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-800 p-4 text-left align-middle shadow-xl transition-all'>
 									<button
-										onClick={onClose}
+										onClick={closeModal}
 										className='flex items-center justify-center px-1 py-2 font-semibold rounded-lg text-gray-600 dark:text-gray-200 hover:text-sky-500 dark:hover:text-sky-500'>
 										<FiChevronLeft className='text-2xl' />
 										<p>Back</p>
@@ -70,12 +84,18 @@ export default function ProjectDetails({ project, onClose = () => {} }) {
 											<div className='grid grid-cols-2 gap-x-4 gap-y-2'>
 												{project.stacks.map((stack, id) => {
 													return (
-														<div
+														<Link
 															key={id}
-															className={`flex space-x-2 cursor-pointer items-centerdark:text-gray-200 dark:hover:text-sky-500 hover:text-sky-500 hover:ring-2 rounded-xl px-4 py-2 ring-sky-500`}>
-															<span>{stack.icon}</span>
-															<span>{stack.name}</span>
-														</div>
+															href={stack.url}
+															className={`${
+																stack.url ? 'cursor-pointer' : 'cursor-default'
+															}`}>
+															<div
+																className={`flex space-x-2 items-centerdark:text-gray-200 dark:hover:text-sky-500 hover:text-sky-500 hover:ring-2 rounded-xl px-4 py-2 ring-sky-500`}>
+																<span>{stack.icon}</span>
+																<span>{stack.name}</span>
+															</div>
+														</Link>
 													)
 												})}
 											</div>
@@ -87,7 +107,7 @@ export default function ProjectDetails({ project, onClose = () => {} }) {
 											<Link href={project.projectUrl}>
 												<button
 													type='button'
-													className='flex items-center space-x-2 justify-center rounded-md bg-gray-700 dark:bg-gray-600 px-4 py-2 text-base font-semibold text-gray-200 hover:bg-sky-500 dark:hover:bg-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2'>
+													className='flex items-center space-x-2 justify-center rounded-md bg-gray-700 dark:bg-gray-600 px-4 py-2 text-base font-semibold text-gray-200 hover:bg-sky-500 dark:hover:bg-sky-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2'>
 													<FaLink className='w-4 h-4' />
 													<p>Website</p>
 												</button>
@@ -98,7 +118,7 @@ export default function ProjectDetails({ project, onClose = () => {} }) {
 											<Link href={project.githubRepo}>
 												<button
 													type='button'
-													className='flex items-center space-x-2 justify-center rounded-md bg-gray-700 dark:bg-gray-600 px-4 py-2 text-base font-semibold text-gray-200 hover:bg-sky-500 dark:hover:bg-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2'>
+													className='flex items-center space-x-2 justify-center rounded-md bg-gray-700 dark:bg-gray-600 px-4 py-2 text-base font-semibold text-gray-200 hover:bg-sky-500 dark:hover:bg-sky-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2'>
 													<SiGithub className='w-5 h-5' />
 													<p>GitHub</p>
 												</button>
