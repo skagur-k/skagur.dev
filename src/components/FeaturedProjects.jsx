@@ -2,11 +2,10 @@ import { useRouter } from 'next/router'
 
 import ProjectCard from './ProjectCard'
 import ProjectDetails from './ProjectDetails'
-import projects from '@/components/Projects/projects'
+import projects from '@/components/Projects'
 import Link from '@/components/Link'
 import siteMetadata from '@/data/siteMetaData'
-import { FiArrowRightCircle, FiChevronsRight } from 'react-icons/fi'
-import { BiChevronRight } from 'react-icons/bi'
+import { FiArrowRightCircle } from 'react-icons/fi'
 
 function FeaturedProjects() {
 	const router = useRouter()

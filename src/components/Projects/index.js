@@ -7,9 +7,12 @@ import {
 	SiVercel,
 } from 'react-icons/si'
 
-import Project1Cover from '@/public/static/images/projects/skagurdev.webp'
-import Project1CoverDark from '@/public/static/images/projects/skagurdev-dark.webp'
-import Project1 from '@/components/Projects/projectDetails/Project1'
+// import Project1Cover from '@/public/static/images/projects/skagurdev.webp'
+// import Project1CoverDark from '@/public/static/images/projects/skagurdev-dark.webp'
+import Project1, {
+	light as light1,
+	dark as dark1,
+} from '@/components/Projects/ProjectDetails/Project1'
 
 const icons = {
 	nextjs: <SiNextdotjs data-tip='Next.js' className='w-6 h-6' />,
@@ -30,8 +33,8 @@ const Projects = [
 		description: <Project1 />,
 		githubRepo: 'https://github.com/skagur-k/skagur.dev',
 		projectUrl: '/',
-		coverimage: Project1Cover,
-		coverimagedark: Project1CoverDark,
+		coverimage: light1,
+		coverimagedark: dark1,
 		stacks: [
 			{ name: 'Next.JS', icon: icons.nextjs, url: 'https://nextjs.org/' },
 			{
@@ -61,8 +64,8 @@ const Projects = [
 		description: <Project1 />,
 		githubRepo: 'https://github.com/skagur-k/skagur.dev',
 		projectUrl: '/',
-		coverimage: Project1Cover,
-		coverimagedark: Project1CoverDark,
+		coverimage: light1,
+		coverimagedark: dark1,
 		stacks: [
 			{ name: 'Next.JS', icon: icons.nextjs },
 			{ name: 'JavaScript', icon: icons.javascript },

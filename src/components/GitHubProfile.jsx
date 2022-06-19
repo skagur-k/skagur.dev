@@ -1,11 +1,12 @@
 import classNames from 'classnames'
 import Image from 'next/image'
 import { SiGithub } from 'react-icons/si'
-
+import Link from '@/components/Link'
+import ReactTooltip from 'react-tooltip'
 //TODO: Figure out how to mask profile image with github svg
 const GithubProfile = ({ ghmeta, className, ...rest }) => {
 	return (
-		<a target='_blank' rel='noopener noreferrer' href={ghmeta.html_url}>
+		<Link href={ghmeta.html_url}>
 			<div
 				{...rest}
 				className={classNames(
@@ -44,7 +45,7 @@ const GithubProfile = ({ ghmeta, className, ...rest }) => {
 					</div>
 				</div>
 			</div>
-		</a>
+		</Link>
 	)
 }
 

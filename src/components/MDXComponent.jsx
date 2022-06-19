@@ -1,32 +1,31 @@
 import Image from 'next/image'
 import copy from 'copy-text-to-clipboard'
-import Link from 'next/link'
-import {
-	BiCheckSquare,
-	BiError,
-	BiBell,
-	BiInfoCircle,
-	BiLink,
-} from 'react-icons/bi'
-import { FcCalendar, FcOpenedFolder, FcAlarmClock } from 'react-icons/fc'
-import { format, parseISO, formatDistanceToNow } from 'date-fns'
+import Link from '@/components/Link'
+import { BiCheckSquare, BiError, BiBell, BiInfoCircle } from 'react-icons/bi'
+import { format, parseISO } from 'date-fns'
 import classNames from 'classnames'
+import { FiClock } from 'react-icons/fi'
+import ReactTooltip from 'react-tooltip'
 
 export const PostInfo = ({ author, publishedAt, readingTime }) => {
 	return (
 		<div className='flex justify-between items-center px-0 mb-6'>
-			<p className='font-semibold text-sm bg-sky-200 text-sky-800 px-2 rounded-xl'>
-				{author}
-			</p>
-			<div className='flex justify-center space-x-2 text-gray-600 text-sm md:text-sm font-medium'>
-				<div className='flex items-center space-x-2 justify-center'>
-					<p>Blog</p>
+			<ReactTooltip effect='solid' />
+			<Link href='/about'>
+				<p
+					data-tip='Written by'
+					className='font-bold text-base rounded-md hover:text-sky-500'>
+					{author}
+				</p>
+			</Link>
+			<div className='flex justify-center space-x-2  text-sm md:text-sm font-medium'>
+				<div className='flex items-center space-x-1 justify-center'>
+					<FiClock className='stroke-[3px]' />
+					<p className=''>{readingTime.text}</p>
 				</div>
+				<p>·</p>
 				<div className='flex items-center space-x-2 justify-center'>
-					<p>{format(parseISO(publishedAt), 'dd LLLL, yyyy')}</p>
-				</div>
-				<div className='flex items-center space-x-2 justify-center'>
-					<p>{readingTime.text}</p>
+					<p>{format(parseISO(publishedAt), 'LLL dd, yyyy')}</p>
 				</div>
 			</div>
 		</div>
@@ -76,74 +75,38 @@ const Alert = ({ type, children, ...rest }) => {
 			/>
 			<div className='flex items-center'>
 				<i>{alert.icon}</i>
-				<span className='font-semibold mr-3 text-sm'>
-					{alert.text}:
-				</span>
+				<span className='font-semibold mr-3 text-sm'>{alert.text}:</span>
 			</div>
 			<div className='text-sm sm:text-base mt-2'>{children}</div>
 		</div>
 	)
 }
 
-const a = ({ children, href, className, ...rest }) => {
-	const isInternalLink =
-		href && (href.startsWith('/') || href.startsWith('#'))
-
-	if (isInternalLink) {
-		return (
-			<Link href={href}>
-				<a
-					{...rest}
-					className={classNames(
-						'underline font-bold hover:text-sky-500 hover:underline decoration-2',
-						className
-					)}>
-					{children}
-				</a>
-			</Link>
-		)
-	}
-
+const a = ({ children, href, className }) => {
 	return (
-		<a
-			target='_blank'
-			rel='noopener noreferrer'
+		<Link
 			href={href}
-			{...rest}
-			className={`inline-flex relative items-center underline hover:text-sky-500 font-bold hover:underline decoration-2`}>
+			className={classNames(
+				className,
+				'font-bold hover:text-sky-500 no-underline'
+			)}>
 			{children}
-			{/* <BiLink className='ml-1 absolute w-6 h-6 stroke-0' /> */}
-		</a>
+		</Link>
 	)
 }
 
-const h1 = (props) => (
-	<h1
-		{...props}
-		className='text-2xl sm:text-3xl w-fit decoration-transparent no-underline'
-	/>
-)
+const h1 = (props) => <h1 {...props} className='text-2xl sm:text-3xl' />
 
-const h2 = (props) => (
-	<h2
-		{...props}
-		className='text-xl sm:text-2xl w-fit decoration-transparent'
-	/>
-)
+const h2 = (props) => <h2 {...props} className='text-xl sm:text-2xl' />
 
-const h3 = (props) => (
-	<h3
-		{...props}
-		className='text-lg sm:text-xl w-fit decoration-transparent'
-	/>
-)
+const h3 = (props) => <h3 {...props} className='text-lg sm:text-xl' />
 
 const code = (props) => (
 	<code
 		{...props}
 		className={classNames(
 			props.className,
-			`before:content-none after:content-none text-sky-700 bg-gray-100`
+			`before:content-none after:content-none text-sky-500 bg-gray-100 ring-1 ring-sky-500`
 		)}
 	/>
 )

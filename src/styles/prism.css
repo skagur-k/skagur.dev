@@ -60,43 +60,6 @@ html.dark article {
 	--line-highlight-background: #444444;
 }
 
-article .author-info {
-	@apply flex items-start mt-12;
-
-	& .author-img {
-		@apply rounded-full align-middle hidden md:flex;
-	}
-
-	& .author-details {
-		@apply flex flex-col ml-6;
-	}
-
-	& .author-name {
-		@apply text-base font-semibold flex;
-	}
-
-	& .author-description {
-		@apply text-sm my-2;
-	}
-}
-
-.anchor {
-	@apply no-underline !important;
-}
-
-ul.contains-task-list {
-	@apply list-none pl-0 my-6 font-semibold;
-
-	& > .task-list-item {
-		@apply py-2 flex items-center;
-
-		& > input[type='checkbox'] {
-			@apply w-4 h-4 mr-5 opacity-100 relative border-red-400 border-[2px] checked:bg-sky-700 checked:border-sky-700 rounded-full;
-		}
-		/* appearance-none to customize checkbox*/
-	}
-}
-
 /* Code Section (pre, code) */
 
 :not(pre) > code {

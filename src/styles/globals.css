@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	a {
+		@apply no-underline;
+	}
+}
+
 @layer components {
 	blockquote {
 		@apply border-l-4 border-l-sky-500/80 ml-1 my-8 px-4;

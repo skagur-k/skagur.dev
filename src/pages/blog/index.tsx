@@ -1,4 +1,4 @@
-import BlogListLayout from '@/components/Layout/BlogListLayout'
+import BlogList from '@/components/BlogList'
 import { InferGetStaticPropsType } from 'next'
 import { NextSeo } from 'next-seo'
 import { compareDesc, parseISO } from 'date-fns'
@@ -26,7 +26,7 @@ const BlogPage = ({
 					I want to share.
 				</h2>
 			</div>
-			<BlogListLayout
+			<BlogList
 				posts={blogPosts}
 				initialPosts={initialPosts}
 				pagination={pagination}

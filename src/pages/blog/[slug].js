@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import MDXComponents, { PostInfo } from '@/components/MDXComponent'
 import GithubProfile from '@/components/GitHubProfile'
 import loadGitHubProfile from '@/lib/utils/loadGitHubProfile'
+import Image from 'next/image'
 
 export default function Post({ data, prev, next, profile }) {
 	const [mounted, setMounted] = useState(false)
@@ -30,26 +31,38 @@ export default function Post({ data, prev, next, profile }) {
 		mounted && (
 			<>
 				<NextSeo {...meta} />
-				<div className='flex flex-col space-y-4'>
-					<h1 className='text-2xl md:text-3xl text-center font-extrabold leading-12 md:mb-20 md:mt-12 mt-0 mb-12'>
-						{title}
-					</h1>
-				</div>
 
-				<article className='flex-col justify-center'>
+				<div>
+					<div className='flex flex-col space-y-4'>
+						<h1 className='text-2xl sm:text-3xl text-center font-black mt-12 mb-14'>
+							{title}
+						</h1>
+					</div>
 					<PostInfo
 						author={author}
 						publishedAt={publishedAt}
 						readingTime={readingTime}
 					/>
-					<div className='mt-12 mx-auto prose px-2 sm:px-0 max-w-xl sm:max-w-3xl dark:prose-invert'>
+				</div>
+
+				{coverImg && (
+					<div className='relative w-full h-[300px] rounded-xl hidden sm:flex'>
+						<Image
+							layout='fill'
+							priority='true'
+							src={coverImg}
+							alt='Post cover image'
+							objectFit='contain'
+						/>
+					</div>
+				)}
+
+				<article className='flex-col justify-center'>
+					<div className='mt-12 mx-auto prose dark:prose-invert max-w-xl sm:max-w-3xl'>
 						<MDXContent components={{ ...MDXComponents }} />
 					</div>
 					<div className='flex justify-center items-center mt-14'>
-						<GithubProfile
-							className='pl-10 pr-32 mr-4'
-							ghmeta={profile}
-						/>
+						<GithubProfile className='pl-10 pr-32 mr-4' ghmeta={profile} />
 					</div>
 				</article>
 			</>
@@ -59,9 +72,7 @@ export default function Post({ data, prev, next, profile }) {
 
 export async function getStaticProps({ params }) {
 	const profile = await loadGitHubProfile()
-	const postIndex = allBlogs.findIndex(
-		(post) => post.slug === `${params.slug}`
-	)
+	const postIndex = allBlogs.findIndex((post) => post.slug === `${params.slug}`)
 	const prev = allBlogs[postIndex + 1] || null
 	const next = allBlogs[postIndex - 1] || null
 	const data = allBlogs[postIndex]
