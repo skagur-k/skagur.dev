@@ -5,7 +5,7 @@ import { format, parseISO } from 'date-fns'
 import classNames from 'classnames'
 import { FiClock } from 'react-icons/fi'
 import { FaRegCalendar } from 'react-icons/fa'
-import ReactTooltip from 'react-tooltip'
+import { BiBell, BiCheckSquare, BiError, BiInfoCircle } from 'react-icons/bi'
 
 export const PostInfo = ({ author, publishedAt, readingTime }) => {
 	return (
@@ -75,9 +75,7 @@ const Alert = ({ type, children, ...rest }) => {
 			/>
 			<div className='flex items-center'>
 				<i>{alert.icon}</i>
-				<span className='font-semibold mr-3 text-sm'>
-					{alert.text}:
-				</span>
+				<span className='font-semibold mr-3 text-sm'>{alert.text}:</span>
 			</div>
 			<div className='text-sm sm:text-base mt-2'>{children}</div>
 		</div>

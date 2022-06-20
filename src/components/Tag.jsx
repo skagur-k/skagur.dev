@@ -19,9 +19,8 @@ export const icons = {
 const Tag = ({ text }) => {
 	const techname = text.split(' ').join('').toLowerCase()
 	const Icon = icons[techname]
-	console.log(Icon)
 	return (
-		<div className='inline-flex items-center justify-center space-x-1 mr-3 text-xs font-semibold uppercase px-3 py-2 rounded-full border-[1px] border-sky-500 hover:border-sky-300 dark:hover:border-sky-300'>
+		<div className='inline-flex items-center justify-center space-x-1 mr-3 text-xs font-semibold uppercase px-3 py-1 rounded-full ring-1 ring-sky-500'>
 			{Icon && Icon}
 			<span className=''>{text.split(' ').join('-')}</span>
 		</div>

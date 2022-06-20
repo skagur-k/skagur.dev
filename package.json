@@ -1,8 +1,9 @@
 {
 	"name": "skagur.dev",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"author": "Nam Hyuck Kim (skagur.dev)",
 	"description": "A minimal portfolio website developed with Next.JS",
+	"private": "true",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -59,5 +60,5 @@
 		"tailwindcss": "^3.1.3",
 		"typescript": "^4.7.3"
 	},
-	"packageManager": "yarn@3.2.1"
+	"packageManager": "yarn@1.23.0"
 }

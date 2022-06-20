@@ -3,6 +3,7 @@ import Link from '@/components/Link'
 import Tag from './Tag'
 import { format, parseISO } from 'date-fns'
 import { FiClock } from 'react-icons/fi'
+import { FaRegCalendar } from 'react-icons/fa'
 
 // TDOO: taglist
 
@@ -21,9 +22,16 @@ function BlogCard({ frontmatter }) {
 								{title}
 							</h3>
 							<div className=''>
-								<div className='text-tiny font-semibold group-hover:text-sky-500'>
+								<div className='flex text-tiny font-medium items-center space-x-2 group-hover:text-sky-500'>
+									<div className='flex items-center space-x-1 align-middle'>
+										<FiClock className='stroke-[3px]  text-sm' />
+										<p>{readingTime.text}</p>
+									</div>
 									<time dateTime={publishedAt}>
-										{format(parseISO(publishedAt), 'LLL dd, yyyy')}
+										<div className='flex items-center space-x-1'>
+											<FaRegCalendar className='stroke-2 text-sm' />
+											<p>{format(parseISO(publishedAt), 'LLL dd, yyyy')}</p>
+										</div>
 									</time>
 								</div>
 							</div>
@@ -31,16 +39,13 @@ function BlogCard({ frontmatter }) {
 						<div className='font-sm text-gray-300 dark:text-gray-400'>
 							{`${summary.substring(0, 160)}...`}
 						</div>
-						<div className='flex items-center space-x-1 text-tiny text-gray-500 dark:text-gray-200 font-semibold'>
-							<FiClock className='stroke-[3px]]' />
-							<p>{readingTime.text}</p>
-						</div>
+
 						{tags && (
-							<div className='flex flex-wrap gap-y-2'>
+							<button className='flex flex-wrap gap-y-2'>
 								{tags.map((tag) => (
 									<Tag key={tag} text={tag} />
 								))}
-							</div>
+							</button>
 						)}
 					</div>
 				</div>
