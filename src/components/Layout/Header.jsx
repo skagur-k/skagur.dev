@@ -42,9 +42,13 @@ const Header = () => {
 				<Link href='/' aria-label={siteMetadata.headerTitle}>
 					<div className='items-center'>
 						<h1 className={`inline-block text-xl font-bold`}>
-							<span className='text-amber-500'>&lt;&nbsp;&nbsp;</span>
+							<span className='text-amber-500'>
+								&lt;&nbsp;&nbsp;
+							</span>
 							skagur.dev
-							<span className='text-amber-500'>&nbsp;/&nbsp;&gt;</span>
+							<span className='text-amber-500'>
+								&nbsp;/&nbsp;&gt;
+							</span>
 						</h1>
 					</div>
 				</Link>
@@ -52,7 +56,11 @@ const Header = () => {
 			<div className='hidden sm:hidden'>
 				<nav className='flex items-center space-x-8'>
 					{headerNavLinks.map((link) => (
-						<NavItem key={link.title} href={link.href} text={link.title} />
+						<NavItem
+							key={link.title}
+							href={link.href}
+							text={link.title}
+						/>
 					))}
 					<Switch />
 				</nav>
@@ -65,7 +73,7 @@ const Header = () => {
 			{isPost && (
 				<span
 					style={inlineStyle}
-					className={`fixed bg-yellow-500 dark:bg-sky-500 h-1 left-0 top-0`}
+					className={`fixed bg-sky-500 dark:bg-sky-500 h-1 left-0 top-0`}
 				/>
 			)}
 		</header>

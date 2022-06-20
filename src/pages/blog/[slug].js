@@ -7,6 +7,8 @@ import MDXComponents, { PostInfo } from '@/components/MDXComponent'
 import GithubProfile from '@/components/GitHubProfile'
 import loadGitHubProfile from '@/lib/utils/loadGitHubProfile'
 import Image from 'next/image'
+import Tag from '@/components/Tag'
+import ReactTooltip from 'react-tooltip'
 
 export default function Post({ data, prev, next, profile }) {
 	const [mounted, setMounted] = useState(false)
@@ -17,8 +19,16 @@ export default function Post({ data, prev, next, profile }) {
 
 	const MDXContent = useMDXComponent(data.body.code)
 
-	const { title, summary, publishedAt, slug, readingTime, coverImg, author } =
-		data
+	const {
+		title,
+		summary,
+		publishedAt,
+		slug,
+		readingTime,
+		coverImg,
+		author,
+		tags,
+	} = data
 
 	const meta = {
 		title,
@@ -33,10 +43,19 @@ export default function Post({ data, prev, next, profile }) {
 				<NextSeo {...meta} />
 
 				<div>
-					<div className='flex flex-col space-y-4'>
-						<h1 className='text-2xl sm:text-3xl text-center font-black mt-4 mb-14 underline underline-offset-4 decoration-sky-500 decoration-2'>
+					<ReactTooltip effect='solid' />
+
+					<div className='flex flex-col space-y-8 items-center justify-center mt-8 mb-14'>
+						<h1 className='text-2xl sm:text-3xl text-center font-black'>
 							{title}
 						</h1>
+						{tags && (
+							<div className='flex flex-wrap gap-y-2 justify-center'>
+								{tags.map((tag) => (
+									<Tag key={tag} text={tag} />
+								))}
+							</div>
+						)}
 					</div>
 					<PostInfo
 						author={author}
@@ -73,7 +92,9 @@ export default function Post({ data, prev, next, profile }) {
 
 export async function getStaticProps({ params }) {
 	const profile = await loadGitHubProfile()
-	const postIndex = allBlogs.findIndex((post) => post.slug === `${params.slug}`)
+	const postIndex = allBlogs.findIndex(
+		(post) => post.slug === `${params.slug}`
+	)
 	const prev = allBlogs[postIndex + 1] || null
 	const next = allBlogs[postIndex - 1] || null
 	const data = allBlogs[postIndex]

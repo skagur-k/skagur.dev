@@ -21,25 +21,28 @@ function BlogCard({ frontmatter }) {
 							<div className=''>
 								<div className='text-tiny font-semibold group-hover:text-sky-500'>
 									<time dateTime={publishedAt}>
-										{format(parseISO(publishedAt), 'LLL dd, yyyy')}
+										{format(
+											parseISO(publishedAt),
+											'LLL dd, yyyy'
+										)}
 									</time>
 								</div>
 							</div>
 						</div>
-						{mounted && tags && (
-							<div>
+						<div className='font-sm text-gray-300 dark:text-gray-400'>
+							{`${summary.substring(0, 160)}...`}
+						</div>
+						<div className='flex items-center space-x-1 text-tiny text-gray-500 dark:text-gray-200 font-semibold'>
+							<FiClock className='stroke-[3px]]' />
+							<p>{readingTime.text}</p>
+						</div>
+						{tags && (
+							<div className='flex flex-wrap gap-y-2'>
 								{tags.map((tag) => (
 									<Tag key={tag} text={tag} />
 								))}
 							</div>
 						)}
-						<div className='font-sm text-gray-300 dark:text-gray-400'>
-							{`${summary.substring(0, 160)}...`}
-						</div>
-						<div className='flex items-center space-x-1 text-tiny text-gray-500 font-semibold'>
-							<FiClock className='stroke-[3px]]' />
-							<p>{readingTime.text}</p>
-						</div>
 					</div>
 				</div>
 			</Link>

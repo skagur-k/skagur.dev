@@ -14,7 +14,7 @@ import Project1, {
 	dark as dark1,
 } from '@/components/Projects/ProjectDetails/Project1'
 
-const icons = {
+export const icons = {
 	nextjs: <SiNextdotjs data-tip='Next.js' className='w-6 h-6' />,
 	typescript: <SiTypescript data-tip='TypeScript' className='w-6 h-6' />,
 	javascript: <SiJavascript data-tip='JavaScript' className='w-6 h-6' />,
