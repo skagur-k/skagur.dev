@@ -50,7 +50,8 @@ export default function HamburgerMenu() {
 							<Menu.Item>
 								{({ active }) => (
 									<button
-										onClick={() => router.push('/')}
+										href={siteMetadata.github}
+										onClick={() => window.open(siteMetadata.github)}
 										className={`${
 											active ? 'bg-gray-500 text-white' : 'text-gray-900'
 										} group flex w-full items-center rounded-md px-2 py-3 text-base`}>

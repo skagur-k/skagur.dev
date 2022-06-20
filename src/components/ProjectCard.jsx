@@ -15,7 +15,6 @@ function ProjectCard({ project }) {
 						</div>
 						<div className='flex space-x-3'>
 							{project.stacks.slice(0, 3).map((stack, id) => {
-								console.log(stack)
 								return (
 									<div key={id}>
 										<span className={`hover:text-sky-500`}>{stack.icon}</span>

@@ -4,6 +4,8 @@ import Tag from './Tag'
 import { format, parseISO } from 'date-fns'
 import { FiClock } from 'react-icons/fi'
 
+// TDOO: taglist
+
 function BlogCard({ frontmatter }) {
 	const [mounted, setMounted] = useState(false)
 	useEffect(() => setMounted(true), [])
@@ -36,7 +38,7 @@ function BlogCard({ frontmatter }) {
 						<div className='font-sm text-gray-300 dark:text-gray-400'>
 							{`${summary.substring(0, 160)}...`}
 						</div>
-						<div className='flex items-center space-x-1 text-tiny text-gray-500 font-semibold'>
+						<div className='inline-flex items-center space-x-1 text-tiny text-gray-500 font-semibold'>
 							<FiClock className='stroke-[3px]]' />
 							<p>{readingTime.text}</p>
 						</div>
