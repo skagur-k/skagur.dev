@@ -34,7 +34,7 @@ export default function Post({ data, prev, next, profile }) {
 
 				<div>
 					<div className='flex flex-col space-y-4'>
-						<h1 className='text-2xl sm:text-3xl text-center font-black mt-12 mb-14'>
+						<h1 className='text-2xl sm:text-3xl text-center font-black mt-4 mb-14 underline underline-offset-4 decoration-sky-500 decoration-2'>
 							{title}
 						</h1>
 					</div>
@@ -44,6 +44,7 @@ export default function Post({ data, prev, next, profile }) {
 						readingTime={readingTime}
 					/>
 				</div>
+				<hr className='my-8 border-gray-500' />
 
 				{coverImg && (
 					<div className='relative w-full h-[300px] rounded-xl hidden sm:flex'>
@@ -61,8 +62,8 @@ export default function Post({ data, prev, next, profile }) {
 					<div className='mt-12 mx-auto prose dark:prose-invert max-w-xl sm:max-w-3xl'>
 						<MDXContent components={{ ...MDXComponents }} />
 					</div>
-					<div className='flex justify-center items-center mt-14'>
-						<GithubProfile className='pl-10 pr-32 mr-4' ghmeta={profile} />
+					<div className='mt-14'>
+						<GithubProfile className='' ghmeta={profile} />
 					</div>
 				</article>
 			</>

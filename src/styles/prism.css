@@ -1,13 +1,12 @@
 article {
 	--border-radius: theme('borderRadius.none');
 	--font-weight: theme('fontWeight.semibold');
-	--font-size: theme('fontSize.base');
+
 	--code-block-color: theme('colors.red[500]');
 	--foreground-color: theme('colors.black');
 	--background-color: theme('colors.gray[200]');
 	--title-bg: theme('colors.gray[200]');
 	--scroll-track: theme('colors.gray[300]');
-
 	--comment: theme('colors.gray[400]');
 	--string: theme('colors.cyan[900]');
 	--property: theme('colors.cyan[800]');
@@ -32,6 +31,8 @@ article {
 }
 
 html.dark article {
+	--border-radius: theme('borderRadius.none');
+	--font-weight: theme('fontWeight.semibold');
 	--foreground-color: theme('colors.white');
 	--background-color: theme('colors.gray[700]');
 	--title-bg: theme('colors.gray[600]');
@@ -113,9 +114,9 @@ pre[class*='language-'] {
 .rehype-code-title {
 	background-color: var(--title-bg);
 	color: var(--foreground-color);
-	font-weight: theme('fontWeight.semibold');
+	font-weight: theme('fontWeight.bold');
 	font-family: theme('fontFamily.mono');
-	font-size: theme('fontSize.base');
+	font-size: theme('fontSize.sm');
 	text-align: left;
 	border-top-left-radius: theme('borderRadius.xl');
 	border-top-right-radius: theme('borderRadius.xl');

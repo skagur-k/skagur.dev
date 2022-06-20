@@ -18,7 +18,7 @@ function AboutPage({ profile }: any): JSX.Element {
 	return (
 		<>
 			<NextSeo title='About' />
-			<div className='flex justify-between space-x-4 mb-12 leading-10'>
+			<div className='flex justify-between mb-12 leading-10'>
 				<h1 className='text-3xl font-bold text-gray-900 dark:text-gray-100'>
 					About me
 				</h1>
@@ -30,7 +30,7 @@ function AboutPage({ profile }: any): JSX.Element {
 				</h2>
 			</div>
 
-			<div className='flex flex-col w-full justify-center'>
+			<div className='flex flex-col justify-center'>
 				<GithubProfile className='' ghmeta={profile} />
 				<div className='mt-8 space-y-4'>
 					<IntroTab />
