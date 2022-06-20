@@ -23,7 +23,9 @@ const blogComputedFields: ComputedFields = {
 	slug: {
 		type: 'string',
 		resolve: (blog) =>
-			`${blog._raw.sourceFileName.replace(/\.mdx/, '').replace(/\s/g, '-')}`,
+			`${blog._raw.sourceFileName
+				.replace(/\.mdx/, '')
+				.replace(/\s/g, '-')}`,
 	},
 }
 
@@ -57,8 +59,10 @@ export const Blog = defineDocumentType(() => ({
 			required: false,
 		},
 		tags: {
-			type: 'string',
+			type: 'list',
+			of: { type: 'string' },
 			required: false,
+			description: 'Tags of the post',
 		},
 		ogImage: {
 			type: 'string',

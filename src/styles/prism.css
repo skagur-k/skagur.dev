@@ -64,7 +64,7 @@ html.dark article {
 /* Code Section (pre, code) */
 
 :not(pre) > code {
-	@apply rounded-lg px-1 py-1 mx-2 font-semibold dark:text-sky-500 dark:bg-gray-800;
+	@apply rounded-md px-2 mx-1 font-semibold text-sky-500 bg-sky-200 bg-opacity-50 dark:text-sky-500 dark:bg-sky-900 dark:bg-opacity-50 ring-1 ring-sky-500;
 }
 
 code[class*='language-'],
