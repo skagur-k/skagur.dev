@@ -6,7 +6,7 @@ import useSWR from 'swr'
 export default function ViewCounter({ slug }: { slug: string }) {
 	const { data } = useSWR<Views>(`/api/views/${slug}`, fetcher)
 	const views = data?.total
-
+	console.log(process.env.VERCEL_ENV)
 	useEffect(() => {
 		if (
 			!process.env.VERCEL_ENV ||

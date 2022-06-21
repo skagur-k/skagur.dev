@@ -6,7 +6,10 @@ declare global {
 
 let prisma: PrismaClient
 
-if (process.env.VERCEL_ENV === 'production' || 'preview') {
+if (
+	process.env.VERCEL_ENV === 'production' ||
+	process.env.VERCEL_ENV === 'preview'
+) {
 	prisma = new PrismaClient()
 } else {
 	if (!global.prisma) {
