@@ -7,12 +7,17 @@ import { FaRegCalendar } from 'react-icons/fa'
 import ViewCounter from './ViewCounter'
 import { BsEye, BsEyeFill } from 'react-icons/bs'
 import { BiGlasses } from 'react-icons/bi'
+import useSWR from 'swr'
+import fetcher from '@/lib/utils/fetcher'
 
 // TDOO: taglist
 
 function BlogCard({ frontmatter }) {
 	const [mounted, setMounted] = useState(false)
 	useEffect(() => setMounted(true), [])
+
+	const { data } = useSWR(`/api/views/${frontmatter.slug}`, fetcher)
+	const views = data?.total
 
 	const { slug, title, publishedAt, summary, tags, readingTime } = frontmatter
 	return (
@@ -56,7 +61,11 @@ function BlogCard({ frontmatter }) {
 						<div className='flex items-center justify-end space-x-1'>
 							<BiGlasses className='text-base stroke-0' />
 							<p>
-								<ViewCounter />
+								{views ? (
+									views.toString()
+								) : (
+									<span>Loading</span>
+								)}
 							</p>
 						</div>
 						<div className='flex items-center space-x-1 align-middle'>

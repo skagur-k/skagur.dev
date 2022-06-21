@@ -61,6 +61,7 @@ export default function Post({ data, prev, next, profile }) {
 						author={author}
 						publishedAt={publishedAt}
 						readingTime={readingTime}
+						slug={slug}
 					/>
 				</div>
 				<hr className='my-8 border-gray-500' />

@@ -6,8 +6,9 @@ import classNames from 'classnames'
 import { FiClock } from 'react-icons/fi'
 import { FaRegCalendar } from 'react-icons/fa'
 import { BiBell, BiCheckSquare, BiError, BiInfoCircle } from 'react-icons/bi'
+import ViewCounter from './ViewCounter'
 
-export const PostInfo = ({ author, publishedAt, readingTime }) => {
+export const PostInfo = ({ author, publishedAt, readingTime, slug }) => {
 	return (
 		<div className='flex justify-between items-center px-0 mb-6'>
 			<Link href='/about'>
@@ -26,6 +27,10 @@ export const PostInfo = ({ author, publishedAt, readingTime }) => {
 				<div className='flex items-center space-x-1	 justify-center '>
 					<FaRegCalendar className='stroke-2' />
 					<p>{format(parseISO(publishedAt), 'LLL dd, yyyy')}</p>
+				</div>
+				<p>·</p>
+				<div className='flex items-center space-x-2 justify-center'>
+					<ViewCounter slug={slug} />
 				</div>
 			</div>
 		</div>
@@ -75,7 +80,9 @@ const Alert = ({ type, children, ...rest }) => {
 			/>
 			<div className='flex items-center'>
 				<i>{alert.icon}</i>
-				<span className='font-semibold mr-3 text-sm'>{alert.text}:</span>
+				<span className='font-semibold mr-3 text-sm'>
+					{alert.text}:
+				</span>
 			</div>
 			<div className='text-sm sm:text-base mt-2'>{children}</div>
 		</div>

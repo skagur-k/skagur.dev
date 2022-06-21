@@ -20,5 +20,5 @@ export default function ViewCounter({ slug }: { slug: string }) {
 		}
 	}, [slug])
 
-	return views?.toString()
+	return <>{views ? views.toString() : <span>Loading</span>}</>
 }
