@@ -10,21 +10,6 @@ import '@/styles/prism.css'
 function App({ Component, pageProps, router }: any) {
 	const url = `https://skagur.dev${router.route}`
 
-	// Shows maintenance page if the env var NEXT_PUBLIC_MAINTENANCE is set to true.
-	if (process.env.NEXT_PUBLIC_MAINTENANCE === 'true') {
-		return (
-			<>
-				<DefaultSEO />
-				<ThemeProvider
-					defaultTheme='dark'
-					attribute='class'
-					enableSystem={false}>
-					<MaintenancePage />
-				</ThemeProvider>
-			</>
-		)
-	}
-
 	return (
 		<>
 			<DefaultSEO />

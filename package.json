@@ -3,7 +3,6 @@
 	"version": "1.0.0",
 	"author": "Nam Hyuck Kim (skagur.dev)",
 	"description": "A minimal portfolio website developed with Next.JS",
-	"private": "true",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",

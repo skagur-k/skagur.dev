@@ -11,8 +11,6 @@ import Tag from '@/components/Tag'
 import ReactTooltip from 'react-tooltip'
 
 export default function Post({ data, prev, next, profile }) {
-	const [mounted, setMounted] = useState(false)
-	useEffect(() => setMounted(true), [])
 	const router = useRouter()
 	const url = 'https://skagur.dev' + router.asPath
 
@@ -31,62 +29,60 @@ export default function Post({ data, prev, next, profile }) {
 
 	const meta = {
 		title,
-		description: summary,
+		description: summary.substring(0, 140),
 		date: publishedAt,
 		url,
+		openGraph: {
+			type: 'article',
+			url,
+		},
 	}
 
 	return (
-		mounted && (
-			<>
-				<NextSeo {...meta} />
-
-				<div>
-					<ReactTooltip effect='solid' />
-
-					<div className='flex flex-col space-y-8 items-center justify-center mt-8 mb-14'>
-						<h1 className='text-2xl sm:text-3xl text-center font-black'>
-							{title}
-						</h1>
-						{tags && (
-							<div className='flex flex-wrap gap-y-2 justify-center'>
-								{tags.map((tag) => (
-									<Tag key={tag} text={tag} />
-								))}
-							</div>
-						)}
-					</div>
-					<PostInfo
-						author={author}
-						publishedAt={publishedAt}
-						readingTime={readingTime}
-						slug={slug}
+		<>
+			<NextSeo {...meta} />
+			<div>
+				<ReactTooltip effect='solid' />
+				<div className='flex flex-col space-y-8 items-center justify-center mt-8 mb-14'>
+					<h1 className='text-2xl sm:text-3xl text-center font-black'>
+						{title}
+					</h1>
+					{tags && (
+						<div className='flex flex-wrap gap-y-2 justify-center'>
+							{tags.map((tag) => (
+								<Tag key={tag} text={tag} />
+							))}
+						</div>
+					)}
+				</div>
+				<PostInfo
+					author={author}
+					publishedAt={publishedAt}
+					readingTime={readingTime}
+					slug={slug}
+				/>
+			</div>
+			<hr className='my-8 border-gray-500' />
+			{coverImg && (
+				<div className='relative w-full h-[300px] rounded-xl hidden sm:flex'>
+					<Image
+						layout='fill'
+						priority='true'
+						src={coverImg}
+						alt='Post cover image'
+						objectFit='contain'
 					/>
 				</div>
-				<hr className='my-8 border-gray-500' />
-
-				{coverImg && (
-					<div className='relative w-full h-[300px] rounded-xl hidden sm:flex'>
-						<Image
-							layout='fill'
-							priority='true'
-							src={coverImg}
-							alt='Post cover image'
-							objectFit='contain'
-						/>
-					</div>
-				)}
-
-				<article className='flex-col justify-center'>
-					<div className='mt-12 mx-auto prose dark:prose-invert max-w-xl sm:max-w-3xl'>
-						<MDXContent components={{ ...MDXComponents }} />
-					</div>
-					<div className='mt-14'>
-						<GithubProfile className='' ghmeta={profile} />
-					</div>
-				</article>
-			</>
-		)
+			)}
+			<article className='flex-col justify-center'>
+				<div className='mt-12 mx-auto prose dark:prose-invert max-w-xl sm:max-w-3xl'>
+					<MDXContent components={{ ...MDXComponents }} />
+				</div>
+				<div className='mt-14'>
+					<GithubProfile className='' ghmeta={profile} />
+				</div>
+			</article>
+		</>
 	)
 }
 
