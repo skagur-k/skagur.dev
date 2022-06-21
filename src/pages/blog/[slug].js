@@ -35,6 +35,22 @@ export default function Post({ data, prev, next, profile }) {
 		openGraph: {
 			type: 'article',
 			url,
+			article: {
+				publishedTime: publishedAt,
+				authors: ['/about'],
+			},
+			images: [
+				{
+					url: coverImg,
+					alt: 'Post Cover Image',
+				},
+				{
+					url: '/og-image.webp',
+					width: 1200,
+					height: 630,
+					alt: 'skagur.dev',
+				},
+			],
 		},
 	}
 
