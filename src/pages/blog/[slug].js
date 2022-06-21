@@ -13,7 +13,6 @@ import ReactTooltip from 'react-tooltip'
 export default function Post({ data, prev, next, profile }) {
 	const [mounted, setMounted] = useState(false)
 	useEffect(() => setMounted(true), [])
-
 	const router = useRouter()
 	const url = 'https://skagur.dev' + router.asPath
 
