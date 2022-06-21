@@ -9,11 +9,11 @@ import loadGitHubProfile from '@/lib/utils/loadGitHubProfile'
 import Image from 'next/image'
 import Tag from '@/components/Tag'
 import ReactTooltip from 'react-tooltip'
+import { useTheme } from 'next-themes'
 
 export default function Post({ data, prev, next, profile }) {
 	const router = useRouter()
-	const url = 'https://skagur.dev' + router.asPath
-
+	const { resolvedTheme } = useTheme()
 	const MDXContent = useMDXComponent(data.body.code)
 
 	const {
@@ -23,9 +23,23 @@ export default function Post({ data, prev, next, profile }) {
 		slug,
 		readingTime,
 		coverImg,
+		coverImgDark,
 		author,
 		tags,
 	} = data
+
+	const url = 'https://skagur.dev' + router.asPath
+
+	let imgSrc
+
+	switch (resolvedTheme) {
+		case 'dark':
+			imgSrc = coverImgDark ?? coverImg
+			break
+		default:
+			imgSrc = coverImg
+			break
+	}
 
 	const meta = {
 		title,
@@ -80,13 +94,13 @@ export default function Post({ data, prev, next, profile }) {
 			</div>
 			<hr className='my-8 border-gray-500' />
 			{coverImg && (
-				<div className='relative w-full h-[300px] rounded-xl hidden sm:flex'>
+				<div className='flex'>
 					<Image
-						layout='fill'
-						priority='true'
-						src={coverImg}
+						src={imgSrc}
+						width='1200px'
+						height='630px'
 						alt='Post cover image'
-						objectFit='contain'
+						className='rounded-2xl'
 					/>
 				</div>
 			)}

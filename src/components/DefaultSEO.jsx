@@ -24,6 +24,12 @@ const DefaultSEO = () => {
 					},
 				],
 			}}
+			additionalMetaTags={[
+				{
+					property: 'theme-color',
+					content: '#0ea5e9',
+				},
+			]}
 		/>
 	)
 }
