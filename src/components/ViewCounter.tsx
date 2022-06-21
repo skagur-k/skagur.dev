@@ -8,7 +8,10 @@ export default function ViewCounter({ slug }: { slug: string }) {
 	const views = data?.total
 
 	useEffect(() => {
-		if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+		if (
+			!process.env.VERCEL_ENV ||
+			process.env.VERCEL_ENV === 'development'
+		) {
 		} else {
 			const view = () => {
 				fetch(`/api/views/${slug}`, {
