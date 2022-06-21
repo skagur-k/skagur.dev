@@ -8,6 +8,18 @@ const DefaultSEO = () => {
 			titleTemplate={`%s - ${siteMetadata.title}`}
 			description={siteMetadata.description}
 			canonical='https://skagur.dev/'
+			additionalMetaTags={[
+				{
+					property: 'theme-color',
+					content: '#0ea5e9',
+				},
+			]}
+			additionalLinkTags={[
+				{
+					rel: 'manifest',
+					href: '/manifest.json',
+				},
+			]}
 			openGraph={{
 				type: 'website',
 				site_name: 'skagur.dev',
@@ -24,12 +36,6 @@ const DefaultSEO = () => {
 					},
 				],
 			}}
-			additionalMetaTags={[
-				{
-					property: 'theme-color',
-					content: '#0ea5e9',
-				},
-			]}
 		/>
 	)
 }

@@ -10,7 +10,7 @@ import ViewCounter from './ViewCounter'
 
 export const PostInfo = ({ author, publishedAt, readingTime, slug }) => {
 	return (
-		<div className='flex justify-between items-center px-0 mb-6'>
+		<div className='flex flex-col sm:flex-row justify-start items-start space-y-3 sm:justify-between sm:items-center px-0 mb-6'>
 			<Link href='/about'>
 				<p
 					data-tip='Written by'

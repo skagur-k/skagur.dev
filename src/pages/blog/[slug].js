@@ -73,7 +73,7 @@ export default function Post({ data, prev, next, profile }) {
 			<NextSeo {...meta} />
 			<div>
 				<ReactTooltip effect='solid' />
-				<div className='flex flex-col space-y-8 items-center justify-center mt-8 mb-14'>
+				<div className='flex flex-col space-y-8 items-center justify-center mb-6 sm:my-6'>
 					<h1 className='text-2xl sm:text-3xl text-center font-black'>
 						{title}
 					</h1>

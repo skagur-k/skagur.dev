@@ -25,11 +25,15 @@ export default function ContactModal({ className }) {
 	return (
 		<>
 			<div
-				className={classNames(className, 'flex items-center justify-center')}>
+				className={classNames(
+					className,
+					'flex items-center justify-center'
+				)}>
 				<button
 					type='button'
 					className='inline-flex justify-center rounded-full border border-transparent bg-gray-600 dark:bg-slate-700 p-4 font-semibold text-gray-200 dark:text-white hover:bg-gray-300 dark:hover:bg-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
-					onClick={openModal}>
+					onClick={openModal}
+					aria-label='Contacts'>
 					<FiPhoneCall className='text-2xl' />
 				</button>
 			</div>
@@ -71,7 +75,9 @@ export default function ContactModal({ className }) {
 									<div className='mt-4 space-y-4 text-gray-800'>
 										<div
 											onClick={() => {
-												copyToClipBoard(siteMetadata.email)
+												copyToClipBoard(
+													siteMetadata.email
+												)
 												setIsCopied(true)
 											}}
 											className='-ml-3 cursor-pointer flex items-center rounded-lg p-2 transition duration-150 ease-in-out  hover:bg-slate-500 hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-slate-500 focus-visible:ring-opacity-50'>
@@ -80,9 +86,13 @@ export default function ContactModal({ className }) {
 											</div>
 											<div className=' flex items-center justify-between w-full'>
 												<div className=' ml-4'>
-													<p className='text-sm font-semibold'>Email</p>
+													<p className='text-sm font-semibold'>
+														Email
+													</p>
 													<div className=''>
-														<p className='text-sm'>{siteMetadata.email}</p>
+														<p className='text-sm'>
+															{siteMetadata.email}
+														</p>
 													</div>
 												</div>
 												<FaRegCopy className='text-xl mr-2' />
@@ -96,8 +106,12 @@ export default function ContactModal({ className }) {
 											</div>
 											<div className='flex justify-between items-center w-full'>
 												<div className='ml-4'>
-													<p className='text-sm font-semibold'>GitHub</p>
-													<p className='text-sm'>{siteMetadata.github}</p>
+													<p className='text-sm font-semibold'>
+														GitHub
+													</p>
+													<p className='text-sm'>
+														{siteMetadata.github}
+													</p>
 												</div>
 												<FaExternalLinkAlt className='text-base mr-2' />
 											</div>
@@ -110,8 +124,12 @@ export default function ContactModal({ className }) {
 											</div>
 											<div className='flex justify-between items-center w-full'>
 												<div className='ml-4'>
-													<p className='text-sm font-semibold'>LinkedIn</p>
-													<p className='text-sm'>{siteMetadata.linkedin}</p>
+													<p className='text-sm font-semibold'>
+														LinkedIn
+													</p>
+													<p className='text-sm'>
+														{siteMetadata.linkedin}
+													</p>
 												</div>
 												<FaExternalLinkAlt className='text-base mr-2' />
 											</div>

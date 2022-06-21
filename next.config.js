@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 
 const { withContentlayer } = require('next-contentlayer')
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-	enabled: process.env.ANALYZE === 'true',
-})
 
-const nextConfig = {
+module.exports = withContentlayer({
 	reactStrictMode: true,
 	webpack5: true,
 	swcMinify: true,
@@ -13,54 +10,48 @@ const nextConfig = {
 	typescript: {
 		ignoreBuildErrors: true,
 	},
-}
-
-module.exports = withBundleAnalyzer(
-	withContentlayer({
-		nextConfig,
-		async redirects() {
-			return [
+	async redirects() {
+		return [
+			{
+				source: '/project/:path*',
+				destination: '/',
+				permanent: true,
+			},
+			{
+				source: '/github',
+				destination: 'https://github.com/skagur-k/',
+				permanent: true,
+			},
+		]
+	},
+	webpack: (config) => {
+		config.module.rules.push({
+			test: /\.svg?$/,
+			oneOf: [
 				{
-					source: '/project/:path*',
-					destination: '/',
-					permanent: true,
-				},
-				{
-					source: '/github',
-					destination: 'https://github.com/skagur-k/',
-					permanent: true,
-				},
-			]
-		},
-		webpack: (config) => {
-			config.module.rules.push({
-				test: /\.svg?$/,
-				oneOf: [
-					{
-						use: [
-							{
-								loader: '@svgr/webpack',
-								options: {
-									prettier: false,
-									svgo: true,
-									svgoConfig: {
-										plugins: [{ removeViewBox: false }],
-									},
-									titleProp: true,
+					use: [
+						{
+							loader: '@svgr/webpack',
+							options: {
+								prettier: false,
+								svgo: true,
+								svgoConfig: {
+									plugins: [{ removeViewBox: false }],
 								},
+								titleProp: true,
 							},
-						],
-						issuer: {
-							and: [/\.(ts|tsx|js|jsx|md|mdx)$/],
 						},
+					],
+					issuer: {
+						and: [/\.(ts|tsx|js|jsx|md|mdx)$/],
 					},
-				],
-			})
-			return config
-		},
-		images: {
-			domains: ['avatars.githubusercontent.com', 'img.shields.io'],
-			formats: ['image/avif', 'image/webp'],
-		},
-	})
-)
+				},
+			],
+		})
+		return config
+	},
+	images: {
+		domains: ['avatars.githubusercontent.com', 'img.shields.io'],
+		formats: ['image/avif', 'image/webp'],
+	},
+})
