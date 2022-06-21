@@ -4,6 +4,9 @@ import Tag from './Tag'
 import { format, parseISO } from 'date-fns'
 import { FiClock } from 'react-icons/fi'
 import { FaRegCalendar } from 'react-icons/fa'
+import ViewCounter from './ViewCounter'
+import { BsEye, BsEyeFill } from 'react-icons/bs'
+import { BiGlasses } from 'react-icons/bi'
 
 // TDOO: taglist
 
@@ -23,14 +26,15 @@ function BlogCard({ frontmatter }) {
 							</h3>
 							<div className=''>
 								<div className='flex text-tiny font-medium items-center space-x-2 group-hover:text-sky-500'>
-									<div className='flex items-center space-x-1 align-middle'>
-										<FiClock className='stroke-[3px]  text-sm' />
-										<p>{readingTime.text}</p>
-									</div>
 									<time dateTime={publishedAt}>
 										<div className='flex items-center space-x-1'>
 											<FaRegCalendar className='stroke-2 text-sm' />
-											<p>{format(parseISO(publishedAt), 'LLL dd, yyyy')}</p>
+											<p>
+												{format(
+													parseISO(publishedAt),
+													'LLL dd, yyyy'
+												)}
+											</p>
 										</div>
 									</time>
 								</div>
@@ -41,12 +45,24 @@ function BlogCard({ frontmatter }) {
 						</div>
 
 						{tags && (
-							<button className='flex flex-wrap gap-y-2'>
+							<div className='flex flex-wrap gap-y-2'>
 								{tags.map((tag) => (
 									<Tag key={tag} text={tag} />
 								))}
-							</button>
+							</div>
 						)}
+					</div>
+					<div className='flex flex-1 space-x-3 items-center justify-end text-sm'>
+						<div className='flex items-center justify-end space-x-1'>
+							<BiGlasses className='text-base stroke-0' />
+							<p>
+								<ViewCounter />
+							</p>
+						</div>
+						<div className='flex items-center space-x-1 align-middle'>
+							<FiClock className='stroke-[3px]  text-sm' />
+							<p>{readingTime.text}</p>
+						</div>
 					</div>
 				</div>
 			</Link>
