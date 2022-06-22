@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { SiGithub } from 'react-icons/si'
-import Link from '@/components/Link'
+import Link from '@/components/Link/Link'
 import { FaLink } from 'react-icons/fa'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'

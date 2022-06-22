@@ -1,5 +1,5 @@
 import siteMetadata from '@/data/siteMetaData'
-import Link from '@/components/Link'
+import Link from '@/components/Link/Link'
 import Logo from '@/components/Logo'
 import headerNavLinks from '@/lib/headerNavLinks'
 import Switch from '../ThemeToggle'

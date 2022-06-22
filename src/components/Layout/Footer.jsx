@@ -1,5 +1,5 @@
 import siteMetadata from '@/data/siteMetaData'
-import Link from '@/components/Link'
+import Link from '@/components/Link/Link'
 import { useEffect, useState } from 'react'
 import { SiGithub, SiLinkedin } from 'react-icons/si'
 

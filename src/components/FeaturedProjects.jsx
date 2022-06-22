@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import ProjectCard from './ProjectCard'
 import ProjectDetails from './ProjectDetails'
 import projects from '@/components/Projects'
-import Link from '@/components/Link'
+import Link from '@/components/Link/Link'
 import siteMetadata from '@/data/siteMetaData'
 import { FiArrowRightCircle } from 'react-icons/fi'
 

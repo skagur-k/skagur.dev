@@ -1,5 +1,5 @@
 import ReactTooltip from 'react-tooltip'
-import Link from '@/components/Link'
+import Link from '@/components/Link/Link'
 
 function ProjectCard({ project }) {
 	return (

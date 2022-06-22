@@ -2,7 +2,7 @@ import profilepic from '@/public/static/images/profilepic.jpg'
 import Image from 'next/image'
 import { BsFileEarmarkPost } from 'react-icons/bs'
 import { SiGithub } from 'react-icons/si'
-import Link from '@/components/Link'
+import Link from '@/components/Link/Link'
 import siteMetadata from '@/data/siteMetaData'
 
 function Hero() {

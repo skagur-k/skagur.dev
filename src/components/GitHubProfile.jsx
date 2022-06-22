@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import Image from 'next/image'
 import { SiGithub } from 'react-icons/si'
-import Link from '@/components/Link'
+import Link from '@/components/Link/Link'
 
 const GithubProfile = ({ ghmeta, className, ...rest }) => {
 	return (

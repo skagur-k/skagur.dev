@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import copy from 'copy-text-to-clipboard'
-import Link from '@/components/Link'
+import Link from '@/components/Link/Link'
 import { format, parseISO } from 'date-fns'
 import classNames from 'classnames'
 import { FiClock } from 'react-icons/fi'
 import { FaRegCalendar } from 'react-icons/fa'
 import { BiBell, BiCheckSquare, BiError, BiInfoCircle } from 'react-icons/bi'
-import ViewCounter from './ViewCounter'
+import ViewCounter from './ViewCounter/ViewCounter'
 
 export const PostInfo = ({ author, publishedAt, readingTime, slug }) => {
 	return (

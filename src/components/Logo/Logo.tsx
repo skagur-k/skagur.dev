@@ -1,4 +1,9 @@
-const Logo = ({ size, weight }) => {
+type LogoProps = {
+	size: string
+	weight: string
+}
+
+const Logo = ({ size, weight }: LogoProps): JSX.Element => {
 	return (
 		<div className='items-center'>
 			<h1 className={`inline-block font-${weight} text-${size}`}>
