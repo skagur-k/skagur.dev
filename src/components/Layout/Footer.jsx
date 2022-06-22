@@ -1,5 +1,5 @@
 import siteMetadata from '@/data/siteMetaData'
-import Link from '@/components/Link/Link'
+import Link from '@/components/Link'
 import { useEffect, useState } from 'react'
 import { SiGithub, SiLinkedin } from 'react-icons/si'
 
@@ -31,14 +31,10 @@ const Footer = () => {
 				{mounted && (
 					<div className='col-span-0 sm:col-span-2 space-x-4 justify-end hidden sm:flex'>
 						<Link href={siteMetadata.github}>
-							<SiGithub
-								className={`w-6 h-6  hover:text-amber-500 transition-color duration-300`}
-							/>
+							<SiGithub className={`w-6 h-6  hover:text-amber-500 transition-color duration-300`} />
 						</Link>
 						<Link href={siteMetadata.linkedin}>
-							<SiLinkedin
-								className={`w-6 h-6  hover:text-amber-500 transition-color duration-300`}
-							/>
+							<SiLinkedin className={`w-6 h-6  hover:text-amber-500 transition-color duration-300`} />
 						</Link>
 					</div>
 				)}

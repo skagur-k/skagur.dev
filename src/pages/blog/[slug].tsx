@@ -1,51 +1,44 @@
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import { NextSeo } from 'next-seo'
+import { NextSeo, NextSeoProps } from 'next-seo'
 import { useRouter } from 'next/router'
-import { allBlogs } from 'contentlayer/generated'
-import { useEffect, useState } from 'react'
+import { allBlogs, Blog } from 'contentlayer/generated'
 import MDXComponents, { PostInfo } from '@/components/MDXComponent'
 import GithubProfile from '@/components/GitHubProfile'
 import loadGitHubProfile from '@/lib/utils/loadGitHubProfile'
 import Image from 'next/image'
 import Tag from '@/components/Tag'
-import ReactTooltip from 'react-tooltip'
 import { useTheme } from 'next-themes'
 
-export default function Post({ data, prev, next, profile }) {
+type PostPropTypes = {
+	data: Blog
+	prev?: Blog
+	next?: Blog
+	profile: any
+}
+
+export default function Post({ data, prev, next, profile }: PostPropTypes) {
 	const router = useRouter()
 	const { resolvedTheme } = useTheme()
-	const MDXContent = useMDXComponent(data.body.code)
 
-	const {
-		title,
-		summary,
-		publishedAt,
-		slug,
-		readingTime,
-		coverImg,
-		coverImgDark,
-		author,
-		tags,
-	} = data
+	const MDXContent: any = useMDXComponent(data.body.code)
+	const { title, summary, publishedAt, slug, readingTime, coverImg, coverImgDark, author, tags }: Blog = data
 
-	const url = 'https://skagur.dev' + router.asPath
+	const url: string = 'https://skagur.dev' + router.asPath
 
-	let imgSrc
+	let imgSrc: string = coverImg!
 
 	switch (resolvedTheme) {
 		case 'dark':
-			imgSrc = coverImgDark ?? coverImg
+			imgSrc = coverImgDark! ?? coverImg!
 			break
 		default:
-			imgSrc = coverImg
+			imgSrc = coverImg!
 			break
 	}
 
-	const meta = {
+	const meta: NextSeoProps = {
 		title,
-		description: summary.substring(0, 140),
-		date: publishedAt,
-		url,
+		description: summary?.substring(0, 140),
 		openGraph: {
 			type: 'article',
 			url,
@@ -55,7 +48,7 @@ export default function Post({ data, prev, next, profile }) {
 			},
 			images: [
 				{
-					url: coverImg,
+					url: imgSrc,
 					alt: 'Post Cover Image',
 				},
 				{
@@ -72,11 +65,8 @@ export default function Post({ data, prev, next, profile }) {
 		<>
 			<NextSeo {...meta} />
 			<div>
-				<ReactTooltip effect='solid' />
 				<div className='flex flex-col space-y-8 items-center justify-center mb-6 sm:my-6'>
-					<h1 className='text-2xl sm:text-3xl text-center font-black'>
-						{title}
-					</h1>
+					<h1 className='text-2xl sm:text-3xl text-center font-black'>{title}</h1>
 					{tags && (
 						<div className='flex flex-wrap gap-y-2 justify-center'>
 							{tags.map((tag) => (
@@ -85,23 +75,12 @@ export default function Post({ data, prev, next, profile }) {
 						</div>
 					)}
 				</div>
-				<PostInfo
-					author={author}
-					publishedAt={publishedAt}
-					readingTime={readingTime}
-					slug={slug}
-				/>
+				<PostInfo author={author} publishedAt={publishedAt} readingTime={readingTime} slug={slug} />
 			</div>
 			<hr className='my-8 border-gray-500' />
-			{coverImg && (
+			{imgSrc && (
 				<div className='flex'>
-					<Image
-						src={imgSrc}
-						width='1200px'
-						height='630px'
-						alt='Post cover image'
-						className='rounded-2xl z-0'
-					/>
+					<Image src={imgSrc} width='1200px' height='630px' alt='Post cover image' className='rounded-2xl z-0' />
 				</div>
 			)}
 			<article className='flex-col justify-center'>
@@ -116,11 +95,9 @@ export default function Post({ data, prev, next, profile }) {
 	)
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
 	const profile = await loadGitHubProfile()
-	const postIndex = allBlogs.findIndex(
-		(post) => post.slug === `${params.slug}`
-	)
+	const postIndex = allBlogs.findIndex((post) => post.slug === `${params.slug}`)
 	const prev = allBlogs[postIndex + 1] || null
 	const next = allBlogs[postIndex - 1] || null
 	const data = allBlogs[postIndex]

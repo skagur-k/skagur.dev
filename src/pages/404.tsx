@@ -1,5 +1,3 @@
-import Link from '@/components/Link/Link'
-
 const PageNotFound = () => {
 	return (
 		<div className='flex flex-col items-center justify-center space-y-8'>
@@ -8,9 +6,7 @@ const PageNotFound = () => {
 				<div className='width-4 bg-amber-500' />
 				<h3 className='text-3xl font-bold'>Page Not Found</h3>
 			</div>
-			<p className='font-bold text-gray-500'>
-				The URL of the page was not found.
-			</p>
+			<p className='font-bold text-gray-500'>The URL of the page was not found.</p>
 		</div>
 	)
 }

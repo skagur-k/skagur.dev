@@ -13,16 +13,9 @@ function App({ Component, pageProps, router }: any) {
 	return (
 		<>
 			<DefaultSEO />
-			<ThemeProvider
-				defaultTheme='dark'
-				attribute='class'
-				enableSystem={false}
-				enableColorScheme={true}>
+			<ThemeProvider defaultTheme='dark' attribute='class' enableSystem={false} enableColorScheme={true}>
 				<MainLayout>
-					<AnimatePresence
-						exitBeforeEnter
-						initial={false}
-						onExitComplete={() => window.scrollTo(0, 0)}>
+					<AnimatePresence exitBeforeEnter initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
 						<MotionLayout key={url}>
 							<Component {...pageProps} key={router.route} />
 						</MotionLayout>
@@ -34,7 +27,7 @@ function App({ Component, pageProps, router }: any) {
 }
 
 export function reportWebVitals(metric: NextWebVitalsMetric) {
-	console.log(metric)
+	// console.log(metric)
 }
 
 export default App

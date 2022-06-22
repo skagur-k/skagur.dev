@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { SiGithub } from 'react-icons/si'
-import Link from '@/components/Link/Link'
+import Link from '@/components/Link'
 import { FaLink } from 'react-icons/fa'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
@@ -60,19 +60,13 @@ export default function ProjectDetails({ project, onClose = () => {} }) {
 										<p>Back</p>
 									</button>
 									<div className='p-4 sm:p-8 space-y-8'>
-										{project.coverimage && (
-											<Image src={imgSrc} alt='project image' />
-										)}
+										{project.coverimage && <Image src={imgSrc} alt='project image' />}
 										<div className='flex flex-col space-y-4'>
 											<div className='flex justify-between items-center'>
 												<div className='flex flex-col flex-1 p-0 space-y-1'>
 													<div className='flex flex-col sm:flex-row justify-between items-center'>
-														<Dialog.Title className='font-black text-xl sm:text-3xl'>
-															{project.name}
-														</Dialog.Title>
-														<p className='text-sm font-semibold text-gray-400'>
-															{project.period}
-														</p>
+														<Dialog.Title className='font-bold text-xl sm:text-3xl'>{project.name}</Dialog.Title>
+														<p className='text-sm font-semibold text-gray-400'>{project.period}</p>
 													</div>
 												</div>
 											</div>
@@ -84,12 +78,7 @@ export default function ProjectDetails({ project, onClose = () => {} }) {
 											<div className='grid grid-cols-2 gap-x-4 gap-y-2'>
 												{project.stacks.map((stack, id) => {
 													return (
-														<Link
-															key={id}
-															href={stack.url}
-															className={`${
-																stack.url ? 'cursor-pointer' : 'cursor-default'
-															}`}>
+														<Link key={id} href={stack.url} className={`${stack.url ? 'cursor-pointer' : 'cursor-default'}`}>
 															<div
 																className={`flex space-x-2 items-centerdark:text-gray-200 dark:hover:text-sky-500 hover:text-sky-500 hover:ring-2 rounded-xl px-4 py-2 ring-sky-500`}>
 																<span>{stack.icon}</span>

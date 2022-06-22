@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import copy from 'copy-text-to-clipboard'
-import Link from '@/components/Link/Link'
+import Link from '@/components/Link'
 import { format, parseISO } from 'date-fns'
 import classNames from 'classnames'
 import { FiClock } from 'react-icons/fi'
@@ -12,9 +12,7 @@ export const PostInfo = ({ author, publishedAt, readingTime, slug }) => {
 	return (
 		<div className='flex flex-col sm:flex-row justify-start items-start space-y-3 sm:justify-between sm:items-center px-0 mb-6'>
 			<Link href='/about'>
-				<p
-					data-tip='Written by'
-					className='font-bold text-base rounded-md hover:text-sky-500'>
+				<p data-tip='Written by' className='font-bold text-base rounded-md hover:text-sky-500'>
 					{author}
 				</p>
 			</Link>
@@ -72,17 +70,11 @@ const Alert = ({ type, children, ...rest }) => {
 	}
 	const alert = data[type]
 	return (
-		<div
-			role='warning'
-			className={`relative flex-col items-center ${alert.color} ${alert.textColor} my-6 px-4 py-4 rounded-lg shadow-md`}>
-			<div
-				className={`absolute w-1 h-full left-0 top-0 rounded-l-md ${alert.borderColor}`}
-			/>
+		<div role='warning' className={`relative flex-col items-center ${alert.color} ${alert.textColor} my-6 px-4 py-4 rounded-lg shadow-md`}>
+			<div className={`absolute w-1 h-full left-0 top-0 rounded-l-md ${alert.borderColor}`} />
 			<div className='flex items-center'>
 				<i>{alert.icon}</i>
-				<span className='font-semibold mr-3 text-sm'>
-					{alert.text}:
-				</span>
+				<span className='font-semibold mr-3 text-sm'>{alert.text}:</span>
 			</div>
 			<div className='text-sm sm:text-base mt-2'>{children}</div>
 		</div>
@@ -92,12 +84,7 @@ const Alert = ({ type, children, ...rest }) => {
 const a = ({ children, href, className }) => {
 	return (
 		<span>
-			<Link
-				href={href}
-				className={classNames(
-					className,
-					'font-bold hover:text-sky-500 no-underline'
-				)}>
+			<Link href={href} className={classNames(className, 'font-bold hover:text-sky-500 no-underline')}>
 				{children}
 			</Link>
 		</span>
@@ -110,56 +97,25 @@ const h2 = (props) => <h2 {...props} className='text-xl sm:text-2xl' />
 
 const h3 = (props) => <h3 {...props} className='text-lg sm:text-xl' />
 
-const code = (props) => (
-	<code
-		{...props}
-		className={classNames(
-			props.className,
-			`before:content-none after:content-none`
-		)}
-	/>
-)
+const code = (props) => <code {...props} className={classNames(props.className, `before:content-none after:content-none`)} />
 
-const del = (props) => (
-	<del
-		{...props}
-		className='line-through decoration-wavy decoration-4 decoration-red-500'
-	/>
-)
+const del = (props) => <del {...props} className='line-through decoration-wavy decoration-4 decoration-red-500' />
 
 const Img = ({ src, alt, width, height, caption }) => {
 	return (
 		<figure>
-			<Image
-				layout='responsive'
-				priority='true'
-				src={src}
-				alt={alt}
-				width={width}
-				height={height}
-			/>
-			<figcaption className='text-center font-semibold text-base'>
-				{caption ?? null}
-			</figcaption>
+			<Image layout='responsive' priority='true' src={src} alt={alt} width={width} height={height} />
+			<figcaption className='text-center font-semibold text-base'>{caption ?? null}</figcaption>
 		</figure>
 	)
 }
 
 const strong = (props) => {
-	return (
-		<strong
-			{...props}
-			className='bg-sky-100 dark:bg-sky-200 dark:text-gray-900 font-semibold mx-0 px-1'></strong>
-	)
+	return <strong {...props} className='bg-sky-100 dark:bg-sky-200 dark:text-gray-900 font-semibold mx-0 px-1'></strong>
 }
 
 const blockquote = (props) => {
-	return (
-		<blockquote
-			{...props}
-			className='borde-rl-0 border-l-sky-300/40 ml-0 my-4 px-4'
-		/>
-	)
+	return <blockquote {...props} className='borde-rl-0 border-l-sky-300/40 ml-0 my-4 px-4' />
 }
 
 const MDXComponents = {

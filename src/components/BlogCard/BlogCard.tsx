@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import Link from '@/components/Link/Link'
+import Link from '@/components/Link'
 import Tag from '../Tag'
 import { format, parseISO } from 'date-fns'
 import { FiClock } from 'react-icons/fi'
@@ -9,12 +8,13 @@ import useSWR from 'swr'
 import fetcher from '@/lib/utils/fetcher'
 import { Blog } from 'contentlayer/generated'
 import { Views } from '@/lib/types'
+import useHasMounted from 'src/hooks/useHasMounted'
 
 // TDOO: taglist
 
-function BlogCard(frontmatter: Blog): JSX.Element {
-	const [mounted, setMounted] = useState(false)
-	useEffect(() => setMounted(true), [])
+function BlogCard({ frontmatter }: { frontmatter: Blog }): JSX.Element {
+	const mounted = useHasMounted()
+	console.log(mounted)
 
 	const { data } = useSWR<Views>(`/api/views/${frontmatter.slug}`, fetcher)
 	const views = data?.total
@@ -26,15 +26,11 @@ function BlogCard(frontmatter: Blog): JSX.Element {
 				<div className='group space-y-2 p-4 ring-2 cursor-pointer hover:ring-sky-500 dark:hover:ring-sky-500 ring-gray-200 dark:ring-gray-800 rounded-2xl'>
 					<div className='space-y-2'>
 						<div className='flex justify-between'>
-							<h3 className='flex-1 group-hover:text-sky-500 text-lg font-black'>{title}</h3>
-							<div className=''>
-								<div className='flex text-tiny font-medium items-center space-x-2 group-hover:text-sky-500'>
-									<time dateTime={publishedAt}>
-										<div className='flex items-center space-x-1'>
-											<FaRegCalendar className='stroke-2 text-sm' />
-											<p>{format(parseISO(publishedAt), 'LLL dd, yyyy')}</p>
-										</div>
-									</time>
+							<h3 className='flex-1 group-hover:text-sky-500 text-lg font-bold'>{title}</h3>
+							<div className='flex text-tiny font-medium items-center space-x-2 group-hover:text-sky-500'>
+								<div className='flex items-center space-x-1'>
+									<FaRegCalendar className='stroke-2 text-sm' />
+									<p>{format(parseISO(publishedAt), 'LLL dd, yyyy')}</p>
 								</div>
 							</div>
 						</div>
@@ -55,7 +51,7 @@ function BlogCard(frontmatter: Blog): JSX.Element {
 						</div>
 						<div className='flex items-center space-x-1 align-middle'>
 							<FiClock className='stroke-[3px]  text-sm' />
-							<p>{readingTime.text}</p>
+							<p>{readingTime?.text}</p>
 						</div>
 					</div>
 				</div>

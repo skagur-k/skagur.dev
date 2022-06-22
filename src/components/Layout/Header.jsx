@@ -1,5 +1,5 @@
 import siteMetadata from '@/data/siteMetaData'
-import Link from '@/components/Link/Link'
+import Link from '@/components/Link'
 import Logo from '@/components/Logo'
 import headerNavLinks from '@/lib/headerNavLinks'
 import Switch from '../ThemeToggle'
@@ -15,11 +15,7 @@ function NavItem({ href, text }) {
 
 	return (
 		<li>
-			<Link
-				href={href}
-				className={`hover:text-amber-500 font-medium ${
-					isActive ? 'text-amber-500' : ''
-				}`}>
+			<Link href={href} className={`hover:text-amber-500 font-medium ${isActive ? 'text-amber-500' : ''}`}>
 				{text}
 			</Link>
 		</li>
@@ -42,13 +38,9 @@ const Header = () => {
 				<Link href='/' aria-label={siteMetadata.headerTitle}>
 					<div className='items-center'>
 						<h1 className={`inline-block text-xl font-bold`}>
-							<span className='text-amber-500'>
-								&lt;&nbsp;&nbsp;
-							</span>
+							<span className='text-amber-500'>&lt;&nbsp;&nbsp;</span>
 							skagur.dev
-							<span className='text-amber-500'>
-								&nbsp;/&nbsp;&gt;
-							</span>
+							<span className='text-amber-500'>&nbsp;/&nbsp;&gt;</span>
 						</h1>
 					</div>
 				</Link>
@@ -56,11 +48,7 @@ const Header = () => {
 			<div className='hidden sm:hidden'>
 				<nav className='flex items-center space-x-8'>
 					{headerNavLinks.map((link) => (
-						<NavItem
-							key={link.title}
-							href={link.href}
-							text={link.title}
-						/>
+						<NavItem key={link.title} href={link.href} text={link.title} />
 					))}
 					<Switch />
 				</nav>
@@ -70,12 +58,7 @@ const Header = () => {
 
 				<HamburgerMenu />
 			</nav>
-			{isPost && (
-				<span
-					style={inlineStyle}
-					className={`fixed bg-sky-500 z-50 dark:bg-sky-500 h-1 left-0 top-0`}
-				/>
-			)}
+			{isPost && <span style={inlineStyle} className={`fixed bg-sky-500 z-50 dark:bg-sky-500 h-1 left-0 top-0`} />}
 		</header>
 	)
 }

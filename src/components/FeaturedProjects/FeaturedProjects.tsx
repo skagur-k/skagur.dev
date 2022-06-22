@@ -1,19 +1,19 @@
-import { useRouter } from 'next/router'
+import { NextRouter, useRouter } from 'next/router'
 
-import ProjectCard from './ProjectCard'
-import ProjectDetails from './ProjectDetails'
+import ProjectCard from '../ProjectCard'
+import ProjectDetails from '../ProjectDetails'
 import projects from '@/components/Projects'
-import Link from '@/components/Link/Link'
+import Link from '@/components/Link'
 import siteMetadata from '@/data/siteMetaData'
 import { FiArrowRightCircle } from 'react-icons/fi'
 
-function FeaturedProjects() {
-	const router = useRouter()
+function FeaturedProjects(): JSX.Element {
+	const router: NextRouter = useRouter()
 	return (
 		<div>
 			{router.query.project && (
 				<ProjectDetails
-					project={projects[router.query.project - 1]}
+					project={projects[Number(router?.query?.project) - 1]}
 					onClose={() => {
 						router.push('/')
 					}}
@@ -22,7 +22,7 @@ function FeaturedProjects() {
 			<h1 className='font-black text-3xl'>Featured Projects</h1>
 			<div className='mt-4'>
 				{projects.map((project) => (
-					<ProjectCard project={project} key={project.id} />
+					<ProjectCard project={project} key={project?.id} />
 				))}
 			</div>
 			<Link href={siteMetadata.github}>

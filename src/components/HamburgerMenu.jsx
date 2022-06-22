@@ -1,9 +1,8 @@
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import { BiMenuAltRight } from 'react-icons/bi'
 import { FiMenu } from 'react-icons/fi'
 import { SiGithub } from 'react-icons/si'
-import Link from './Link/Link'
+import Link from './Link'
 import headerNavLinks from '@/lib/headerNavLinks'
 import siteMetadata from '@/data/siteMetaData'
 import { useRouter } from 'next/router'
@@ -34,19 +33,13 @@ export default function HamburgerMenu() {
 								<Menu.Item key={link.title}>
 									{({ active }) => (
 										<button
-											onClick={() =>
-												router.push(link.href)
-											}
+											onClick={() => router.push(link.href)}
 											aria-label={link.title}
 											className={`${
-												active
-													? 'bg-sky-500 text-white'
-													: 'text-gray-900'
+												active ? 'bg-sky-500 text-white' : 'text-gray-900'
 											} group flex w-full items-center rounded-md px-2 py-3`}>
 											<div className='flex items-center'>
-												<span className='ml-3 font-medium'>
-													{link.fullTitle}
-												</span>
+												<span className='ml-3 font-medium'>{link.fullTitle}</span>
 											</div>
 										</button>
 									)}
@@ -59,19 +52,13 @@ export default function HamburgerMenu() {
 									<button
 										href={siteMetadata.github}
 										aria-label='GitHub'
-										onClick={() =>
-											window.open(siteMetadata.github)
-										}
+										onClick={() => window.open(siteMetadata.github)}
 										className={`${
-											active
-												? 'bg-gray-500 text-white'
-												: 'text-gray-900'
+											active ? 'bg-gray-500 text-white' : 'text-gray-900'
 										} group flex w-full items-center rounded-md px-2 py-3 text-base`}>
 										<div className='flex items-center'>
 											<SiGithub className='w-6 h-6' />
-											<span className='ml-3 font-medium'>
-												GitHub
-											</span>
+											<span className='ml-3 font-medium'>GitHub</span>
 										</div>
 									</button>
 								)}
@@ -81,13 +68,9 @@ export default function HamburgerMenu() {
 							<Menu.Item>
 								<Link href='/'>
 									<div className='flex justify-center w-full items-center rounded-md px-2 py-2 text-right text-gray-900'>
-										<span className='text-amber-500'>
-											&lt;&nbsp;&nbsp;
-										</span>
+										<span className='text-amber-500'>&lt;&nbsp;&nbsp;</span>
 										skagur.dev
-										<span className='text-amber-500'>
-											&nbsp;/&nbsp;&gt;
-										</span>
+										<span className='text-amber-500'>&nbsp;/&nbsp;&gt;</span>
 									</div>
 								</Link>
 							</Menu.Item>

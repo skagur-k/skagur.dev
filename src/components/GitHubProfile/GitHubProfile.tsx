@@ -1,9 +1,15 @@
 import classNames from 'classnames'
 import Image from 'next/image'
 import { SiGithub } from 'react-icons/si'
-import Link from '@/components/Link/Link'
+import Link from '@/components/Link'
+import { GitHubData } from '@/lib/types'
 
-const GithubProfile = ({ ghmeta, className, ...rest }) => {
+type PropTypes = {
+	ghmeta: GitHubData
+	className?: string | undefined
+}
+
+const GithubProfile = ({ ghmeta, className, ...rest }: PropTypes): JSX.Element => {
 	return (
 		<Link href={ghmeta.html_url} className='flex'>
 			<div
@@ -34,12 +40,8 @@ const GithubProfile = ({ ghmeta, className, ...rest }) => {
 						<h1 className='group-hover:text-white font-semibold text-gray-800 dark:text-gray-300'>
 							<span className=''>{ghmeta.login}</span>{' '}
 						</h1>
-						<h1 className='group-hover:text-white font-medium text-sm text-gray-500 dark:text-gray-300'>
-							{ghmeta.location}
-						</h1>
-						<h1 className='group-hover:text-white font-medium text-sm text-gray-500 dark:text-gray-300'>
-							{ghmeta.bio}
-						</h1>
+						<h1 className='group-hover:text-white font-medium text-sm text-gray-500 dark:text-gray-300'>{ghmeta.location}</h1>
+						<h1 className='group-hover:text-white font-medium text-sm text-gray-500 dark:text-gray-300'>{ghmeta.bio}</h1>
 						<h1 className='group-hover:text-white font-medium text-sm text-gray-500 dark:text-gray-300'></h1>
 					</div>
 				</div>
