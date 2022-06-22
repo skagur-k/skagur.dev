@@ -1,7 +1,7 @@
 import { DefaultSeo } from 'next-seo'
 import siteMetadata from '@/data/siteMetaData'
 
-const DefaultSEO = () => {
+const DefaultSEO = (): JSX.Element => {
 	return (
 		<DefaultSeo
 			defaultTitle={siteMetadata.title}
@@ -25,8 +25,7 @@ const DefaultSEO = () => {
 				site_name: 'skagur.dev',
 				url: 'https://skagur.dev/',
 				title: '[skagur.dev]',
-				description:
-					'Portfolio site designed and developed by Nam Hyuck Kim',
+				description: 'Portfolio site designed and developed by Nam Hyuck Kim',
 				images: [
 					{
 						url: '/og-image.webp',

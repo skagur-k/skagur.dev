@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 
-const useReadingProgress = () => {
-	const [completion, setCompletion] = useState(0)
+const useReadingProgress = (): number => {
+	const [completion, setCompletion] = useState<number>(0)
 
 	useEffect(() => {
 		const updateScrollCompletion = () => {
-			const currentProgress = window.scrollY
-			const scrollHeight = document.body.scrollHeight - window.innerHeight
+			const currentProgress: number = window.scrollY
+			const scrollHeight: number = document.body.scrollHeight - window.innerHeight
 			if (scrollHeight) {
-				setCompletion(Number((currentProgress / scrollHeight).toFixed(2) * 100))
+				setCompletion(Number((currentProgress / scrollHeight).toFixed(4)) * 100)
 			}
 		}
 

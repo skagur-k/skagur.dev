@@ -100,7 +100,7 @@ export default function Post({ data, prev, next, profile }) {
 						width='1200px'
 						height='630px'
 						alt='Post cover image'
-						className='rounded-2xl'
+						className='rounded-2xl z-0'
 					/>
 				</div>
 			)}

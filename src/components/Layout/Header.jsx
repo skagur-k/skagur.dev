@@ -5,7 +5,7 @@ import headerNavLinks from '@/lib/headerNavLinks'
 import Switch from '../ThemeToggle'
 import HamburgerMenu from '../HamburgerMenu'
 import { useRouter } from 'next/router'
-import useReadingProgress from '@/lib/utils/useReadingProgress'
+import useReadingProgress from 'src/hooks/useReadingProgress'
 
 // TODO: Add hamburger icon & consider headlessui for the drop menu.
 
@@ -73,7 +73,7 @@ const Header = () => {
 			{isPost && (
 				<span
 					style={inlineStyle}
-					className={`fixed bg-sky-500 dark:bg-sky-500 h-1 left-0 top-0`}
+					className={`fixed bg-sky-500 z-50 dark:bg-sky-500 h-1 left-0 top-0`}
 				/>
 			)}
 		</header>

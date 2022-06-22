@@ -2,6 +2,7 @@ import { NextSeo } from 'next-seo'
 import { useEffect, useState } from 'react'
 import Hero from '@/components/Hero'
 import FeaturedProjects from '@/components/FeaturedProjects'
+import TreeView from '@/components/TreeView'
 
 function Home() {
 	const [mounted, setMounted] = useState(false)
@@ -16,6 +17,7 @@ function Home() {
 				<div className='flex-col space-y-12'>
 					<Hero />
 					<FeaturedProjects />
+					<TreeView />
 				</div>
 			)}
 		</>
