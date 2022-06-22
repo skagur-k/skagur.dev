@@ -3,27 +3,12 @@ import { AnimatePresence } from 'framer-motion'
 import MainLayout from '@/components/Layout'
 import MotionLayout from '@/components/Layout/MotionLayout'
 import DefaultSEO from '@/components/DefaultSEO'
-import MaintenancePage from './maintenance'
 import '@/styles/globals.css'
 import '@/styles/prism.css'
+import { NextWebVitalsMetric } from 'next/app'
 
 function App({ Component, pageProps, router }: any) {
 	const url = `https://skagur.dev${router.route}`
-
-	// Shows maintenance page if the env var NEXT_PUBLIC_MAINTENANCE is set to true.
-	if (process.env.NEXT_PUBLIC_MAINTENANCE === 'true') {
-		return (
-			<>
-				<DefaultSEO />
-				<ThemeProvider
-					defaultTheme='dark'
-					attribute='class'
-					enableSystem={false}>
-					<MaintenancePage />
-				</ThemeProvider>
-			</>
-		)
-	}
 
 	return (
 		<>
@@ -46,6 +31,10 @@ function App({ Component, pageProps, router }: any) {
 			</ThemeProvider>
 		</>
 	)
+}
+
+export function reportWebVitals(metric: NextWebVitalsMetric) {
+	console.log(metric)
 }
 
 export default App

@@ -21,7 +21,7 @@ const Tag = ({ text }) => {
 	const Icon = icons[techname]
 	return (
 		<div className='inline-flex items-center justify-center space-x-1 mr-3 text-xs font-semibold uppercase px-3 py-1 rounded-full ring-1 ring-sky-500'>
-			{Icon && Icon}
+			<span className='hidden sm:flex'>{Icon && Icon}</span>
 			<span className=''>{text.split(' ').join('-')}</span>
 		</div>
 	)

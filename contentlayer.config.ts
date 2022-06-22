@@ -58,6 +58,10 @@ export const Blog = defineDocumentType(() => ({
 			type: 'string',
 			required: false,
 		},
+		coverImgDark: {
+			type: 'string',
+			required: false,
+		},
 		tags: {
 			type: 'list',
 			of: { type: 'string' },

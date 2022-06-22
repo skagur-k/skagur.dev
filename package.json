@@ -3,7 +3,6 @@
 	"version": "1.0.0",
 	"author": "Nam Hyuck Kim (skagur.dev)",
 	"description": "A minimal portfolio website developed with Next.JS",
-	"private": "true",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -12,7 +11,6 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@next/bundle-analyzer": "^12.1.6",
 		"@prisma/client": "^3.15.2",
 		"framer-motion": "^6.2.10",
 		"next": "^12.1.6",
